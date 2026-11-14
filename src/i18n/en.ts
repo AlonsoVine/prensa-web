@@ -1,0 +1,162 @@
+import type { Clave } from "./es";
+
+export const en: Record<Clave, string> = {
+  "meta.title": "Prensa: your YouTube playlists, pressed into MP3",
+  "meta.desc":
+    "Prensa is a free desktop app that turns a public YouTube playlist into a folder of MP3s with title, artist and cover art. Local, no accounts, no telemetry.",
+
+  saltar: "Skip to content",
+  "nav.como": "How it works",
+  "nav.capturas": "Screenshots",
+  "nav.ficha": "Specs",
+  "nav.autor": "Maker",
+  "nav.descargar": "Download",
+  "nav.idioma": "Switch to Spanish",
+  "nav.principal": "Main",
+
+  "precarga.texto": "Pressing master",
+
+  "hero.rotulo": "Side A · 33⅓ rpm · Edition",
+  "hero.lema_html": "Your YouTube playlists, <em>pressed</em> into&nbsp;MP3.",
+  "hero.sub":
+    "A desktop app that turns a public playlist into a folder of songs with title, artist and cover art. Everything happens on your computer.",
+  "hero.cta": "Download for Windows",
+  "hero.cta2": "How it works",
+  "hero.gratis": "Free",
+  "hero.aguja": "Drop the needle",
+  "hero.disco": "A vinyl record with Prensa's red label, spinning.",
+
+  "cinta.1": "No accounts",
+  "cinta.2": "No cookies",
+  "cinta.3": "No telemetry",
+  "cinta.4": "MP3 V0 or 320 kbps",
+  "cinta.5": "Embedded cover art",
+  "cinta.6": "Album and track number",
+  "cinta.7": "Resumable",
+  "cinta.8": "Self-updating engine",
+
+  "manifiesto.rotulo": "Side A · The manifesto",
+  "manifiesto.texto":
+    "Paste a link, review the tracks and pick a folder. Prensa does the rest: every song comes out as a clean MP3, with its name, its artist and its cover. No accounts, no cookies, and nothing leaves your computer.",
+  "principio.1.t": "Local",
+  "principio.1.d":
+    "No server, no analytics. It only talks to YouTube, to read the playlist, and to GitHub, to update the engine.",
+  "principio.2.t": "No accounts",
+  "principio.2.d":
+    "It never asks for, reads or stores credentials or cookies. Works with public or unlisted playlists.",
+  "principio.3.t": "Resumable",
+  "principio.3.d":
+    "Stop halfway and what's already pressed won't repeat. Whatever fails tells you why, and you can retry just that.",
+
+  "como.rotulo": "How it works",
+  "como.titulo_html": "Three steps.<br>One press.",
+  "paso.1.t": "Paste",
+  "paso.1.d":
+    "Copy the link to a public YouTube or YouTube Music playlist. Prensa validates it instantly and rejects account-bound lists before calling anyone.",
+  "paso.2.t": "Review",
+  "paso.2.d":
+    "The tracks appear with their length and thumbnail. Tick the ones you want, pick a folder and see which videos are unavailable before you start.",
+  "paso.3.t": "Press",
+  "paso.3.d":
+    "Each track is downloaded and converted to MP3 with title, artist, album, number and cover. The record fills with grooves and, at the end, the stamp.",
+  "escena.miga.1": "Link",
+  "escena.miga.2": "Tracks",
+  "escena.miga.3": "Download",
+  "escena.boton": "Read list",
+  "escena.cola": "Queued",
+  "escena.bajando": "Pressing",
+  "escena.hecha": "Saved",
+  "escena.sello": "Pressed",
+  "escena.pistas": "5 tracks · 21 min",
+  "escena.lista": "Field recordings",
+
+  "capturas.rotulo": "The app, as is",
+  "capturas.titulo_html": "Real screenshots,<br>no retouching.",
+  "capturas.sub": "Every image comes from the app's automated tests. What you see is what you get.",
+  "capturas.ampliar": "Enlarge",
+  "capturas.cerrar": "Close",
+  "capturas.anterior": "Previous",
+  "capturas.siguiente": "Next",
+  "capturas.arrastra": "Swipe",
+  "cap.inicio.t": "Paste a playlist",
+  "cap.inicio.d": "The front page: one field, one button and the master waiting.",
+  "cap.lista.t": "Review the tracks",
+  "cap.lista.d": "Range selection, lengths and warnings before you start.",
+  "cap.descargando.t": "Pressing",
+  "cap.descargando.d":
+    "Two tracks at once. The VU meter shows the speed; the record, the progress.",
+  "cap.completado.t": "Pressed",
+  "cap.completado.d": "Everything in your folder, with the stamp and a button to open it.",
+  "cap.parcial.t": "Almost all",
+  "cap.parcial.d": "Whatever couldn't be saved is listed on top, with its reason.",
+  "cap.lista-claro.t": "In daylight",
+  "cap.lista-claro.d": "Light theme: the order sheet on the desk.",
+  "cap.bloqueo.t": "Honest errors",
+  "cap.bloqueo.d": "If YouTube blocks the connection, Prensa stops and tells you why.",
+  "cap.ajustes.t": "Settings",
+  "cap.ajustes.d": "V0 or 320 kbps quality, theme, language and thumbnails.",
+
+  "ficha.rotulo": "Back cover",
+  "ficha.titulo": "The spec sheet",
+  "ficha.formato.k": "Format",
+  "ficha.formato.v": "MP3 · VBR V0 or 320 kbps",
+  "ficha.etiquetas.k": "Tags",
+  "ficha.etiquetas.v": "Title, artist, album, track number and cover art",
+  "ficha.carpeta.k": "Folder",
+  "ficha.carpeta.v": "‹folder›/‹playlist›/‹no.› - ‹title›.mp3",
+  "ficha.fuentes.k": "Accepts",
+  "ficha.fuentes.v": "youtube.com · music.youtube.com · youtu.be",
+  "ficha.motor.k": "Engine",
+  "ficha.motor.v": "yt-dlp and ffmpeg bundled, verified by SHA-256",
+  "ficha.update.k": "Up to date",
+  "ficha.update.v": "yt-dlp updates itself from GitHub",
+  "ficha.idiomas.k": "Interface",
+  "ficha.idiomas.v": "Spanish and English · light and dark theme",
+  "ficha.privacidad.k": "Privacy",
+  "ficha.privacidad.v": "No accounts, cookies, server or telemetry",
+  "ficha.hecho.k": "Built with",
+  "ficha.hecho.v": "Tauri 2 · Rust · React · TypeScript",
+
+  "descarga.rotulo": "Take it home",
+  "descarga.titulo_html": "Drop the needle<br>on your machine.",
+  "descarga.boton": "Download for Windows",
+  "descarga.detalle": "Installer · x64 · {mb} MB · v{version}",
+  "descarga.sha": "SHA-256 fingerprint",
+  "descarga.copiar": "Copy",
+  "descarga.copiado": "Copied",
+  "descarga.aviso":
+    "The installer isn't signed yet, so Windows SmartScreen may warn you: click “More info” and then “Run anyway”. Check the fingerprint first if you like.",
+  "descarga.requisitos":
+    "64-bit Windows 10 or 11. Everything it needs is inside: nothing else to install.",
+  "descarga.otros.t": "macOS and Linux",
+  "descarga.otros.d":
+    "Coming soon. The app already builds on all three systems; packaging it properly takes time.",
+  "descarga.tuyo": "Your system: {so}",
+
+  "autor.rotulo": "Side B · Who made it",
+  "autor.rol": "Full stack & DevOps developer · Madrid",
+  "autor.p1":
+    "I play guitar and music is always with me, coding included. Prensa comes from there: wanting my playlists in a folder, without depending on anything or anyone.",
+  "autor.p2":
+    "It started as ForYouToBe, a Python script that did the bare minimum. Over time it became this: an app crafted down to the last groove, that does one thing and does it well.",
+  "autor.cita": "I like things to work, and even more, to know why they work.",
+  "autor.cuerdas": "Run your cursor across the strings",
+  "autor.cuerdas.tactil": "Tap the strings",
+  "autor.sonido.off": "Sound off",
+  "autor.sonido.on": "Sound on",
+  "autor.mastil": "Six guitar strings that vibrate as you pass over them.",
+  "autor.portfolio": "Portfolio",
+  "autor.github": "GitHub",
+  "autor.linkedin": "LinkedIn",
+
+  "final.titulo_html": "Your music,<br><em>pressed</em>.",
+  "final.boton": "Download Prensa",
+
+  responsable:
+    "Responsible use: only download content you own, that has a free licence or that you have the right to keep. Prensa uses no accounts and bypasses no protections.",
+  "pie.firma": "A personal project by Alonso Viñé.",
+  "pie.madrid": "Made in Madrid, with a guitar nearby.",
+  "pie.arriba": "Back to top",
+  "pie.fuentes": "Big Shoulders, Instrument Sans & DM Mono · OFL",
+  "pie.nueva": "(opens in a new tab)",
+};
