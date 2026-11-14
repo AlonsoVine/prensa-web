@@ -19,6 +19,20 @@ interface Generado {
 }
 const generado = datos as Generado;
 
+// `VITE_DESCARGAS` (p. ej., la URL de una release de GitHub) cambia de dónde se
+// bajan los instaladores. Sin ella, de `public/descargas`. Este módulo lo leen
+// tanto el navegador (import.meta.env) como vite.config (process.env).
+const entorno = (globalThis as { process?: { env: Record<string, string | undefined> } }).process
+  ?.env;
+const BASE: string =
+  (import.meta.env?.VITE_DESCARGAS as string | undefined) ?? entorno?.VITE_DESCARGAS ?? "";
+
+/** URL de descarga de un instalador a partir de su ruta en public/. */
+export function urlDe(archivo: string): string {
+  if (!BASE) return `./${archivo}`;
+  return BASE.replace(/\/?$/, "/") + archivo.split("/").pop();
+}
+
 export type Sistema = "windows" | "macos" | "linux" | "movil" | "otro";
 
 export interface Opcion {
@@ -51,7 +65,7 @@ const opcion = (
           nombre,
           formato,
           arquitectura,
-          url: p.archivo,
+          url: urlDe(p.archivo),
           bytes: p.bytes,
           mb: mb(p.bytes),
           sha256: p.sha256,
@@ -71,7 +85,7 @@ export const DESCARGA = {
   version: generado.version,
   fecha: generado.fecha,
   windows: {
-    url: generado.windows.archivo,
+    url: urlDe(generado.windows.archivo),
     bytes: generado.windows.bytes,
     mb: mb(generado.windows.bytes),
     sha256: generado.windows.sha256,

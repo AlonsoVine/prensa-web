@@ -1,20 +1,20 @@
 import { defineConfig, type Plugin } from "vite";
 import generado from "./src/content/descarga.generado.json" with { type: "json" };
 import { CAPTURAS, fuentes } from "./src/content/capturas.ts";
-import { OPCIONES } from "./src/content/descarga.ts";
+import { OPCIONES, urlDe } from "./src/content/descarga.ts";
 import { es, type Clave } from "./src/i18n/es.ts";
 
 const PUERTO = 4173;
 
 // Dirección pública prevista (GitHub Pages). Las metas de compartir la necesitan absoluta.
-const SITIO = process.env.PRENSA_SITIO ?? "https://alonsovine.github.io/prensa/";
+const SITIO = process.env.PRENSA_SITIO ?? "https://alonsovine.github.io/prensa-web/";
 
 const VALORES: Record<string, string> = {
   sitio: SITIO,
   version: generado.version,
   mb: (generado.windows.bytes / 1048576).toFixed(0),
   sha: generado.windows.sha256,
-  archivo: generado.windows.archivo,
+  archivo: urlDe(generado.windows.archivo),
 };
 
 function escapar(texto: string): string {
@@ -49,7 +49,7 @@ function figurasDeCapturas(): string {
 function listaDePaquetes(): string {
   return OPCIONES.map(
     (o) => `<li class="paquete">
-                <a href="./${o.url}" download>
+                <a href="${o.url}" download>
                   <span class="paquete__so">${escapar(o.nombre)}</span>
                   <span class="paquete__dato">${escapar(o.arquitectura)} · ${escapar(o.formato)} · ${o.mb} MB</span>
                 </a>

@@ -45,7 +45,7 @@ export function montarDescarga(quieto: boolean): void {
 
   if (op && op.id !== "windows") {
     for (const a of enlaces) {
-      a.href = `./${op.url}`;
+      a.href = op.url;
       const texto = a.querySelector("[data-i18n]");
       if (texto?.getAttribute("data-i18n") !== "final.boton")
         rotular(texto, `descarga.boton.${op.id}` as Clave);

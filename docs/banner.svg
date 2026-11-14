@@ -1,0 +1,111 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 420" width="1280" height="420" role="img" aria-label="Prensa: tus listas de YouTube, prensadas en MP3">
+  <title>Prensa: tus listas de YouTube, prensadas en MP3</title>
+  <defs>
+    <radialGradient id="fondo" cx="72%" cy="50%" r="70%">
+      <stop offset="0" stop-color="#2a221c"/>
+      <stop offset="1" stop-color="#15120f"/>
+    </radialGradient>
+    <linearGradient id="brillo" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#fff" stop-opacity="0"/>
+      <stop offset="0.45" stop-color="#fff" stop-opacity="0.16"/>
+      <stop offset="0.55" stop-color="#fff" stop-opacity="0.16"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <path id="circuloEtiqueta" d="M960,210 m-58,0 a58,58 0 1,1 116,0 a58,58 0 1,1 -116,0"/>
+    <clipPath id="disco"><circle cx="960" cy="210" r="178"/></clipPath>
+    <style>
+      .marca { font: 900 150px/1 Impact, "Arial Narrow Bold", "Helvetica Neue", Arial, sans-serif; letter-spacing: 2px; fill: #efe7d6; }
+      .lema { font: 600 30px/1.2 "Segoe UI", "Helvetica Neue", Arial, sans-serif; fill: #efe7d6; }
+      .lema tspan.rojo { fill: #f2401f; }
+      .dato { font: 500 15px/1 ui-monospace, "SF Mono", Consolas, monospace; letter-spacing: 3px; fill: #b4ab98; }
+      .etiqueta { font: 500 11px/1 ui-monospace, Consolas, monospace; letter-spacing: 2px; fill: #15120f; }
+      .surco { fill: none; stroke: #efe7d6; stroke-opacity: 0.09; stroke-width: 1; }
+      .prensado { fill: none; stroke: #efe7d6; stroke-opacity: 0.22; stroke-width: 1.2; stroke-dasharray: 1200; stroke-dashoffset: 1200; animation: prensar 6s cubic-bezier(.6,0,.3,1) infinite; }
+      .frente { fill: none; stroke: #f2401f; stroke-width: 2.5; animation: frente 6s cubic-bezier(.6,0,.3,1) infinite; }
+      .gira { transform-origin: 960px 210px; animation: girar 1.8s linear infinite; }
+      .rec { animation: parpadeo 1.2s steps(2, end) infinite; }
+      .barra { transform-box: fill-box; transform-origin: bottom; animation: vu 0.9s ease-in-out infinite alternate; }
+      .b2 { animation-duration: 0.7s; animation-delay: -0.3s; }
+      .b3 { animation-duration: 1.1s; animation-delay: -0.6s; }
+      .b4 { animation-duration: 0.6s; animation-delay: -0.2s; }
+      .b5 { animation-duration: 0.95s; animation-delay: -0.5s; }
+      .b6 { animation-duration: 0.75s; animation-delay: -0.1s; }
+      .brazo { transform-origin: 1188px 52px; animation: brazo 6s ease-in-out infinite; }
+      @keyframes girar { to { transform: rotate(360deg); } }
+      @keyframes prensar { 0%, 8% { stroke-dashoffset: 1200; } 70%, 100% { stroke-dashoffset: 0; } }
+      @keyframes frente { 0%, 8% { r: 172px; opacity: 1; } 70% { r: 76px; opacity: 1; } 76%, 100% { r: 76px; opacity: 0; } }
+      @keyframes parpadeo { 50% { opacity: 0.15; } }
+      @keyframes vu { from { transform: scaleY(0.2); } to { transform: scaleY(1); } }
+      @keyframes brazo { 0%, 6% { transform: rotate(-14deg); } 20%, 90% { transform: rotate(0deg); } 100% { transform: rotate(-14deg); } }
+      @media (prefers-reduced-motion: reduce) {
+        .gira, .rec, .barra, .brazo, .frente { animation: none; }
+        .prensado { animation: none; stroke-dashoffset: 0; }
+        .frente { opacity: 0; }
+      }
+    </style>
+  </defs>
+
+  <rect width="1280" height="420" rx="18" fill="url(#fondo)"/>
+
+  <!-- Texto -->
+  <g transform="translate(70 0)">
+    <circle class="rec" cx="8" cy="92" r="7" fill="#f2401f"/>
+    <text class="dato" x="26" y="97">REC · MATRIZ A · 33 1/3 RPM</text>
+    <text class="marca" x="-6" y="250">PRENSA</text>
+    <text class="lema" x="0" y="302">Tus listas de YouTube, <tspan class="rojo">prensadas</tspan> en MP3.</text>
+    <text class="dato" x="0" y="350">LOCAL · SIN CUENTAS · SIN TELEMETRÍA</text>
+    <!-- Vúmetro -->
+    <g transform="translate(436 352)" fill="#f2401f">
+      <rect class="barra" x="0" y="-40" width="8" height="40" rx="1"/>
+      <rect class="barra b2" x="13" y="-40" width="8" height="40" rx="1" fill="#efe7d6"/>
+      <rect class="barra b3" x="26" y="-40" width="8" height="40" rx="1" fill="#efe7d6"/>
+      <rect class="barra b4" x="39" y="-40" width="8" height="40" rx="1" fill="#efe7d6"/>
+      <rect class="barra b5" x="52" y="-40" width="8" height="40" rx="1"/>
+      <rect class="barra b6" x="65" y="-40" width="8" height="40" rx="1" fill="#efe7d6"/>
+    </g>
+  </g>
+
+  <!-- Plato -->
+  <circle cx="960" cy="210" r="196" fill="#0e0c0a" stroke="#efe7d6" stroke-opacity="0.08"/>
+
+  <!-- Disco -->
+  <g class="gira">
+    <circle cx="960" cy="210" r="178" fill="#0a0908"/>
+    <g>
+      <circle class="surco" cx="960" cy="210" r="170"/>
+      <circle class="surco" cx="960" cy="210" r="158"/>
+      <circle class="surco" cx="960" cy="210" r="146"/>
+      <circle class="surco" cx="960" cy="210" r="134"/>
+      <circle class="surco" cx="960" cy="210" r="122"/>
+      <circle class="surco" cx="960" cy="210" r="110"/>
+      <circle class="surco" cx="960" cy="210" r="98"/>
+      <circle class="surco" cx="960" cy="210" r="86"/>
+    </g>
+    <g>
+      <circle class="prensado" cx="960" cy="210" r="164"/>
+      <circle class="prensado" cx="960" cy="210" r="152" style="animation-delay:.25s"/>
+      <circle class="prensado" cx="960" cy="210" r="140" style="animation-delay:.5s"/>
+      <circle class="prensado" cx="960" cy="210" r="128" style="animation-delay:.75s"/>
+      <circle class="prensado" cx="960" cy="210" r="116" style="animation-delay:1s"/>
+      <circle class="prensado" cx="960" cy="210" r="104" style="animation-delay:1.25s"/>
+      <circle class="prensado" cx="960" cy="210" r="92" style="animation-delay:1.5s"/>
+    </g>
+    <!-- Etiqueta -->
+    <circle cx="960" cy="210" r="72" fill="#f2401f"/>
+    <circle cx="960" cy="210" r="66" fill="none" stroke="#15120f" stroke-opacity="0.5"/>
+    <text class="etiqueta"><textPath href="#circuloEtiqueta">PRENSA · PRS-001 · A · 33 1/3 RPM · MADRID · STEREO ·</textPath></text>
+    <text x="960" y="216" text-anchor="middle" style="font: 900 22px Impact, 'Arial Narrow Bold', Arial, sans-serif; fill: #15120f; letter-spacing: 1px">PRENSA</text>
+    <circle cx="960" cy="210" r="4" fill="#15120f"/>
+  </g>
+  <!-- Brillo fijo (la luz no gira con el disco) -->
+  <rect x="782" y="32" width="356" height="356" fill="url(#brillo)" clip-path="url(#disco)" opacity="0.6"/>
+  <!-- Frente de prensado -->
+  <circle class="frente" cx="960" cy="210" r="172"/>
+
+  <!-- Brazo -->
+  <g class="brazo">
+    <circle cx="1188" cy="52" r="16" fill="#2a241e" stroke="#efe7d6" stroke-opacity="0.3"/>
+    <path d="M1188 52 L1150 230 L1108 262" fill="none" stroke="#cfc6b4" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+    <rect x="1092" y="254" width="26" height="16" rx="3" fill="#efe7d6" transform="rotate(35 1105 262)"/>
+  </g>
+</svg>
