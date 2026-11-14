@@ -1,0 +1,46 @@
+{
+  "name": "prensa-web",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Web de Prensa: la app de escritorio que prensa listas públicas de YouTube en MP3.",
+  "author": {
+    "name": "Alonso Viñé",
+    "url": "https://alonsovine.github.io/portfolioR/"
+  },
+  "type": "module",
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "recursos": "node scripts/recursos.mjs",
+    "test:e2e": "playwright test"
+  },
+  "dependencies": {
+    "@fontsource-variable/big-shoulders": "5.3.0",
+    "@fontsource-variable/instrument-sans": "5.3.0",
+    "@fontsource/dm-mono": "5.3.0",
+    "gsap": "3.15.1",
+    "lenis": "1.3.27",
+    "ogl": "1.0.11"
+  },
+  "devDependencies": {
+    "@eslint/js": "10.0.1",
+    "@playwright/test": "1.65.0",
+    "@types/node": "22.20.5",
+    "eslint": "10.14.0",
+    "eslint-config-prettier": "10.1.8",
+    "globals": "17.14.0",
+    "prettier": "3.9.10",
+    "sharp": "0.35.5",
+    "typescript": "6.0.3",
+    "typescript-eslint": "8.72.2",
+    "vite": "8.3.7"
+  }
+}

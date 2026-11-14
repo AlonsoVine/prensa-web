@@ -1,0 +1,9 @@
+dist
+node_modules
+public
+test-results
+playwright-report
+tests/e2e/capturas
+.revision
+package-lock.json
+*.md
