@@ -1,0 +1,351 @@
+<!doctype html>
+<!-- Tarjeta para compartir (1200 × 630). La pinta scripts/og.mjs con Playwright. -->
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <style>
+      @font-face {
+        font-family: "Big Shoulders";
+        src: url("../node_modules/@fontsource-variable/big-shoulders/files/big-shoulders-latin-wght-normal.woff2");
+        font-weight: 100 900;
+      }
+      @font-face {
+        font-family: "Instrument Sans";
+        src: url("../node_modules/@fontsource-variable/instrument-sans/files/instrument-sans-latin-wght-normal.woff2");
+        font-weight: 400 700;
+      }
+      @font-face {
+        font-family: "DM Mono";
+        src: url("../node_modules/@fontsource/dm-mono/files/dm-mono-latin-500-normal.woff2");
+        font-weight: 500;
+      }
+      :root {
+        --grafito: #15120f;
+        --hueso: #efe7d6;
+        --tinta-2: #cfc6b4;
+        --tinta-3: #b4ab98;
+        --rec: #f2401f;
+      }
+      * {
+        box-sizing: border-box;
+        margin: 0;
+      }
+      html,
+      body {
+        width: 1200px;
+        height: 630px;
+        overflow: hidden;
+        background: var(--grafito);
+      }
+      .tarjeta {
+        position: relative;
+        width: 1200px;
+        height: 630px;
+        overflow: hidden;
+        color: var(--hueso);
+        font-family: "Instrument Sans", sans-serif;
+        background:
+          radial-gradient(60% 80% at 78% 50%, rgb(242 64 31 / 0.16), transparent 60%),
+          radial-gradient(90% 90% at 70% 50%, #2a221c, var(--grafito) 70%);
+      }
+      /* Grano */
+      .tarjeta::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        opacity: 0.07;
+        background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='160' height='160' filter='url(%23n)'/></svg>");
+        pointer-events: none;
+      }
+
+      /* ── Texto ── */
+      .texto {
+        position: absolute;
+        left: 64px;
+        top: 58px;
+        bottom: 54px;
+        width: 560px;
+        display: flex;
+        flex-direction: column;
+        z-index: 3;
+      }
+      .rotulo {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font:
+          500 17px "DM Mono",
+          monospace;
+        letter-spacing: 0.16em;
+        color: var(--tinta-3);
+        text-transform: uppercase;
+      }
+      .rotulo i {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background: var(--rec);
+        box-shadow: 0 0 14px 2px rgb(242 64 31 / 0.7);
+      }
+      .marca {
+        margin-top: 18px;
+        font:
+          900 212px/0.8 "Big Shoulders",
+          sans-serif;
+        letter-spacing: -0.01em;
+        text-transform: uppercase;
+      }
+      .lema {
+        margin-top: 26px;
+        font:
+          800 46px/0.98 "Big Shoulders",
+          sans-serif;
+        text-transform: uppercase;
+      }
+      .lema em {
+        font-style: normal;
+        color: var(--rec);
+      }
+      .chips {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: auto;
+      }
+      .chip {
+        padding: 9px 16px 8px;
+        border: 1.5px solid rgb(239 231 214 / 0.28);
+        border-radius: 999px;
+        font:
+          500 15px "DM Mono",
+          monospace;
+        letter-spacing: 0.04em;
+        color: var(--hueso);
+        background: rgb(14 12 10 / 0.6);
+      }
+      .chip--rec {
+        border-color: var(--rec);
+        background: var(--rec);
+        color: var(--grafito);
+      }
+      .url {
+        margin-top: 20px;
+        font:
+          500 16px "DM Mono",
+          monospace;
+        letter-spacing: 0.06em;
+        color: var(--tinta-3);
+      }
+
+      /* ── Disco ── */
+      .plato {
+        position: absolute;
+        left: 640px;
+        top: -55px;
+        width: 740px;
+        height: 740px;
+        border-radius: 50%;
+        background: #0c0a09;
+        box-shadow:
+          0 40px 90px -10px rgb(0 0 0 / 0.85),
+          0 0 0 1px rgb(239 231 214 / 0.06);
+      }
+      .disco {
+        position: absolute;
+        inset: 18px;
+        border-radius: 50%;
+        overflow: hidden;
+        background:
+          /* brillo anisótropo: dos lóbulos opuestos */
+          conic-gradient(
+            from 200deg,
+            transparent 0 4%,
+            rgb(255 246 226 / 0.22) 9%,
+            transparent 15% 50%,
+            rgb(255 246 226 / 0.16) 59%,
+            transparent 65%
+          ),
+          /* surcos */
+          repeating-radial-gradient(
+              circle,
+              #0b0a09 0 1.6px,
+              #1a1714 1.9px 2.6px,
+              #0b0a09 2.9px 3.4px
+            ),
+          #0b0a09;
+      }
+      /* Zona aún sin prensar (dentro del frente): lisa */
+      .liso {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        width: 47%;
+        height: 47%;
+        translate: -50% -50%;
+        border-radius: 50%;
+        background:
+          conic-gradient(
+            from 200deg,
+            transparent 0 4%,
+            rgb(255 246 226 / 0.1) 9%,
+            transparent 15% 50%,
+            rgb(255 246 226 / 0.08) 59%,
+            transparent 65%
+          ),
+          #100e0c;
+      }
+      /* Frente de prensado: la línea roja que avanza de fuera hacia dentro */
+      .frente {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        width: 47%;
+        height: 47%;
+        translate: -50% -50%;
+        border-radius: 50%;
+        border: 3px solid var(--rec);
+        box-shadow:
+          0 0 18px 2px rgb(242 64 31 / 0.55),
+          inset 0 0 14px rgb(242 64 31 / 0.35);
+      }
+      .etiqueta {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        width: 33%;
+        height: 33%;
+        translate: -50% -50%;
+        rotate: -16deg;
+        border-radius: 50%;
+        background: radial-gradient(circle at 40% 35%, #ff5a36, var(--rec) 60%, #d8361a);
+        box-shadow: 0 0 0 2px rgb(0 0 0 / 0.25);
+      }
+      .etiqueta svg {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+      }
+      .etiqueta .circulo {
+        font:
+          500 9.4px "DM Mono",
+          monospace;
+        letter-spacing: 0.2em;
+        fill: var(--grafito);
+      }
+      .etiqueta .nombre {
+        font:
+          900 34px "Big Shoulders",
+          sans-serif;
+        letter-spacing: 0.02em;
+        fill: var(--grafito);
+      }
+      .etiqueta .lado {
+        font:
+          500 8.5px "DM Mono",
+          monospace;
+        letter-spacing: 0.2em;
+        fill: var(--grafito);
+      }
+
+      /* Brazo */
+      .brazo {
+        position: absolute;
+        left: 1080px;
+        top: 24px;
+        width: 160px;
+        height: 380px;
+        z-index: 2;
+        filter: drop-shadow(0 16px 18px rgb(0 0 0 / 0.6));
+      }
+
+      /* Sello */
+      .sello {
+        position: absolute;
+        left: 676px;
+        top: 468px;
+        z-index: 4;
+        rotate: -9deg;
+        padding: 6px 18px 4px;
+        border: 5px solid var(--hueso);
+        outline: 2px solid var(--hueso);
+        outline-offset: 4px;
+        font:
+          900 50px/1 "Big Shoulders",
+          sans-serif;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        color: var(--hueso);
+        background: rgb(21 18 15 / 0.82);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="tarjeta">
+      <div class="texto">
+        <p class="rotulo"><i></i>Matriz A · 33 1/3 rpm · v0.1.0</p>
+        <h1 class="marca">Prensa</h1>
+        <p class="lema">Tus listas de YouTube,<br /><em>prensadas</em> en MP3.</p>
+        <div class="chips">
+          <span class="chip chip--rec">Gratis</span>
+          <span class="chip">Windows · macOS · Linux</span>
+          <span class="chip">Sin cuentas</span>
+        </div>
+        <p class="url">alonsovine.github.io/prensa-web</p>
+      </div>
+
+      <div class="plato">
+        <div class="disco">
+          <div class="liso"></div>
+          <div class="frente"></div>
+          <div class="etiqueta">
+            <svg viewBox="0 0 200 200" aria-hidden="true">
+              <defs>
+                <path id="c" d="M100,100 m-80,0 a80,80 0 1,1 160,0 a80,80 0 1,1 -160,0" />
+              </defs>
+              <circle cx="100" cy="100" r="92" fill="none" stroke="#15120f" stroke-opacity=".45" />
+              <text class="circulo">
+                <textPath href="#c">PRENSA · PRS-001 · A · 33 1/3 RPM · MADRID · STEREO ·</textPath>
+              </text>
+              <text class="nombre" x="100" y="84" text-anchor="middle">PRENSA</text>
+              <circle cx="100" cy="100" r="6" fill="#15120f" />
+              <text class="lado" x="100" y="128" text-anchor="middle">A · 33 1/3</text>
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <svg class="brazo" viewBox="0 0 160 380" aria-hidden="true">
+        <circle
+          cx="118"
+          cy="34"
+          r="26"
+          fill="#2a241e"
+          stroke="#efe7d6"
+          stroke-opacity=".25"
+          stroke-width="2"
+        />
+        <circle cx="118" cy="34" r="9" fill="#cfc6b4" />
+        <path
+          d="M118 34 L96 250 L54 300"
+          fill="none"
+          stroke="#d9d0bd"
+          stroke-width="7"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+        <rect
+          x="30"
+          y="290"
+          width="40"
+          height="24"
+          rx="4"
+          fill="#efe7d6"
+          transform="rotate(40 50 302)"
+        />
+      </svg>
+
+      <div class="sello">Prensado</div>
+    </div>
+  </body>
+</html>

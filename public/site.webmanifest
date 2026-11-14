@@ -1,0 +1,13 @@
+{
+  "name": "Prensa",
+  "short_name": "Prensa",
+  "description": "Tus listas de YouTube, prensadas en MP3.",
+  "start_url": "./",
+  "display": "browser",
+  "background_color": "#15120f",
+  "theme_color": "#15120f",
+  "icons": [
+    { "src": "./icono-64.png", "sizes": "64x64", "type": "image/png" },
+    { "src": "./apple-touch-icon.png", "sizes": "180x180", "type": "image/png" }
+  ]
+}

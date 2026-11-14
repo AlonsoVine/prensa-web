@@ -2,6 +2,11 @@ import type { Clave } from "./es";
 
 export const en: Record<Clave, string> = {
   "meta.title": "Prensa: your YouTube playlists, pressed into MP3",
+  "meta.og.title": "Prensa · Your YouTube playlists, pressed into MP3",
+  "meta.og.desc":
+    "Paste a YouTube playlist and get it back as MP3s with title, artist and cover art. Free, local, no accounts. For Windows, macOS and Linux.",
+  "meta.og.alt":
+    "Prensa: a black vinyl record with a red label being pressed, next to the headline “Your YouTube playlists, pressed into MP3”.",
   "meta.desc":
     "Prensa is a free desktop app that turns a public YouTube playlist into a folder of MP3s with title, artist and cover art. Local, no accounts, no telemetry.",
 
