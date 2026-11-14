@@ -6,9 +6,7 @@ export const CAPTURAS = [
   { id: "descargando", en: false },
   { id: "completado", en: false },
   { id: "parcial", en: true },
-  { id: "lista-claro", en: false },
   { id: "bloqueo", en: false },
-  { id: "ajustes", en: false },
 ] as const;
 
 export type Captura = (typeof CAPTURAS)[number];

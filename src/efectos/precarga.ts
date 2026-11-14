@@ -61,7 +61,7 @@ export function precarga(listo: Promise<unknown>): Promise<void> {
       .set(capa, { display: "none" });
 
     // El contador no termina hasta que las fuentes están listas (o pasa un tope).
-    const tope = new Promise((r) => setTimeout(r, 1800));
+    const tope = new Promise((r) => setTimeout(r, 1200));
     let preparado = false;
     Promise.race([listo, tope]).then(() => {
       preparado = true;

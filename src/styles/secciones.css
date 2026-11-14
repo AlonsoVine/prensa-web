@@ -143,6 +143,15 @@ main > :not(dialog),
   font-size: var(--t-micro);
   letter-spacing: 0.08em;
 }
+@media (max-width: 860px) {
+  .hero__meta {
+    justify-self: start;
+    width: fit-content;
+    padding: 0.35em 0.8em;
+    border-radius: 999px;
+    background: rgb(14 12 10 / 0.82);
+  }
+}
 
 .hero__titulo {
   position: relative;
@@ -1267,6 +1276,22 @@ main > :not(dialog),
 .quieto .cinta__pausa {
   display: none;
 }
+/* Las letras se funden antes de llegar al botón. */
+.js:not(.quieto) .cinta::after {
+  content: "";
+  position: absolute;
+  inset: 0 0 0 auto;
+  z-index: 1;
+  width: calc(var(--margen) + 5rem);
+  background: linear-gradient(to right, transparent, var(--fondo-hundido) 55%);
+  pointer-events: none;
+}
+@media (pointer: coarse) {
+  .cinta__pausa {
+    width: 44px;
+    height: 44px;
+  }
+}
 
 /* ── ¿Por qué una app? (papel) ────────────────────────────────────── */
 
@@ -1603,6 +1628,7 @@ main > :not(dialog),
   gap: 0.75rem;
 }
 .pie__surco {
+  display: none;
   width: min(80vw, 34rem);
   margin: 1rem auto 0;
   aspect-ratio: 2 / 1;

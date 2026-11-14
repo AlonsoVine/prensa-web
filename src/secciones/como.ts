@@ -167,7 +167,7 @@ export function montarComo(quieto: boolean): void {
   mm.add("(min-width: 861px)", () => {
     estado.p = 0;
     pintar(0);
-    const soltar = fijarConCss(seccion, fijo, () => innerHeight * 2.2);
+    const soltar = fijarConCss(seccion, fijo, () => innerHeight * 1.8);
     gsap.to(estado, {
       p: 1,
       ease: "none",

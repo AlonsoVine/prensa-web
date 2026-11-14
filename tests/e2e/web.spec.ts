@@ -37,7 +37,7 @@ test("el HTML llega completo y en español sin JavaScript", async ({ browser }) 
   await page.goto("./");
   await expect(page.locator("html")).toHaveAttribute("lang", "es");
   await expect(page.locator(".hero__sub")).toContainText("app de escritorio");
-  await expect(page.locator(".captura")).toHaveCount(8);
+  await expect(page.locator(".captura")).toHaveCount(6);
   expect(await page.content()).not.toContain("{{");
   await contexto.close();
 });
@@ -87,9 +87,9 @@ test("el visor de capturas se abre, navega y se cierra con teclado", async ({ pa
   await marco.click();
   const visor = page.locator(".visor");
   await expect(visor).toBeVisible();
-  await expect(page.locator(".visor__n")).toHaveText("01 / 08");
+  await expect(page.locator(".visor__n")).toHaveText("01 / 06");
   await page.keyboard.press("ArrowRight");
-  await expect(page.locator(".visor__n")).toHaveText("02 / 08");
+  await expect(page.locator(".visor__n")).toHaveText("02 / 06");
   await page.keyboard.press("Escape");
   await expect(visor).toBeHidden();
 });

@@ -78,7 +78,7 @@ function poses(): { hero: Pose; lado: Pose; fuera: Pose; abajo: Pose; final: Pos
     abajo: { x: w * 0.5, y: yFinal + h * 0.75, d: Math.min(h * 0.95, w * 0.7, dTope) * 0.8, o: 1 },
     final: (() => {
       const d = Math.min(h * 0.95, w * 0.7, dTope);
-      return { x: w * 0.5, y: yFinal + d * 0.07, d, o: 1 };
+      return { x: w * 0.5, y: yFinal + d * 0.3, d, o: 1 };
     })(),
   };
 }

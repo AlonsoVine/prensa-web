@@ -10,7 +10,6 @@ html {
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
   background: var(--grafito-950);
-  scroll-padding-top: 5rem;
 }
 
 html.lenis,

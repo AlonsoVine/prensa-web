@@ -11,6 +11,7 @@ rendimiento y accesibilidad aparte. Después se corrige y se hace commit.
 | 2 | Movimiento y creatividad | 7,4 | 6,6 | 7,2 | 7,8 | **7,20** | 6,5 | 6,4 |
 | 3 | Usabilidad, móvil y accesibilidad | 7,6 | 6,4 | 7,8 | 7,7 | **7,30** | 8,4 | 6,6 |
 | 4 | Rendimiento y tipografía | 7,4 | 6,9 | 7,4 | 7,3 | **7,20** | 5,8 | 6,8 |
+| 5 | Pulido general | 7,8 | 7,5 | 7,9 | 8,1 | **7,80** | 7,9 | 7,6 |
 
 ## Ronda 1 → cambios
 
@@ -86,3 +87,16 @@ rendimiento y accesibilidad aparte. Después se corrige y se hace commit.
   página no enseña el español un instante antes de cambiar; las capturas no se bajan dos veces.
 - Lista de descargas: la huella de cada archivo se copia con un clic; sin negrita
   sintética ni «MACOS».
+
+## Ronda 5 → cambios
+
+- Cierre limpio: el disco del final asoma por debajo del botón (la etiqueta ya no
+  gira detrás de la píldora) y el pie pierde el quinto disco.
+- Seis capturas en vez de ocho y «Cómo funciona» en 1,8 pantallas: la descarga llega
+  unas tres pantallas antes (14 093 px a 1440, antes 16 320).
+- Pausa de la cinta sobre un degradado (no tapa letras) y de 44×44 en táctil.
+- Metas de compartir absolutas (`og:image`, `og:url`, `hreflang`, `canonical`) con la
+  dirección prevista de GitHub Pages (`PRENSA_SITIO` para cambiarla).
+- Anclas sin franja de la sección anterior; confirmación visible al copiar una huella.
+- «V0» (se leía «VO» en la letra display) sustituido por «VBR»; meta del hero legible
+  sobre el disco en móvil y sin prometer Windows; CTA móvil con verbo.

@@ -6,7 +6,11 @@ import { es, type Clave } from "./src/i18n/es.ts";
 
 const PUERTO = 4173;
 
+// Dirección pública prevista (GitHub Pages). Las metas de compartir la necesitan absoluta.
+const SITIO = process.env.PRENSA_SITIO ?? "https://alonsovine.github.io/prensa/";
+
 const VALORES: Record<string, string> = {
+  sitio: SITIO,
   version: generado.version,
   mb: (generado.windows.bytes / 1048576).toFixed(0),
   sha: generado.windows.sha256,

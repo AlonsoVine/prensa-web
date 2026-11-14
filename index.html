@@ -10,13 +10,17 @@
     <link rel="icon" href="./favicon.ico" sizes="any" />
     <link rel="icon" href="./icono-64.png" type="image/png" />
     <link rel="apple-touch-icon" href="./apple-touch-icon.png" />
-    <link rel="alternate" hreflang="es" href="./?lang=es" vite-ignore />
-    <link rel="alternate" hreflang="en" href="./?lang=en" vite-ignore />
-    <link rel="alternate" hreflang="x-default" href="./" vite-ignore />
+    <link rel="canonical" href="{{=sitio}}" vite-ignore />
+    <link rel="alternate" hreflang="es" href="{{=sitio}}?lang=es" vite-ignore />
+    <link rel="alternate" hreflang="en" href="{{=sitio}}?lang=en" vite-ignore />
+    <link rel="alternate" hreflang="x-default" href="{{=sitio}}" vite-ignore />
+    <meta property="og:url" content="{{=sitio}}" vite-ignore />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="{{meta.title}}" />
     <meta property="og:description" content="{{meta.desc}}" />
-    <meta property="og:image" content="./og.jpg" vite-ignore />
+    <meta property="og:image" content="{{=sitio}}og.jpg" vite-ignore />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
     <meta name="twitter:card" content="summary_large_image" />
     <script type="application/ld+json">
       {
@@ -390,7 +394,7 @@
             </h2>
             <p class="capturas__sub" data-i18n="capturas.sub">{{capturas.sub}}</p>
             <p class="capturas__contador dato" aria-hidden="true">
-              <b class="capturas__actual">01</b> / 08
+              <b class="capturas__actual">01</b> / 06
             </p>
           </header>
           <ul class="capturas__pista" role="list">

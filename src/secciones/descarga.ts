@@ -59,6 +59,8 @@ export function montarDescarga(quieto: boolean): void {
   }
 
   if (sistema === "movil") {
+    for (const dato of document.querySelectorAll(".dato-paquete"))
+      dato.textContent = "Windows · macOS · Linux";
     // Un instalador de escritorio no sirve en el móvil: las llamadas llevan a la
     // tarjeta, y la tarjeta ofrece enviarse el enlace.
     for (const a of enlaces) {
@@ -119,6 +121,9 @@ export function montarDescarga(quieto: boolean): void {
       try {
         await navigator.clipboard.writeText(boton.dataset.sha ?? "");
         if (estadoCopia) estadoCopia.textContent = t("descarga.copiado");
+        const antes = boton.innerHTML;
+        boton.textContent = `${t("descarga.copiado")} ✓`;
+        setTimeout(() => (boton.innerHTML = antes), 1800);
       } catch {
         if (estadoCopia) estadoCopia.textContent = boton.dataset.sha ?? "";
       }
