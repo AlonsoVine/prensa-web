@@ -1,7 +1,7 @@
 import { defineConfig, type Plugin } from "vite";
-import generado from "./src/content/descarga.generado.json";
-import { CAPTURAS, fuentes } from "./src/content/capturas";
-import { es, type Clave } from "./src/i18n/es";
+import generado from "./src/content/descarga.generado.json" with { type: "json" };
+import { CAPTURAS, fuentes } from "./src/content/capturas.ts";
+import { es, type Clave } from "./src/i18n/es.ts";
 
 const PUERTO = 4173;
 
