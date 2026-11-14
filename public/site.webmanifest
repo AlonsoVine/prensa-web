@@ -1,7 +1,7 @@
 {
   "name": "Prensa",
   "short_name": "Prensa",
-  "description": "Tus listas de YouTube, prensadas en MP3.",
+  "description": "Tus listas, prensadas en MP3.",
   "start_url": "./",
   "display": "browser",
   "background_color": "#15120f",

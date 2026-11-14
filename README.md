@@ -1,6 +1,6 @@
 <div align="center">
 
-<a href="https://alonsovine.github.io/prensa-web/"><img src="docs/banner.svg" alt="Prensa: tus listas de YouTube, prensadas en MP3" width="100%"></a>
+<a href="https://alonsovine.github.io/prensa-web/"><img src="docs/banner.svg" alt="Prensa: tus listas, prensadas en MP3" width="100%"></a>
 
 ### La web de presentación y descarga de Prensa
 

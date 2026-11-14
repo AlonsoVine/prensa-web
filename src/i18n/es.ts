@@ -3,12 +3,12 @@
 // Las claves que terminan en `_html` llevan marcado propio (<em>, <br>).
 
 export const es = {
-  "meta.title": "Prensa: tus listas de YouTube, prensadas en MP3",
-  "meta.og.title": "Prensa · Tus listas de YouTube, prensadas en MP3",
+  "meta.title": "Prensa: tus listas, prensadas en MP3",
+  "meta.og.title": "Prensa · Tus listas, prensadas en MP3",
   "meta.og.desc":
     "Pega una lista de YouTube y sácala como MP3 con título, artista y carátula. Gratis, en local y sin cuentas. Para Windows, macOS y Linux.",
   "meta.og.alt":
-    "Prensa: un vinilo negro con la etiqueta roja prensándose, junto al titular «Tus listas de YouTube, prensadas en MP3».",
+    "Prensa: un vinilo negro con la etiqueta roja prensándose, junto al titular «Tus listas, prensadas en MP3».",
   "meta.desc":
     "Prensa es una app de escritorio gratuita que convierte una lista pública de YouTube en una carpeta de MP3 con título, artista y carátula. En local, sin cuentas y sin telemetría.",
 
@@ -26,7 +26,7 @@ export const es = {
   "precarga.texto": "Prensando matriz",
 
   "hero.rotulo": "Matriz A · 33 1/3 rpm · Edición",
-  "hero.lema_html": "Tus listas de YouTube, <em>prensadas</em> en&nbsp;MP3.",
+  "hero.lema_html": "Tus listas, <em>prensadas</em> en&nbsp;MP3.",
   "hero.sub":
     "Una app de escritorio que convierte una lista pública en una carpeta de canciones con título, artista y carátula. Todo pasa en tu equipo.",
   "hero.cta": "Descargar para Windows",

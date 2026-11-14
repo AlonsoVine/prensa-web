@@ -1,12 +1,12 @@
 import type { Clave } from "./es";
 
 export const en: Record<Clave, string> = {
-  "meta.title": "Prensa: your YouTube playlists, pressed into MP3",
-  "meta.og.title": "Prensa · Your YouTube playlists, pressed into MP3",
+  "meta.title": "Prensa: your playlists, pressed into MP3",
+  "meta.og.title": "Prensa · Your playlists, pressed into MP3",
   "meta.og.desc":
     "Paste a YouTube playlist and get it back as MP3s with title, artist and cover art. Free, local, no accounts. For Windows, macOS and Linux.",
   "meta.og.alt":
-    "Prensa: a black vinyl record with a red label being pressed, next to the headline “Your YouTube playlists, pressed into MP3”.",
+    "Prensa: a black vinyl record with a red label being pressed, next to the headline “Your playlists, pressed into MP3”.",
   "meta.desc":
     "Prensa is a free desktop app that turns a public YouTube playlist into a folder of MP3s with title, artist and cover art. Local, no accounts, no telemetry.",
 
@@ -24,7 +24,7 @@ export const en: Record<Clave, string> = {
   "precarga.texto": "Pressing master",
 
   "hero.rotulo": "Side A · 33 1/3 rpm · Edition",
-  "hero.lema_html": "Your YouTube playlists, <em>pressed</em> into&nbsp;MP3.",
+  "hero.lema_html": "Your playlists, <em>pressed</em> into&nbsp;MP3.",
   "hero.sub":
     "A desktop app that turns a public playlist into a folder of songs with title, artist and cover art. Everything happens on your computer.",
   "hero.cta": "Download for Windows",
