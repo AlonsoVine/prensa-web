@@ -19,8 +19,15 @@ test("carga sin errores ni desbordes y recorre la página entera", async ({ page
     await page.waitForTimeout(60);
   }
   await page.waitForTimeout(500);
-  const ancho = await page.evaluate(() => document.documentElement.scrollWidth - innerWidth);
-  expect(ancho).toBeLessThanOrEqual(1);
+  // En móvil, un desbordamiento ensancha el viewport de diseño: innerWidth crece
+  // junto con scrollWidth, así que se compara con el ancho real de la ventana.
+  const real = page.viewportSize()?.width ?? 0;
+  const medidas = await page.evaluate(() => ({
+    interior: innerWidth,
+    contenido: document.documentElement.scrollWidth,
+  }));
+  expect(medidas.interior).toBe(real);
+  expect(medidas.contenido).toBeLessThanOrEqual(real);
   expect(errores).toEqual([]);
 });
 

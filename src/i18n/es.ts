@@ -18,7 +18,7 @@ export const es = {
 
   "precarga.texto": "Prensando matriz",
 
-  "hero.rotulo": "Matriz A · 33⅓ rpm · Edición",
+  "hero.rotulo": "Matriz A · 33 1/3 rpm · Edición",
   "hero.lema_html": "Tus listas de YouTube, <em>prensadas</em> en&nbsp;MP3.",
   "hero.sub":
     "Una app de escritorio que convierte una lista pública en una carpeta de canciones con título, artista y carátula. Todo pasa en tu equipo.",
@@ -27,6 +27,34 @@ export const es = {
   "hero.gratis": "Gratis",
   "hero.aguja": "Baja la aguja",
   "hero.disco": "Disco de vinilo con la etiqueta roja de Prensa, girando.",
+
+  "hero.dato.lado": "Lado",
+  "hero.dato.cat": "Cat.",
+
+  "porque.rotulo": "La pregunta obvia",
+  "porque.titulo_html": "¿Por qué una app<br>y no una web?",
+  "porque.intro":
+    "Las webs que convierten vídeos funcionan al revés: tu música viaja a un servidor ajeno, se procesa allí y vuelve suelta, con límites y esperas. Prensa trae la máquina a tu mesa.",
+  "porque.col.web": "Web de conversión",
+  "porque.col.app": "Prensa",
+  "porque.1.k": "Dónde pasa",
+  "porque.1.web": "En un servidor que no conoces",
+  "porque.1.app": "En tu equipo, de principio a fin",
+  "porque.2.k": "Cuánto",
+  "porque.2.web": "Canción a canción, con límites",
+  "porque.2.app": "Listas enteras, aunque tengan miles de pistas",
+  "porque.3.k": "Qué recibes",
+  "porque.3.web": "Un archivo suelto y sin etiquetas",
+  "porque.3.app": "Una carpeta ordenada, con etiquetas y carátula",
+  "porque.4.k": "A cambio de",
+  "porque.4.web": "Anuncios, redirecciones y rastreadores, a menudo",
+  "porque.4.app": "Nada. No hay servidor que los ponga",
+  "porque.5.k": "Si se corta",
+  "porque.5.web": "Vuelta a empezar",
+  "porque.5.app": "Reanuda donde lo dejó y te dice qué falló",
+  "porque.6.k": "Cuando YouTube cambia",
+  "porque.6.web": "Esperas a que alguien lo arregle",
+  "porque.6.app": "El motor se actualiza solo",
 
   "cinta.1": "Sin cuentas",
   "cinta.2": "Sin cookies",

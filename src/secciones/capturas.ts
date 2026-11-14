@@ -39,32 +39,14 @@ export function montarCapturas({ quieto, pararScroll }: Opciones): void {
           trigger: seccion,
           pin: fijo,
           start: "top top",
-          end: () => `+=${distancia()}`,
+          // El recorrido vertical es menos de la mitad del horizontal: la galería
+          // pasa en unas tres pantallas de scroll.
+          end: () => `+=${distancia() * 0.42}`,
           scrub: 0.6,
           invalidateOnRefresh: true,
           onUpdate: (st) => marcar(st.progress),
         },
       });
-      // Cada captura se inclina un poco según su posición: parece pasar por un visor.
-      for (const fig of figuras) {
-        const img = fig.querySelector("img");
-        if (!img) continue;
-        gsap.fromTo(
-          img,
-          { scale: 1.12, xPercent: -4 },
-          {
-            scale: 1,
-            xPercent: 4,
-            ease: "none",
-            scrollTrigger: {
-              trigger: seccion,
-              start: "top top",
-              end: () => `+=${distancia()}`,
-              scrub: true,
-            },
-          },
-        );
-      }
     } else {
       seccion.classList.add("nativa");
       const alDeslizar = (): void => {

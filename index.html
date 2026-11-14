@@ -96,17 +96,19 @@
       <div class="cabecera__progreso" aria-hidden="true"></div>
     </header>
 
+    <div class="disco-marco" aria-hidden="true">
+      <div class="disco-fijo">
+        <div class="disco-fijo__giro">
+          <canvas class="vinilo"></canvas>
+        </div>
+      </div>
+    </div>
+
     <main id="contenido">
       <!-- ───────────── Hero ───────────── -->
       <section class="hero" id="arriba">
-        <div class="hero__disco">
-          <div class="vinilo-css" aria-hidden="true"><span></span></div>
-          <canvas
-            class="vinilo"
-            role="img"
-            data-i18n-attr="aria-label:hero.disco"
-            aria-label="{{hero.disco}}"
-          ></canvas>
+        <div class="hero__disco" aria-hidden="true">
+          <div class="vinilo-css"><span></span></div>
         </div>
 
         <div class="hero__cabeza">
@@ -131,9 +133,11 @@
           </p>
         </div>
 
-        <h1 class="hero__titulo" aria-label="Prensa">
-          <span data-partir="letras" aria-hidden="true">Prensa</span>
-        </h1>
+        <div class="hero__titulo-caja">
+          <h1 class="hero__titulo" aria-label="Prensa">
+            <span data-partir="letras" aria-hidden="true">Prensa</span>
+          </h1>
+        </div>
 
         <div class="hero__aguja" aria-hidden="true">
           <span class="hero__aguja-linea"></span>
@@ -145,11 +149,11 @@
             <dd class="hero__rpm">33,3</dd>
           </div>
           <div>
-            <dt>Lado</dt>
+            <dt data-i18n="hero.dato.lado">{{hero.dato.lado}}</dt>
             <dd>A</dd>
           </div>
           <div>
-            <dt>Cat.</dt>
+            <dt data-i18n="hero.dato.cat">{{hero.dato.cat}}</dt>
             <dd>PRS-001</dd>
           </div>
         </dl>
@@ -305,6 +309,58 @@
         </div>
       </section>
 
+      <!-- ───────────── ¿Por qué una app? ───────────── -->
+      <section class="porque seccion papel" id="porque" aria-labelledby="porque-titulo">
+        <div class="porque__cabeza">
+          <p class="rotulo" data-i18n="porque.rotulo">{{porque.rotulo}}</p>
+          <h2 class="titulo" id="porque-titulo" data-i18n="porque.titulo_html" data-partir>
+            {{porque.titulo_html}}
+          </h2>
+          <p class="porque__intro" data-i18n="porque.intro">{{porque.intro}}</p>
+        </div>
+        <table class="porque__tabla">
+          <thead>
+            <tr>
+              <td></td>
+              <th scope="col" data-i18n="porque.col.web">{{porque.col.web}}</th>
+              <th scope="col" data-i18n="porque.col.app">{{porque.col.app}}</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr data-revelar>
+              <th scope="row" data-i18n="porque.1.k">{{porque.1.k}}</th>
+              <td class="porque__web"><span data-i18n="porque.1.web">{{porque.1.web}}</span></td>
+              <td class="porque__app"><span data-i18n="porque.1.app">{{porque.1.app}}</span></td>
+            </tr>
+            <tr data-revelar>
+              <th scope="row" data-i18n="porque.2.k">{{porque.2.k}}</th>
+              <td class="porque__web"><span data-i18n="porque.2.web">{{porque.2.web}}</span></td>
+              <td class="porque__app"><span data-i18n="porque.2.app">{{porque.2.app}}</span></td>
+            </tr>
+            <tr data-revelar>
+              <th scope="row" data-i18n="porque.3.k">{{porque.3.k}}</th>
+              <td class="porque__web"><span data-i18n="porque.3.web">{{porque.3.web}}</span></td>
+              <td class="porque__app"><span data-i18n="porque.3.app">{{porque.3.app}}</span></td>
+            </tr>
+            <tr data-revelar>
+              <th scope="row" data-i18n="porque.4.k">{{porque.4.k}}</th>
+              <td class="porque__web"><span data-i18n="porque.4.web">{{porque.4.web}}</span></td>
+              <td class="porque__app"><span data-i18n="porque.4.app">{{porque.4.app}}</span></td>
+            </tr>
+            <tr data-revelar>
+              <th scope="row" data-i18n="porque.5.k">{{porque.5.k}}</th>
+              <td class="porque__web"><span data-i18n="porque.5.web">{{porque.5.web}}</span></td>
+              <td class="porque__app"><span data-i18n="porque.5.app">{{porque.5.app}}</span></td>
+            </tr>
+            <tr data-revelar>
+              <th scope="row" data-i18n="porque.6.k">{{porque.6.k}}</th>
+              <td class="porque__web"><span data-i18n="porque.6.web">{{porque.6.web}}</span></td>
+              <td class="porque__app"><span data-i18n="porque.6.app">{{porque.6.app}}</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
       <!-- ───────────── Capturas ───────────── -->
       <section class="capturas" id="capturas" aria-labelledby="capturas-titulo">
         <div class="capturas__fijo">
@@ -374,7 +430,7 @@
           </h2>
           <div class="ficha__codigo" aria-hidden="true">
             <span class="barras"></span>
-            <span class="dato">PRS-001 · {{=version}} · 33⅓</span>
+            <span class="dato">PRS-001 · {{=version}} · 33 1/3</span>
           </div>
         </div>
         <dl class="ficha__lista">
@@ -431,6 +487,9 @@
           </h2>
         </div>
         <div class="descarga__tarjeta" data-revelar>
+          <div class="sello-grande" aria-hidden="true">
+            <span data-i18n="escena.sello">{{escena.sello}}</span>
+          </div>
           <p class="dato descarga__tuyo" hidden></p>
           <a
             class="boton boton--rec boton--grande"
@@ -458,9 +517,6 @@
             <b data-i18n="descarga.otros.t">{{descarga.otros.t}}</b>
             <span data-i18n="descarga.otros.d">{{descarga.otros.d}}</span>
           </div>
-        </div>
-        <div class="sello-grande" aria-hidden="true">
-          <span data-i18n="escena.sello">{{escena.sello}}</span>
         </div>
       </section>
 
@@ -593,7 +649,24 @@
           <p class="dato pie__suave" data-i18n="pie.fuentes">{{pie.fuentes}}</p>
         </div>
       </div>
-      <p class="pie__gigante" aria-hidden="true">Prensa</p>
+      <div class="pie__surco" aria-hidden="true">
+        <svg viewBox="0 0 400 400">
+          <defs>
+            <path id="surco-pie" d="M200,200 m-176,0 a176,176 0 1,1 352,0 a176,176 0 1,1 -352,0" />
+          </defs>
+          <circle cx="200" cy="200" r="199" class="pie__surco-disco" />
+          <circle cx="200" cy="200" r="150" class="pie__surco-anillo" />
+          <circle cx="200" cy="200" r="122" class="pie__surco-anillo" />
+          <circle cx="200" cy="200" r="96" class="pie__surco-etiqueta" />
+          <text class="pie__surco-texto">
+            <textPath href="#surco-pie">
+              PRS-001 · MATRIZ A · PRENSADO EN MADRID · ALONSO VIÑÉ · LADO A · 33 1/3 RPM ·
+              {{=version}} ·
+            </textPath>
+          </text>
+          <text x="200" y="200" class="pie__surco-marca">PRENSA</text>
+        </svg>
+      </div>
     </footer>
 
     <div class="cursor" aria-hidden="true">

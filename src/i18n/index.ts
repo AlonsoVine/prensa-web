@@ -5,6 +5,7 @@
 //   data-i18n="clave"                 → textContent (o innerHTML si la clave acaba en _html)
 //   data-i18n-attr="alt:clave;…"      → atributos
 
+import { DESCARGA } from "../content/descarga";
 import { en } from "./en";
 import { es, type Clave } from "./es";
 
@@ -31,10 +32,16 @@ export function idioma(): Idioma {
   return actual;
 }
 
+// Datos que pueden aparecer en cualquier texto, como {mb} o {version}.
+const VALORES_FIJOS: Record<string, string> = {
+  mb: DESCARGA.windows.mb,
+  version: DESCARGA.version,
+};
+
 export function t(clave: Clave, valores?: Record<string, string | number>): string {
   let texto = DICCIONARIOS[actual][clave] ?? es[clave];
-  if (valores) {
-    for (const [k, v] of Object.entries(valores)) texto = texto.replaceAll(`{${k}}`, String(v));
+  for (const [k, v] of Object.entries({ ...VALORES_FIJOS, ...valores })) {
+    texto = texto.replaceAll(`{${k}}`, String(v));
   }
   return texto;
 }

@@ -16,7 +16,7 @@ export const en: Record<Clave, string> = {
 
   "precarga.texto": "Pressing master",
 
-  "hero.rotulo": "Side A · 33⅓ rpm · Edition",
+  "hero.rotulo": "Side A · 33 1/3 rpm · Edition",
   "hero.lema_html": "Your YouTube playlists, <em>pressed</em> into&nbsp;MP3.",
   "hero.sub":
     "A desktop app that turns a public playlist into a folder of songs with title, artist and cover art. Everything happens on your computer.",
@@ -25,6 +25,34 @@ export const en: Record<Clave, string> = {
   "hero.gratis": "Free",
   "hero.aguja": "Drop the needle",
   "hero.disco": "A vinyl record with Prensa's red label, spinning.",
+
+  "hero.dato.lado": "Side",
+  "hero.dato.cat": "Cat.",
+
+  "porque.rotulo": "The obvious question",
+  "porque.titulo_html": "Why an app<br>and not a website?",
+  "porque.intro":
+    "Video-converter websites work backwards: your music travels to someone else's server, gets processed there and comes back loose, with limits and waiting. Prensa brings the machine to your desk.",
+  "porque.col.web": "Converter website",
+  "porque.col.app": "Prensa",
+  "porque.1.k": "Where it happens",
+  "porque.1.web": "On a server you don't know",
+  "porque.1.app": "On your computer, start to finish",
+  "porque.2.k": "How much",
+  "porque.2.web": "Song by song, with limits",
+  "porque.2.app": "Whole playlists, even with thousands of tracks",
+  "porque.3.k": "What you get",
+  "porque.3.web": "A loose file with no tags",
+  "porque.3.app": "A tidy folder, with tags and cover art",
+  "porque.4.k": "In exchange for",
+  "porque.4.web": "Ads, redirects and trackers, often",
+  "porque.4.app": "Nothing. There's no server to put them there",
+  "porque.5.k": "If it stops",
+  "porque.5.web": "Start over",
+  "porque.5.app": "Resumes where it left off and tells you what failed",
+  "porque.6.k": "When YouTube changes",
+  "porque.6.web": "Wait for someone to fix it",
+  "porque.6.app": "The engine updates itself",
 
   "cinta.1": "No accounts",
   "cinta.2": "No cookies",

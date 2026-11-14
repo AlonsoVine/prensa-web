@@ -56,11 +56,39 @@ function sintetizar(ctx: AudioContext, hz: number): AudioBuffer {
   return buffer;
 }
 
+// Trastes con el espaciado real de una guitarra (cada uno, 2^(1/12) más cerca
+// del anterior), cejuela y marcadores en los trastes 3, 5, 7, 9 y 12.
+function dibujarDiapason(grupo: SVGGElement, ancho: number, alto: number): void {
+  grupo.replaceChildren();
+  const largo = ancho - MARGEN;
+  const traste = (n: number): number => MARGEN + (largo * (1 - 2 ** (-n / 12))) / 0.5;
+  const nuevo = (nombre: string, attrs: Record<string, string | number>): void => {
+    const nodo = document.createElementNS(SVG, nombre);
+    for (const [k, v] of Object.entries(attrs)) nodo.setAttribute(k, String(v));
+    grupo.append(nodo);
+  };
+  nuevo("rect", { x: MARGEN - 7, y: 0, width: 7, height: alto, class: "cejuela" });
+  for (let n = 1; n <= 12; n++) {
+    const x = Math.min(traste(n), ancho - 3);
+    nuevo("line", { x1: x, y1: 0, x2: x, y2: alto, class: "traste" });
+  }
+  const medio = (n: number): number => (traste(n - 1) + traste(n)) / 2;
+  const r = Math.max(4, alto * 0.035);
+  for (const n of [3, 5, 7, 9])
+    nuevo("circle", { cx: medio(n), cy: alto / 2, r, class: "marcador" });
+  for (const y of [alto * 0.3, alto * 0.7]) {
+    nuevo("circle", { cx: medio(12), cy: y, r, class: "marcador" });
+  }
+}
+
 function montarCuerdas(quieto: boolean): void {
   const svg = document.querySelector<SVGSVGElement>(".mastil__cuerdas");
   const boton = document.querySelector<HTMLButtonElement>(".mastil__sonido");
   const ayuda = document.querySelector<HTMLElement>(".mastil__ayuda");
   if (!svg || !boton) return;
+  // El diapasón va debajo de las cuerdas.
+  const diapason = document.createElementNS(SVG, "g");
+  svg.append(diapason);
 
   const tactil = matchMedia("(hover: none)").matches;
   const rotularAyuda = (): void => {
@@ -98,6 +126,7 @@ function montarCuerdas(quieto: boolean): void {
     ancho = Math.max(200, caja.width);
     alto = Math.max(80, caja.height);
     svg.setAttribute("viewBox", `0 0 ${ancho} ${alto}`);
+    dibujarDiapason(diapason, ancho, alto);
     estados.forEach((e, i) => {
       e.y = (alto * (i + 0.75)) / (CUERDAS.length + 0.5);
       notas[i]?.setAttribute("x", "8");
