@@ -157,7 +157,7 @@ em {
   font-family: var(--fuente-display);
   font-weight: 800;
   font-size: var(--t-titulo);
-  line-height: 0.88;
+  line-height: 0.92;
   letter-spacing: -0.01em;
   text-transform: uppercase;
   text-wrap: balance;
@@ -203,6 +203,7 @@ em {
   font-size: 1.25rem;
   letter-spacing: 0.04em;
   text-transform: uppercase;
+  white-space: nowrap;
   border-radius: 999px;
   isolation: isolate;
   overflow: hidden;
@@ -238,6 +239,14 @@ em {
 .boton--rec:focus-visible {
   color: var(--grafito-950);
 }
+/* Sobre el disco del final la etiqueta ya es roja: el botón va en hueso. */
+.boton--hueso {
+  background: var(--hueso-50);
+  color: var(--grafito-950);
+}
+.boton--hueso::before {
+  background: var(--rec);
+}
 .boton--chico {
   --alto: 2.5rem;
   padding: 0 1.1rem;
@@ -248,6 +257,13 @@ em {
   --alto: 4.5rem;
   padding: 0 2.5rem;
   font-size: clamp(1.25rem, 1rem + 0.8vw, 1.75rem);
+}
+@media (max-width: 480px) {
+  .boton--grande {
+    --alto: 4rem;
+    padding: 0 1.5rem;
+    font-size: 1.15rem;
+  }
 }
 .boton .icono {
   width: 1.3em;
@@ -536,9 +552,11 @@ html[lang="en"] .idioma [data-lang="en"] {
   border-color: var(--rec);
 }
 .cursor.con-texto .cursor__aro {
-  width: 92px;
-  height: 92px;
-  margin: -46px 0 0 -46px;
+  /* Una etiqueta pequeña junto al puntero: no tapa lo que se va a ampliar. */
+  width: 84px;
+  height: 26px;
+  margin: 14px 0 0 10px;
+  border-radius: 999px;
   background: var(--rec);
   border-color: var(--rec);
 }

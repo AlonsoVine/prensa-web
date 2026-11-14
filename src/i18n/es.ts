@@ -170,11 +170,12 @@ export const es = {
   "autor.p2":
     "Empezó siendo ForYouToBe, un script de Python que hacía lo justo. Con el tiempo se convirtió en esto: una app cuidada hasta el último surco que hace una sola cosa y la hace bien.",
   "autor.cita": "Me gusta que las cosas funcionen, y aún más saber por qué funcionan.",
-  "autor.cuerdas": "Pasa el cursor por las cuerdas",
+  "autor.cuerdas": "Pasa el cursor por las cuerdas · teclas 1–6",
   "autor.cuerdas.tactil": "Toca las cuerdas",
   "autor.sonido.off": "Sonido apagado",
   "autor.sonido.on": "Sonido encendido",
-  "autor.mastil": "Seis cuerdas de guitarra que vibran al pasar por encima.",
+  "autor.mastil":
+    "Seis cuerdas de guitarra. Con el foco aquí, las teclas del 1 al 6 pulsan cada cuerda e Intro las rasguea todas.",
   "autor.portfolio": "Portfolio",
   "autor.github": "GitHub",
   "autor.linkedin": "LinkedIn",

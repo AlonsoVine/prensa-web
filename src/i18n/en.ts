@@ -168,11 +168,12 @@ export const en: Record<Clave, string> = {
   "autor.p2":
     "It started as ForYouToBe, a Python script that did the bare minimum. Over time it became this: an app crafted down to the last groove, that does one thing and does it well.",
   "autor.cita": "I like things to work, and even more, to know why they work.",
-  "autor.cuerdas": "Run your cursor across the strings",
+  "autor.cuerdas": "Run your cursor across the strings · keys 1–6",
   "autor.cuerdas.tactil": "Tap the strings",
   "autor.sonido.off": "Sound off",
   "autor.sonido.on": "Sound on",
-  "autor.mastil": "Six guitar strings that vibrate as you pass over them.",
+  "autor.mastil":
+    "Six guitar strings. With focus here, keys 1 to 6 pluck each string and Enter strums them all.",
   "autor.portfolio": "Portfolio",
   "autor.github": "GitHub",
   "autor.linkedin": "LinkedIn",

@@ -166,6 +166,8 @@ export interface Vinilo {
   /** Ángulo de la luz en radianes. */
   luz(angulo: number): void;
   prensado(valor: number): void;
+  /** Revoluciones por minuto reales en este momento. */
+  rpm(): number;
   /** Pinta un fotograma; `dt` en segundos. */
   pintar(dt: number): void;
   activo(si: boolean): void;
@@ -179,7 +181,7 @@ export async function montarVinilo(
   try {
     renderer = new Renderer({
       canvas: lienzo,
-      dpr: Math.min(window.devicePixelRatio || 1, 2),
+      dpr: Math.min(window.devicePixelRatio || 1, 1.5),
       alpha: true,
       premultipliedAlpha: true,
       antialias: false,
@@ -235,7 +237,9 @@ export async function montarVinilo(
   }).observe(caja);
 
   let rot = 0;
-  let velocidad = 0.55; // rad/s en reposo
+  // 33 1/3 rpm de verdad: 2π · 33,33 / 60 ≈ 3,49 rad/s.
+  const RPM_BASE = 100 / 3;
+  const velocidad = (RPM_BASE * 2 * Math.PI) / 60;
   let empuje = 0;
   let luzObjetivo = 0.9;
   let luzActual = 0.9;
@@ -246,7 +250,12 @@ export async function montarVinilo(
     if (!quieto) {
       empuje *= Math.pow(0.04, dt);
       rot += (velocidad + empuje) * dt;
-      luzActual += (luzObjetivo - luzActual) * Math.min(1, dt * 4);
+      // Por el arco más corto: si no, al cruzar ±π el brillo daba una vuelta entera.
+      const delta = Math.atan2(
+        Math.sin(luzObjetivo - luzActual),
+        Math.cos(luzObjetivo - luzActual),
+      );
+      luzActual += delta * Math.min(1, dt * 4);
     }
     programa.uniforms.uRot.value = rot;
     programa.uniforms.uLuz.value = luzActual;
@@ -260,6 +269,9 @@ export async function montarVinilo(
     empujar(v) {
       empuje = Math.max(-6, Math.min(6, empuje + v));
     },
+    rpm() {
+      return ((velocidad + empuje) * 60) / (2 * Math.PI);
+    },
     luz(angulo) {
       luzObjetivo = angulo;
       if (quieto) luzActual = angulo;
@@ -270,7 +282,6 @@ export async function montarVinilo(
     pintar,
     activo(si) {
       visible = si;
-      velocidad = 0.55;
     },
   };
 }

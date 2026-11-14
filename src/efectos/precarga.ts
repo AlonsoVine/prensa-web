@@ -7,6 +7,18 @@ const SVG = "http://www.w3.org/2000/svg";
 export function precarga(listo: Promise<unknown>): Promise<void> {
   const capa = document.querySelector<HTMLElement>(".precarga");
   if (!capa || getComputedStyle(capa).display === "none") return Promise.resolve();
+  // En la misma sesión ya se ha visto: no se repite.
+  let vista = false;
+  try {
+    vista = sessionStorage.getItem("prensa-web:precarga") === "1";
+    sessionStorage.setItem("prensa-web:precarga", "1");
+  } catch {
+    /* almacenamiento bloqueado: se muestra */
+  }
+  if (vista) {
+    capa.style.display = "none";
+    return Promise.resolve();
+  }
   const surcos = capa.querySelector("svg");
   const cifra = capa.querySelector<HTMLElement>(".precarga__cifra");
   const disco = capa.querySelector<HTMLElement>(".precarga__disco");
@@ -26,7 +38,7 @@ export function precarga(listo: Promise<unknown>): Promise<void> {
     const tl = gsap.timeline({ paused: true });
     tl.to(estado, {
       p: 100,
-      duration: 1.5,
+      duration: 0.75,
       ease: "power2.inOut",
       onUpdate() {
         if (cifra) cifra.textContent = String(Math.round(estado.p)).padStart(3, "0");
@@ -34,28 +46,28 @@ export function precarga(listo: Promise<unknown>): Promise<void> {
         circulos.forEach((c, i) => (c.style.opacity = i < hechos ? "1" : "0"));
       },
     })
-      .to(disco, { scale: 0.92, duration: 0.18, ease: "power2.in" })
-      .to(disco, { scale: 1, duration: 0.5, ease: "elastic.out(1.1, 0.4)" })
+      .to(disco, { scale: 0.92, duration: 0.12, ease: "power2.in" })
+      .to(disco, { scale: 1, duration: 0.35, ease: "elastic.out(1.1, 0.4)" })
       .to(
         capa,
         {
           clipPath: "inset(0 0 100% 0)",
-          duration: 1,
+          duration: 0.7,
           ease: "expo.inOut",
           onStart: () => resolver(),
         },
-        "-=0.25",
+        "-=0.3",
       )
       .set(capa, { display: "none" });
 
     // El contador no termina hasta que las fuentes están listas (o pasa un tope).
-    const tope = new Promise((r) => setTimeout(r, 2500));
+    const tope = new Promise((r) => setTimeout(r, 1800));
     let preparado = false;
     Promise.race([listo, tope]).then(() => {
       preparado = true;
       if (tl.paused()) tl.play();
     });
-    tl.call(() => void (preparado || tl.pause()), [], 1.2);
+    tl.call(() => void (preparado || tl.pause()), [], 0.6);
     tl.play();
   });
 }

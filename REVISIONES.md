@@ -8,6 +8,7 @@ rendimiento y accesibilidad aparte. Después se corrige y se hace commit.
 | Ronda | Foco | Diseño | Usab. | Creat. | Cont. | **Total** | Rend. | Acces. |
 | ----- | ---- | -----: | ----: | -----: | ----: | --------: | ----: | -----: |
 | 1 | Impresión global y diseño | 7,4 | 6,6 | 7,0 | 7,6 | **7,10** | 7,5 | 7,0 |
+| 2 | Movimiento y creatividad | 7,4 | 6,6 | 7,2 | 7,8 | **7,20** | 6,5 | 6,4 |
 
 ## Ronda 1 → cambios
 
@@ -27,3 +28,22 @@ rendimiento y accesibilidad aparte. Después se corrige y se hace commit.
 - Miniaturas de la escena con arte como las de la app.
 - Corregido un desbordamiento que en móvil ensanchaba el viewport a 806 px
   (grid implícito del manifiesto); el test ahora lo detecta.
+
+## Ronda 2 → cambios
+
+- **El disco vuela al plato de la app en miniatura** de «Cómo funciona» y se prensa
+  allí, surco a surco, al ritmo de los pasos; al salir devuelve el hueco al plato SVG.
+- **33 1/3 rpm de verdad** (3,49 rad/s) y el contador muestra las rpm reales del disco;
+  solo se escribe cuando cambia.
+- El brillo sigue a la luz por el arco más corto (antes daba una vuelta al cruzar ±π).
+- El visor de capturas ya no salta al principio de la página (`main > *` alcanzaba al `<dialog>`).
+- El disco del final sigue a su sección: el pie ya no lo corta. La etiqueta roja
+  queda bajo un botón en hueso, no bajo «PRENSADA.».
+- Aguja del vúmetro movida por el tiempo, no por el scroll.
+- Cinta: el ancho se cachea (antes forzaba un reflow por fotograma).
+- Intro ~1,2 s; la precarga solo sale en la primera visita de la sesión.
+- Cursor: etiqueta pequeña «Ampliar» junto al puntero en vez de un disco rojo.
+- Cuerdas de guitarra tocables con teclado (1–6 e Intro).
+- Texto partido accesible con copia oculta en vez de `aria-label` en `<p>`.
+- `.titulo` con interlineado 0,92 («¿» ya no choca); escena sin desbordar en móvil;
+  botones sin partir línea; dpr máx. 1,5 y empuje del scroll escalado por fotograma.

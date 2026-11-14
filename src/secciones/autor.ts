@@ -215,6 +215,20 @@ function montarCuerdas(quieto: boolean): void {
     }
   };
 
+  // Teclado: 1–6 pulsan cada cuerda (la 1 es la más aguda, como en la guitarra)
+  // y Intro o Espacio rasguean todas.
+  svg.setAttribute("tabindex", "0");
+  svg.addEventListener("keydown", (ev) => {
+    const n = Number(ev.key);
+    if (n >= 1 && n <= CUERDAS.length) {
+      ev.preventDefault();
+      pulsar(CUERDAS.length - n, ancho * 0.55, 0.7);
+    } else if (ev.key === "Enter" || ev.key === " ") {
+      ev.preventDefault();
+      CUERDAS.forEach((_, i) => setTimeout(() => pulsar(i, ancho * 0.5, 0.6), i * 35));
+    }
+  });
+
   const local = (ev: PointerEvent): { x: number; y: number } => {
     const caja = svg.getBoundingClientRect();
     return {

@@ -2,6 +2,7 @@
 // La sección queda fijada y una línea de tiempo de GSAP se arrastra con la rueda.
 import gsap from "gsap";
 import { t } from "../i18n";
+import { escena as compartido } from "./estado";
 
 const SVG = "http://www.w3.org/2000/svg";
 const URL_DEMO = "youtube.com/playlist?list=PLgrabacionesDeCampo";
@@ -70,6 +71,17 @@ export function montarComo(quieto: boolean): void {
   const aguja = escena.querySelector<SVGLineElement>(".vu__aguja");
   const sello = escena.querySelector<HTMLElement>(".escena__sello");
 
+  // La aguja del vúmetro baila con el tiempo (la música no depende del scroll).
+  let sonando = false;
+  if (aguja && !quieto) {
+    gsap.ticker.add((tiempo) => {
+      if (!sonando) return;
+      const vaiven =
+        Math.sin(tiempo * 7.3) * 7 + Math.sin(tiempo * 17.9) * 4 + Math.sin(tiempo * 2.1) * 5;
+      aguja.style.transform = `rotate(${18 + vaiven}deg)`;
+    });
+  }
+
   // Estado de la escena en función del avance global (0..1). Es una función
   // pura del avance: se puede arrastrar adelante y atrás sin acumular nada.
   const pintar = (p: number): void => {
@@ -118,6 +130,7 @@ export function montarComo(quieto: boolean): void {
       }
     });
     const total = gsap.utils.clamp(0, 1, p3 * 1.12);
+    compartido.prensado = total;
     const n = Math.round(total * surcos.length);
     surcos.forEach((s, i) => {
       s.style.opacity = i < n ? "1" : "0";
@@ -126,11 +139,8 @@ export function montarComo(quieto: boolean): void {
     cifra.textContent = p3 > 0 ? `${Math.round(total * 100)}%` : "";
     if (vumetro)
       vumetro.style.opacity = String(gsap.utils.clamp(0, 1, p3 * 8) * (total < 1 ? 1 : 0.35));
-    if (aguja) {
-      const vaiven = Math.sin(p3 * 60) * 6 + Math.sin(p3 * 23) * 4;
-      const angulo = total > 0 && total < 1 ? 18 + vaiven : -55;
-      aguja.style.transform = `rotate(${angulo}deg)`;
-    }
+    sonando = total > 0 && total < 1;
+    if (aguja && (!sonando || quieto)) aguja.style.transform = `rotate(${sonando ? 18 : -55}deg)`;
     if (sello) {
       const s = gsap.utils.clamp(0, 1, (p3 - 0.9) * 10);
       sello.style.opacity = String(s);

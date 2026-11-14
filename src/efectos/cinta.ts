@@ -12,6 +12,9 @@ export function montarCinta(velocidadScroll: () => number): void {
     copia.querySelectorAll("[data-i18n]").forEach((n) => n.removeAttribute("data-i18n"));
     pista.append(copia);
   }
+  // El ancho se mide solo cuando cambia (leerlo en cada fotograma forzaba un reflow).
+  let ancho = grupo.offsetWidth;
+  new ResizeObserver(() => (ancho = grupo.offsetWidth)).observe(grupo);
   let x = 0;
   let sentido = -1;
   const base = 60; // px/s
@@ -19,7 +22,6 @@ export function montarCinta(velocidadScroll: () => number): void {
     const dt = dtMs / 1000;
     const v = velocidadScroll();
     if (Math.abs(v) > 0.5) sentido = v > 0 ? -1 : 1;
-    const ancho = grupo.offsetWidth;
     if (!ancho) return;
     x += sentido * (base + Math.min(Math.abs(v) * 40, 1600)) * dt;
     x = gsap.utils.wrap(-ancho, 0, x);

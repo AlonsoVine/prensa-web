@@ -6,6 +6,7 @@ export type Modo = "palabras" | "letras";
 
 export function partir(el: HTMLElement, modo: Modo = "palabras"): HTMLElement[] {
   const piezas: HTMLElement[] = [];
+  el.querySelector(":scope > .partido__lectura")?.remove();
   const texto = el.textContent?.replace(/\s+/g, " ").trim() ?? "";
 
   const recorrer = (nodo: Node): void => {
@@ -43,9 +44,14 @@ export function partir(el: HTMLElement, modo: Modo = "palabras"): HTMLElement[] 
   };
   recorrer(el);
 
-  if (!el.hasAttribute("aria-hidden") && !el.hasAttribute("aria-label") && texto) {
-    el.setAttribute("aria-label", texto);
+  // Los lectores de pantalla leen una copia entera y oculta (aria-label en un <p>
+  // o un <h2> no se anuncia de forma fiable); las piezas quedan fuera del árbol.
+  if (!el.hasAttribute("aria-hidden") && texto) {
     for (const hijo of el.children) hijo.setAttribute("aria-hidden", "true");
+    const lectura = document.createElement("span");
+    lectura.className = "oculto partido__lectura";
+    lectura.textContent = texto;
+    el.append(lectura);
   }
   el.classList.add("partido");
   return piezas;
