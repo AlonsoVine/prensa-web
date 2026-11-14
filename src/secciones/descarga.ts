@@ -70,8 +70,13 @@ export function montarDescarga(quieto: boolean): void {
         rotular(a.querySelector("[data-i18n]"), "descarga.movil.cta");
       }
     }
+    document.querySelector(".descarga")?.classList.add("descarga--movil");
     if (principal) {
       rotular(principal.querySelector("[data-i18n]"), "descarga.compartir");
+      // Icono de compartir (caja con flecha hacia arriba) en vez del de descarga.
+      principal
+        .querySelector(".icono path")
+        ?.setAttribute("d", "M12 15V4m0 0L7.5 8.5M12 4l4.5 4.5M6 11v8h12v-8");
       principal.addEventListener("click", async (e) => {
         e.preventDefault();
         const url = location.href.split("#")[0] ?? location.href;

@@ -12,6 +12,7 @@ rendimiento y accesibilidad aparte. Después se corrige y se hace commit.
 | 3 | Usabilidad, móvil y accesibilidad | 7,6 | 6,4 | 7,8 | 7,7 | **7,30** | 8,4 | 6,6 |
 | 4 | Rendimiento y tipografía | 7,4 | 6,9 | 7,4 | 7,3 | **7,20** | 5,8 | 6,8 |
 | 5 | Pulido general | 7,8 | 7,5 | 7,9 | 8,1 | **7,80** | 7,9 | 7,6 |
+| 6 | Veredicto final | 7,6 | 7,3 | 7,2 | 8,0 | **7,50** | 8,2 | 7,6 |
 
 ## Ronda 1 → cambios
 
@@ -100,3 +101,21 @@ rendimiento y accesibilidad aparte. Después se corrige y se hace commit.
 - Anclas sin franja de la sección anterior; confirmación visible al copiar una huella.
 - «V0» (se leía «VO» en la letra display) sustituido por «VBR»; meta del hero legible
   sobre el disco en móvil y sin prometer Windows; CTA móvil con verbo.
+
+## Ronda 6 → cambios (última)
+
+- El foco de teclado nunca cae en un bloque aún invisible: si llega antes que el
+  scroll, el bloque entra al instante.
+- La maqueta de la app se escala con el hueco que tiene (no se corta a 1280/1440) y los
+  pasos se compactan en pantallas bajas.
+- Tarjeta de descarga propia en móvil: icono de compartir y sin huella, aviso ni
+  requisitos de un instalador que no se va a bajar.
+- Rótulo del hero en una línea a 390 px; campo de la maqueta con el principio del
+  enlace antes de teclear; precarga por debajo de un segundo; enlaces de texto de 44 px.
+
+## Notas para seguir
+
+- El jurado de la ronda 6 (más severo que el de la 5) echa en falta un «momento propio»:
+  que la lista pegada en la maqueta se grabe en el vinilo.
+- Si la web se publica en GitHub Pages, los paquetes de Linux (>100 MB) necesitan otro
+  alojamiento (p. ej., una release de un repositorio público).

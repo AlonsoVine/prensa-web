@@ -428,7 +428,7 @@ main > :not(dialog),
     0 2rem 6rem -1rem rgb(0 0 0 / 0.7),
     0 0 0 0.5rem rgb(239 231 214 / 0.025);
   overflow: hidden;
-  font-size: clamp(0.5rem, 0.25rem + 0.62vw, 0.875rem);
+  font-size: clamp(0.5rem, 0.72vw, 0.875rem);
   display: grid;
   grid-template-rows: auto 1fr;
 }
@@ -1703,4 +1703,51 @@ main > :not(dialog),
   position: sticky;
   top: 0;
   min-height: 0;
+}
+
+/* Pantallas bajas: los pasos se compactan para que el 03 quepa al fijarse. */
+@media (min-width: 961px) and (max-height: 820px) {
+  .como__fijo {
+    padding-top: 4.75rem;
+    padding-bottom: 1.5rem;
+  }
+  .como .titulo {
+    font-size: clamp(2.5rem, 7vh, 4.5rem);
+  }
+  .paso {
+    padding: 0.7rem 0;
+  }
+}
+
+/* Rótulo del hero en una línea también a 390 px. */
+.hero__rotulo {
+  white-space: nowrap;
+}
+@media (max-width: 420px) {
+  .hero__rotulo {
+    letter-spacing: 0.05em;
+  }
+}
+
+/* Móvil: la tarjeta de descarga no habla de un instalador que no se va a bajar. */
+.descarga--movil .descarga__detalle,
+.descarga--movil .sha,
+.descarga--movil .descarga__aviso,
+.descarga--movil .descarga__req {
+  display: none;
+}
+
+/* Campo de la maqueta con el principio del enlace antes de teclear. */
+.escena__tecleo:empty::before {
+  content: "youtube.com/playlist?list=";
+  opacity: 0.35;
+}
+
+/* Enlaces de texto con objetivo táctil de 44 px. */
+@media (pointer: coarse) {
+  .enlace-linea {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+  }
 }

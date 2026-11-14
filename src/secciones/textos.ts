@@ -41,6 +41,13 @@ export function montarRevelados(quieto: boolean): void {
   if (quieto) return;
   const elementos = gsap.utils.toArray<HTMLElement>("[data-revelar]");
   gsap.set(elementos, { y: 48, opacity: 0 });
+  // Con teclado se puede llegar antes que el scroll: el foco nunca cae en algo invisible.
+  document.addEventListener("focusin", (e) => {
+    const bloque = (e.target as Element).closest<HTMLElement>("[data-revelar]");
+    if (!bloque || Number(getComputedStyle(bloque).opacity) >= 1) return;
+    gsap.killTweensOf(bloque);
+    gsap.set(bloque, { y: 0, opacity: 1 });
+  });
   // Los que entran a la vez se escalonan.
   ScrollTrigger.batch(elementos, {
     start: "top 90%",

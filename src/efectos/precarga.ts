@@ -38,7 +38,7 @@ export function precarga(listo: Promise<unknown>): Promise<void> {
     const tl = gsap.timeline({ paused: true });
     tl.to(estado, {
       p: 100,
-      duration: 0.75,
+      duration: 0.5,
       ease: "power2.inOut",
       onUpdate() {
         if (cifra) cifra.textContent = String(Math.round(estado.p)).padStart(3, "0");
@@ -52,7 +52,7 @@ export function precarga(listo: Promise<unknown>): Promise<void> {
         capa,
         {
           clipPath: "inset(0 0 100% 0)",
-          duration: 0.7,
+          duration: 0.5,
           ease: "expo.inOut",
           onStart: () => resolver(),
         },
@@ -61,13 +61,13 @@ export function precarga(listo: Promise<unknown>): Promise<void> {
       .set(capa, { display: "none" });
 
     // El contador no termina hasta que las fuentes están listas (o pasa un tope).
-    const tope = new Promise((r) => setTimeout(r, 1200));
+    const tope = new Promise((r) => setTimeout(r, 900));
     let preparado = false;
     Promise.race([listo, tope]).then(() => {
       preparado = true;
       if (tl.paused()) tl.play();
     });
-    tl.call(() => void (preparado || tl.pause()), [], 0.6);
+    tl.call(() => void (preparado || tl.pause()), [], 0.4);
     tl.play();
   });
 }
