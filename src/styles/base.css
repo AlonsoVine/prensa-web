@@ -340,11 +340,14 @@ em {
     background-color 400ms;
 }
 .cabecera::before {
+  /* Fondo sólido con desenfoque: el logotipo nunca se monta sobre otro texto. */
   content: "";
   position: absolute;
   inset: 0;
   z-index: -1;
-  background: linear-gradient(rgb(14 12 10 / 0.85), rgb(14 12 10 / 0));
+  background: rgb(14 12 10 / 0.82);
+  backdrop-filter: blur(14px) saturate(1.2);
+  border-bottom: 1px solid var(--linea);
   opacity: 0;
   transition: opacity 400ms;
 }

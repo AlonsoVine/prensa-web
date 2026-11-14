@@ -12,6 +12,8 @@ export const en: Record<Clave, string> = {
   "nav.autor": "Maker",
   "nav.descargar": "Download",
   "nav.idioma": "Switch to Spanish",
+  "cinta.pausa": "Pause the scrolling ticker",
+  "manifiesto.h2": "What Prensa is",
   "nav.principal": "Main",
 
   "precarga.texto": "Pressing master",
@@ -152,13 +154,31 @@ export const en: Record<Clave, string> = {
   "descarga.sha": "SHA-256 fingerprint",
   "descarga.copiar": "Copy",
   "descarga.copiado": "Copied",
+  "descarga.seleccionada": "Couldn't copy: the fingerprint is selected so you can copy it by hand.",
   "descarga.aviso":
     "The installer isn't signed yet, so Windows SmartScreen may warn you: click “More info” and then “Run anyway”. Check the fingerprint first if you like.",
   "descarga.requisitos":
     "64-bit Windows 10 or 11. Everything it needs is inside: nothing else to install.",
-  "descarga.otros.t": "macOS and Linux",
+  "descarga.otros.t": "All downloads",
   "descarga.otros.d":
-    "Coming soon. The app already builds on all three systems; packaging it properly takes time.",
+    "None are signed yet. Each file has its SHA-256 fingerprint (hover to see it in full).",
+  "descarga.boton.macos": "Download for macOS",
+  "descarga.boton.linux": "Download for Linux",
+  "descarga.detalle.macos": "Disk image · Apple Silicon · {mb} MB · v{version}",
+  "descarga.detalle.linux": "AppImage · x64 · {mb} MB · v{version}",
+  "descarga.aviso.macos":
+    "It isn't signed by Apple yet, so macOS will say it can't verify it. Drag it to Applications, right-click it and choose “Open”; on macOS 15, go to Settings › Privacy & Security and click “Open Anyway”.",
+  "descarga.aviso.linux":
+    "Make it executable (chmod +x Prensa_*.AppImage) and open it. On Debian or Ubuntu you can also install the .deb package from the list.",
+  "descarga.requisitos.macos":
+    "macOS 11 or later on an Apple Silicon Mac (M1 or newer). Everything it needs is inside.",
+  "descarga.requisitos.linux":
+    "64-bit Linux. The AppImage runs on most distributions; the .deb, on Debian and Ubuntu 22.04 or later.",
+  "descarga.movil":
+    "Prensa is a desktop app: it doesn't run on phones. Send yourself the link and download it on your computer.",
+  "descarga.movil.cta": "For your computer",
+  "descarga.compartir": "Send me the link",
+  "descarga.enlace.copiado": "Link copied",
   "descarga.tuyo": "Your system: {so}",
 
   "autor.rotulo": "Side B · Who made it",

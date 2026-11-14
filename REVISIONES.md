@@ -9,6 +9,7 @@ rendimiento y accesibilidad aparte. Después se corrige y se hace commit.
 | ----- | ---- | -----: | ----: | -----: | ----: | --------: | ----: | -----: |
 | 1 | Impresión global y diseño | 7,4 | 6,6 | 7,0 | 7,6 | **7,10** | 7,5 | 7,0 |
 | 2 | Movimiento y creatividad | 7,4 | 6,6 | 7,2 | 7,8 | **7,20** | 6,5 | 6,4 |
+| 3 | Usabilidad, móvil y accesibilidad | 7,6 | 6,4 | 7,8 | 7,7 | **7,30** | 8,4 | 6,6 |
 
 ## Ronda 1 → cambios
 
@@ -47,3 +48,24 @@ rendimiento y accesibilidad aparte. Después se corrige y se hace commit.
 - Texto partido accesible con copia oculta en vez de `aria-label` en `<p>`.
 - `.titulo` con interlineado 0,92 («¿» ya no choca); escena sin desbordar en móvil;
   botones sin partir línea; dpr máx. 1,5 y empuje del scroll escalado por fotograma.
+
+## Ronda 3 → cambios
+
+- **macOS y Linux**: instaladores del CI de prensa-app (`.dmg` Apple Silicon, AppImage
+  y `.deb`). La web ofrece el del sistema del visitante (botones, peso, huella, aviso
+  de Gatekeeper o `chmod +x`) y lista todas las descargas con su SHA-256. Los paquetes
+  de Linux pasan de 100 MB: se sirven, pero no se versionan (`.gitignore`).
+- **Móvil**: ya no ofrece un `.exe`; las llamadas llevan a la tarjeta, que propone
+  enviarse el enlace (compartir nativo o copiar).
+- Las capturas salen en inglés desde la carga con `?lang=en` (el idioma inicial no
+  avisaba a los módulos); el cambio de idioma se refleja en la URL.
+- Cabecera con fondo sólido y desenfoque; botón de idioma con nombre accesible igual
+  a lo visible.
+- Galería fijada: el foco de teclado lleva el scroll hasta la captura enfocada.
+- «Cómo funciona» no se fija en móvil (escena acabada y los tres pasos legibles); en
+  escritorio el tramo fijado baja de 3,2 a 2,6 pantallas.
+- Cinta con botón de pausa y parada al pasar el puntero (WCAG 2.2.2).
+- «Copiada» anunciado con `role="status"`; aviso si el portapapeles falla.
+- Objetivos táctiles de 44 px; botón de descarga a ancho completo en móvil; sello sin salirse.
+- Manifiesto apagado a 0,4 de opacidad (antes 0,16); pasos inactivos a 0,6 y sus
+  descripciones accesibles; H2 oculto en el manifiesto; alt del visor sin duplicar.

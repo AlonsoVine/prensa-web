@@ -32,7 +32,7 @@ export function montarCapturas({ quieto, pararScroll }: Opciones): void {
     if (escritorio && !quieto) {
       seccion.classList.remove("nativa");
       const distancia = (): number => pista.scrollWidth - innerWidth;
-      gsap.to(pista, {
+      const tween = gsap.to(pista, {
         x: () => -distancia(),
         ease: "none",
         scrollTrigger: {
@@ -47,6 +47,19 @@ export function montarCapturas({ quieto, pararScroll }: Opciones): void {
           onUpdate: (st) => marcar(st.progress),
         },
       });
+      // La pista se mueve con transform: el navegador no sabe llevar el foco a una
+      // captura que está fuera de la pantalla. Se hace a mano, con el scroll.
+      const alEnfocar = (e: FocusEvent): void => {
+        const fig = (e.target as Element).closest<HTMLElement>(".captura");
+        const st = tween.scrollTrigger;
+        if (!fig || !st) return;
+        const i = figuras.indexOf(fig);
+        if (i < 0) return;
+        const destino = st.start + ((st.end - st.start) * i) / Math.max(1, figuras.length - 1);
+        window.scrollTo({ top: destino, behavior: "instant" });
+      };
+      pista.addEventListener("focusin", alEnfocar);
+      return () => pista.removeEventListener("focusin", alEnfocar);
     } else {
       seccion.classList.add("nativa");
       const alDeslizar = (): void => {
@@ -98,7 +111,7 @@ function montarVisor(figuras: HTMLElement[], pararScroll: (si: boolean) => void)
     if (!c) return;
     const { src } = fuentes(c, idioma());
     img.src = src;
-    img.alt = t(`cap.${c.id}.d` as Clave);
+    img.alt = t(`cap.${c.id}.t` as Clave);
     n.textContent = `${String(indice + 1).padStart(2, "0")} / ${String(CAPTURAS.length).padStart(2, "0")}`;
     titulo.textContent = t(`cap.${c.id}.t` as Clave);
     desc.textContent = t(`cap.${c.id}.d` as Clave);

@@ -5,5 +5,20 @@
     "bytes": 77727805,
     "sha256": "4554525fe7c241da13976b7a095b52c9acb4b2ccb977267ee59c047ea0990cf5"
   },
+  "macos": {
+    "archivo": "descargas/Prensa_0.1.0_aarch64.dmg",
+    "bytes": 98171521,
+    "sha256": "8415c9b9f100198e29ed22386bdb5a5696bba8f73a03a02cd2d5059edb910bbc"
+  },
+  "linux": {
+    "archivo": "descargas/Prensa_0.1.0_amd64.AppImage",
+    "bytes": 193116664,
+    "sha256": "f320e62fbfadd5c320d08a54f904cafa3dda07ec098f936268421157073feb5c"
+  },
+  "deb": {
+    "archivo": "descargas/Prensa_0.1.0_amd64.deb",
+    "bytes": 116543816,
+    "sha256": "2c9f72a7fe1185005ae4e86262936e0dcd7566d679d37a63ad779d75da44a708"
+  },
   "fecha": "2026-11-13"
 }

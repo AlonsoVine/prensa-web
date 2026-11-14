@@ -295,7 +295,7 @@ main > :not(dialog),
   max-width: 21ch;
 }
 .js:not(.quieto) .manifiesto__texto .palabra {
-  color: rgb(239 231 214 / 0.16);
+  color: rgb(239 231 214 / 0.4);
 }
 .principios {
   display: grid;
@@ -391,10 +391,16 @@ main > :not(dialog),
   transition: opacity 400ms;
 }
 .js:not(.quieto) .paso:not(.activo) {
-  opacity: 0.38;
+  opacity: 0.6;
 }
+/* Fuera de la vista, pero los lectores de pantalla leen los tres pasos. */
 .js:not(.quieto) .paso:not(.activo) .paso__d {
-  display: none;
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
 }
 .paso.activo .paso__n {
   color: var(--rec);
@@ -1119,6 +1125,48 @@ main > :not(dialog),
   font-size: 0.95rem;
   color: var(--tinta-2);
 }
+.descarga__lista {
+  display: grid;
+  margin: 0.5rem 0 0.25rem;
+}
+.paquete {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.25rem 1rem;
+  padding: 0.6rem 0;
+  border-bottom: 1px solid var(--linea);
+}
+.paquete a {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.25rem 0.75rem;
+  min-height: 2rem;
+  text-decoration: none;
+  color: var(--tinta);
+}
+.paquete a:hover .paquete__so,
+.paquete a:focus-visible .paquete__so {
+  color: var(--rec);
+}
+.paquete__so {
+  font-family: var(--fuente-display);
+  font-weight: 800;
+  font-size: 1.15rem;
+  text-transform: uppercase;
+  transition: color 200ms;
+}
+.paquete__dato,
+.paquete__sha {
+  font-family: var(--fuente-datos);
+  font-size: var(--t-micro);
+  color: var(--tinta-2);
+}
+.descarga__nota {
+  font-size: 0.85rem;
+}
 .descarga__otros b {
   font-family: var(--fuente-datos);
   font-size: var(--t-micro);
@@ -1151,8 +1199,61 @@ main > :not(dialog),
 }
 @media (max-width: 860px) {
   .sello-grande {
-    translate: 6% -60%;
+    translate: -4% -70%;
+    font-size: 0.8em;
   }
+  .descarga .boton--grande {
+    width: 100%;
+    padding-inline: 1rem;
+    font-size: clamp(1rem, 4.6vw, 1.25rem);
+  }
+}
+
+/* Objetivos táctiles de al menos 44 px. */
+@media (pointer: coarse) {
+  .pie__enlaces a,
+  .sha__copiar,
+  .mastil__sonido,
+  .idioma,
+  .pie a,
+  .cinta__pausa {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+  }
+}
+
+/* Pausa de la cinta. */
+.cinta__pausa {
+  position: absolute;
+  right: var(--margen);
+  top: 50%;
+  z-index: 2;
+  translate: 0 -50%;
+  display: grid;
+  place-items: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  border: 1px solid var(--linea-fuerte);
+  border-radius: 50%;
+  background: var(--fondo-hundido);
+  color: var(--tinta);
+  cursor: pointer;
+}
+.cinta__pausa-icono {
+  width: 0.7rem;
+  height: 0.8rem;
+  border-inline: 3px solid currentColor;
+}
+.cinta__pausa[aria-pressed="true"] .cinta__pausa-icono {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0.4rem 0 0.4rem 0.7rem;
+  border-color: transparent transparent transparent currentColor;
+}
+.quieto .cinta__pausa {
+  display: none;
 }
 
 /* ── ¿Por qué una app? (papel) ────────────────────────────────────── */
@@ -1540,4 +1641,20 @@ main > :not(dialog),
   font-family: var(--fuente-datos);
   font-size: 12px;
   fill: var(--tinta-3);
+}
+
+/* «Cómo funciona» sin fijar (móvil): los tres pasos se leen enteros. */
+.como.sin-fijar .paso {
+  opacity: 1;
+}
+.como.sin-fijar .paso .paso__d {
+  position: static;
+  width: auto;
+  height: auto;
+  overflow: visible;
+  clip: auto;
+  white-space: normal;
+}
+.como.sin-fijar .escena__miga {
+  opacity: 1;
 }

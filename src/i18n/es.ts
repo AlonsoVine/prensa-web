@@ -14,6 +14,8 @@ export const es = {
   "nav.autor": "Autor",
   "nav.descargar": "Descargar",
   "nav.idioma": "Cambiar a inglés",
+  "cinta.pausa": "Pausar la cinta de rótulos",
+  "manifiesto.h2": "Qué es Prensa",
   "nav.principal": "Principal",
 
   "precarga.texto": "Prensando matriz",
@@ -154,13 +156,31 @@ export const es = {
   "descarga.sha": "Huella SHA-256",
   "descarga.copiar": "Copiar",
   "descarga.copiado": "Copiada",
+  "descarga.seleccionada": "No se pudo copiar: la huella queda seleccionada para copiarla a mano.",
   "descarga.aviso":
     "El instalador aún no está firmado, así que Windows SmartScreen puede avisarte: pulsa «Más información» y luego «Ejecutar de todas formas». Si quieres, comprueba antes la huella.",
   "descarga.requisitos":
     "Windows 10 u 11 de 64 bits. Lleva dentro todo lo que necesita: no hay que instalar nada más.",
-  "descarga.otros.t": "macOS y Linux",
+  "descarga.otros.t": "Todas las descargas",
   "descarga.otros.d":
-    "Próximamente. La app ya compila en los tres sistemas; falta empaquetarla con calma.",
+    "Ninguno está firmado todavía. Cada archivo lleva su huella SHA-256 (pasa por encima para verla entera).",
+  "descarga.boton.macos": "Descargar para macOS",
+  "descarga.boton.linux": "Descargar para Linux",
+  "descarga.detalle.macos": "Imagen de disco · Apple Silicon · {mb} MB · v{version}",
+  "descarga.detalle.linux": "AppImage · x64 · {mb} MB · v{version}",
+  "descarga.aviso.macos":
+    "Aún no está firmada por Apple, así que macOS dirá que no puede comprobarla. Arrástrala a Aplicaciones, haz clic derecho sobre ella y elige «Abrir»; en macOS 15, ve a Ajustes › Privacidad y seguridad y pulsa «Abrir igualmente».",
+  "descarga.aviso.linux":
+    "Dale permiso de ejecución (chmod +x Prensa_*.AppImage) y ábrela. En Debian o Ubuntu también puedes instalar el paquete .deb de la lista.",
+  "descarga.requisitos.macos":
+    "macOS 11 o posterior en un Mac con Apple Silicon (M1 o más nuevo). Lleva dentro todo lo que necesita.",
+  "descarga.requisitos.linux":
+    "Linux de 64 bits. La AppImage funciona en la mayoría de distribuciones; el .deb, en Debian y Ubuntu 22.04 o posterior.",
+  "descarga.movil":
+    "Prensa es una app de escritorio: en el móvil no funciona. Envíate el enlace y descárgala en tu ordenador.",
+  "descarga.movil.cta": "Para tu ordenador",
+  "descarga.compartir": "Enviarme el enlace",
+  "descarga.enlace.copiado": "Enlace copiado",
   "descarga.tuyo": "Tu sistema: {so}",
 
   "autor.rotulo": "Cara B · Quién la hizo",

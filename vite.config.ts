@@ -1,6 +1,7 @@
 import { defineConfig, type Plugin } from "vite";
 import generado from "./src/content/descarga.generado.json" with { type: "json" };
 import { CAPTURAS, fuentes } from "./src/content/capturas.ts";
+import { OPCIONES } from "./src/content/descarga.ts";
 import { es, type Clave } from "./src/i18n/es.ts";
 
 const PUERTO = 4173;
@@ -40,6 +41,19 @@ function figurasDeCapturas(): string {
   }).join("\n            ");
 }
 
+// Lista de todas las descargas, con su peso y su huella.
+function listaDePaquetes(): string {
+  return OPCIONES.map(
+    (o) => `<li class="paquete">
+                <a href="./${o.url}" download>
+                  <span class="paquete__so">${escapar(o.nombre)}</span>
+                  <span class="paquete__dato">${escapar(o.arquitectura)} · ${escapar(o.formato)} · ${o.mb} MB</span>
+                </a>
+                <code class="paquete__sha" title="SHA-256 ${o.sha256}">${o.sha256.slice(0, 12)}…</code>
+              </li>`,
+  ).join("\n              ");
+}
+
 // Rellena el HTML con los textos en español al compilar, para que la página
 // llegue completa sin JavaScript y los buscadores la lean entera.
 //   {{clave}}  → texto de src/i18n/es.ts
@@ -50,6 +64,7 @@ function textos(): Plugin {
     transformIndexHtml(html) {
       return html
         .replace("<!--capturas-->", figurasDeCapturas())
+        .replace("<!--paquetes-->", listaDePaquetes())
         .replace(/\{\{=(\w+)\}\}/g, (_, k: string) => {
           const v = VALORES[k];
           if (v === undefined) throw new Error(`Dato desconocido en index.html: ${k}`);

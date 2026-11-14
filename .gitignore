@@ -5,3 +5,8 @@ playwright-report
 tests/e2e/capturas
 .revision
 *.log
+
+# Paquetes de Linux: pasan de los 100 MB que admite GitHub por archivo.
+# Se generan con `npm run recursos` a partir de los artefactos del CI.
+public/descargas/*.AppImage
+public/descargas/*.deb

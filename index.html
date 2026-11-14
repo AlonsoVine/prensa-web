@@ -24,7 +24,7 @@
         "@type": "SoftwareApplication",
         "name": "Prensa",
         "applicationCategory": "MultimediaApplication",
-        "operatingSystem": "Windows 10, Windows 11",
+        "operatingSystem": "Windows 10, Windows 11, macOS 11 (Apple Silicon), Linux",
         "softwareVersion": "{{=version}}",
         "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" },
         "author": {
@@ -82,8 +82,8 @@
         <button
           class="idioma"
           type="button"
-          data-i18n-attr="aria-label:nav.idioma"
-          aria-label="{{nav.idioma}}"
+          data-i18n-attr="title:nav.idioma"
+          title="{{nav.idioma}}"
         >
           <span data-lang="es">ES</span><span aria-hidden="true">/</span
           ><span data-lang="en">EN</span>
@@ -128,8 +128,8 @@
             <a class="enlace-linea" href="#como" data-i18n="hero.cta2">{{hero.cta2}}</a>
           </div>
           <p class="dato hero__meta">
-            <span data-i18n="hero.gratis">{{hero.gratis}}</span> · v{{=version}} · {{=mb}} MB ·
-            Windows 10/11
+            <span data-i18n="hero.gratis">{{hero.gratis}}</span> · v{{=version}} ·
+            <span class="dato-paquete">{{=mb}} MB · Windows 10/11</span>
           </p>
         </div>
 
@@ -160,8 +160,12 @@
       </section>
 
       <!-- ───────────── Cinta ───────────── -->
-      <div class="cinta" aria-hidden="true">
-        <div class="cinta__pista">
+      <div class="cinta">
+        <button type="button" class="cinta__pausa" aria-pressed="false">
+          <span class="cinta__pausa-icono" aria-hidden="true"></span>
+          <span class="oculto" data-i18n="cinta.pausa">{{cinta.pausa}}</span>
+        </button>
+        <div class="cinta__pista" aria-hidden="true">
           <ul class="cinta__grupo">
             <li data-i18n="cinta.1">{{cinta.1}}</li>
             <li data-i18n="cinta.2">{{cinta.2}}</li>
@@ -176,7 +180,8 @@
       </div>
 
       <!-- ───────────── Manifiesto ───────────── -->
-      <section class="manifiesto seccion" aria-labelledby="manifiesto-texto">
+      <section class="manifiesto seccion" aria-labelledby="manifiesto-titulo">
+        <h2 class="oculto" id="manifiesto-titulo" data-i18n="manifiesto.h2">{{manifiesto.h2}}</h2>
         <p class="rotulo" data-i18n="manifiesto.rotulo">{{manifiesto.rotulo}}</p>
         <p
           class="manifiesto__texto"
@@ -510,12 +515,16 @@
             <button type="button" class="sha__copiar enlace-linea" data-i18n="descarga.copiar">
               {{descarga.copiar}}
             </button>
+            <span class="oculto sha__estado" role="status"></span>
           </div>
           <p class="descarga__aviso" data-i18n="descarga.aviso">{{descarga.aviso}}</p>
           <p class="descarga__req" data-i18n="descarga.requisitos">{{descarga.requisitos}}</p>
           <div class="descarga__otros">
             <b data-i18n="descarga.otros.t">{{descarga.otros.t}}</b>
-            <span data-i18n="descarga.otros.d">{{descarga.otros.d}}</span>
+            <ul class="descarga__lista">
+              <!--paquetes-->
+            </ul>
+            <span class="descarga__nota" data-i18n="descarga.otros.d">{{descarga.otros.d}}</span>
           </div>
         </div>
       </section>
@@ -613,7 +622,9 @@
           </svg>
           <span data-i18n="final.boton">{{final.boton}}</span>
         </a>
-        <p class="dato">Windows 10/11 · {{=mb}} MB · v{{=version}}</p>
+        <p class="dato">
+          <span class="dato-paquete">{{=mb}} MB · Windows 10/11</span> · v{{=version}}
+        </p>
       </section>
     </main>
 

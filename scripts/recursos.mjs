@@ -1,6 +1,6 @@
 // Prepara los recursos de la web a partir de prensa-app:
 //  - capturas reales (PNG) → WebP en dos anchos
-//  - instalador de Windows → public/descargas, con su SHA-256 y su peso
+//  - instaladores (Windows local; macOS y Linux del CI) → public/descargas, con SHA-256 y peso
 //  - iconos de la app → favicon
 // Se ejecuta a mano (`npm run recursos`) cuando cambia la app; el resultado se versiona.
 
@@ -61,6 +61,7 @@ async function instalador() {
   const info = {
     version,
     windows: { archivo: `descargas/${nombre}`, bytes: size, sha256 },
+    ...(await otrosSistemas(version)),
     fecha: mtime.toISOString().slice(0, 10),
   };
   await writeFile(
@@ -68,6 +69,44 @@ async function instalador() {
     JSON.stringify(info, null, 2) + "\n",
   );
   console.log(`instalador: ${nombre} ${(size / 1048576).toFixed(1)} MB ${sha256}`);
+}
+
+// macOS y Linux no se compilan aquí: salen del CI de prensa-app (artefactos
+// `prensa-macos-latest` y `prensa-ubuntu-latest`), descargados con
+//   gh run download <id> -R AlonsoVine/prensa -D ../prensa-app/.artefactos-ci
+const ARTEFACTOS = path.join(app, ".artefactos-ci");
+
+async function buscar(carpeta, fin) {
+  const { readdir } = await import("node:fs/promises");
+  let entradas;
+  try {
+    entradas = await readdir(carpeta, { withFileTypes: true, recursive: true });
+  } catch {
+    return null;
+  }
+  const hallada = entradas.find((e) => e.isFile() && e.name.endsWith(fin));
+  return hallada ? path.join(hallada.parentPath ?? hallada.path, hallada.name) : null;
+}
+
+async function publicar(origen) {
+  const nombre = path.basename(origen);
+  const destino = path.join(raiz, "public/descargas", nombre);
+  await copyFile(origen, destino);
+  const datos = await readFile(destino);
+  const sha256 = createHash("sha256").update(datos).digest("hex");
+  console.log(`instalador: ${nombre} ${(datos.length / 1048576).toFixed(1)} MB ${sha256}`);
+  return { archivo: `descargas/${nombre}`, bytes: datos.length, sha256 };
+}
+
+async function otrosSistemas(version) {
+  const dmg = await buscar(path.join(ARTEFACTOS, "prensa-macos-latest"), `${version}_aarch64.dmg`);
+  const appimage = await buscar(path.join(ARTEFACTOS, "prensa-ubuntu-latest"), ".AppImage");
+  const deb = await buscar(path.join(ARTEFACTOS, "prensa-ubuntu-latest"), ".deb");
+  const otros = {};
+  if (dmg) otros.macos = await publicar(dmg);
+  if (appimage) otros.linux = await publicar(appimage);
+  if (deb) otros.deb = await publicar(deb);
+  return otros;
 }
 
 async function iconos() {

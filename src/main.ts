@@ -80,9 +80,12 @@ async function arrancar(): Promise<void> {
   montarPie(quieto);
   montarAutor(quieto);
 
-  // Cambio de idioma.
+  // Cambio de idioma. La URL lo refleja (?lang=) para poder compartirla tal cual.
   document.querySelector(".idioma")?.addEventListener("click", () => {
     ponerIdioma(idioma() === "es" ? "en" : "es");
+    const url = new URL(location.href);
+    url.searchParams.set("lang", idioma());
+    history.replaceState(history.state, "", url);
   });
   alCambiarIdioma(() => {
     hero.repartir();
@@ -91,6 +94,12 @@ async function arrancar(): Promise<void> {
     document.dispatchEvent(new Event("prensa:idioma"));
     ScrollTrigger.refresh();
   });
+  // Si la página arrancó en inglés, los módulos montados después también se enteran
+  // (las capturas cambian de imagen, la cinta copia sus textos…).
+  if (inicial !== "es") {
+    sincronizarCinta();
+    document.dispatchEvent(new Event("prensa:idioma"));
+  }
 
   await precarga(document.fonts.ready);
   lenis?.start();

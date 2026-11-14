@@ -154,17 +154,30 @@ export function montarComo(quieto: boolean): void {
   document.addEventListener("prensa:idioma", () => pintar(estado.p));
   if (quieto) return;
 
-  gsap.to(estado, {
-    p: 1,
-    ease: "none",
-    onUpdate: () => pintar(estado.p),
-    scrollTrigger: {
-      trigger: seccion,
-      pin: fijo,
-      start: "top top",
-      end: () => `+=${innerHeight * 3.2}`,
-      scrub: 0.5,
-      invalidateOnRefresh: true,
-    },
+  // En móvil no se fija: la escena se ve acabada y los tres pasos, enteros.
+  // En escritorio, el tramo fijado dura algo menos de tres pantallas.
+  const mm = gsap.matchMedia();
+  mm.add("(max-width: 860px)", () => {
+    seccion.classList.add("sin-fijar");
+    estado.p = 1;
+    pintar(1);
+    return () => seccion.classList.remove("sin-fijar");
+  });
+  mm.add("(min-width: 861px)", () => {
+    estado.p = 0;
+    pintar(0);
+    gsap.to(estado, {
+      p: 1,
+      ease: "none",
+      onUpdate: () => pintar(estado.p),
+      scrollTrigger: {
+        trigger: seccion,
+        pin: fijo,
+        start: "top top",
+        end: () => `+=${innerHeight * 2.6}`,
+        scrub: 0.5,
+        invalidateOnRefresh: true,
+      },
+    });
   });
 }

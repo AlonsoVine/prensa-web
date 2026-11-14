@@ -15,6 +15,16 @@ export function montarCinta(velocidadScroll: () => number): void {
   // El ancho se mide solo cuando cambia (leerlo en cada fotograma forzaba un reflow).
   let ancho = grupo.offsetWidth;
   new ResizeObserver(() => (ancho = grupo.offsetWidth)).observe(grupo);
+  // Se puede pausar (botón) y se detiene mientras el puntero está encima.
+  const boton = document.querySelector<HTMLButtonElement>(".cinta__pausa");
+  let pausada = false;
+  let encima = false;
+  boton?.addEventListener("click", () => {
+    pausada = !pausada;
+    boton.setAttribute("aria-pressed", String(pausada));
+  });
+  pista.addEventListener("pointerenter", () => (encima = true));
+  pista.addEventListener("pointerleave", () => (encima = false));
   let x = 0;
   let sentido = -1;
   const base = 60; // px/s
@@ -22,7 +32,7 @@ export function montarCinta(velocidadScroll: () => number): void {
     const dt = dtMs / 1000;
     const v = velocidadScroll();
     if (Math.abs(v) > 0.5) sentido = v > 0 ? -1 : 1;
-    if (!ancho) return;
+    if (!ancho || pausada || encima) return;
     x += sentido * (base + Math.min(Math.abs(v) * 40, 1600)) * dt;
     x = gsap.utils.wrap(-ancho, 0, x);
     pista.style.transform = `translate3d(${x}px,0,0)`;
