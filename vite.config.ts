@@ -30,7 +30,7 @@ function figurasDeCapturas(): string {
     return `<li class="captura" data-indice="${i}">
               <button type="button" class="captura__marco">
                 <span class="oculto" data-i18n="capturas.ampliar">{{capturas.ampliar}}</span>
-                <img src="${src}" srcset="${srcset}" sizes="(min-width: 900px) 62vw, 88vw" width="1920" height="1080" loading="${i < 2 ? "eager" : "lazy"}" decoding="async" alt="${titulo}" data-i18n-attr="alt:cap.${c.id}.t" data-captura="${c.id}" />
+                <img src="${src}" srcset="${srcset}" sizes="(min-width: 900px) 62vw, 88vw" width="1920" height="1080" loading="lazy" decoding="async" alt="${titulo}" data-i18n-attr="alt:cap.${c.id}.t" data-captura="${c.id}" />
               </button>
               <div class="captura__pie">
                 <span class="dato captura__n">${n}</span>
@@ -49,7 +49,7 @@ function listaDePaquetes(): string {
                   <span class="paquete__so">${escapar(o.nombre)}</span>
                   <span class="paquete__dato">${escapar(o.arquitectura)} · ${escapar(o.formato)} · ${o.mb} MB</span>
                 </a>
-                <code class="paquete__sha" title="SHA-256 ${o.sha256}">${o.sha256.slice(0, 12)}…</code>
+                <button type="button" class="paquete__sha" data-sha="${o.sha256}" title="SHA-256 ${o.sha256}"><span class="oculto">SHA-256 </span>${o.sha256.slice(0, 12)}…</button>
               </li>`,
   ).join("\n              ");
 }
@@ -80,9 +80,35 @@ function textos(): Plugin {
   };
 }
 
+// Precarga las fuentes que pintan lo primero que se ve (titular y texto).
+function precargarFuentes(): Plugin {
+  return {
+    name: "prensa-precarga-fuentes",
+    transformIndexHtml: {
+      order: "post",
+      handler(_html, ctx) {
+        if (!ctx.bundle) return [];
+        return Object.keys(ctx.bundle)
+          .filter((f) => /(big-shoulders|instrument-sans)-latin-wght-normal-[\w-]+\.woff2$/.test(f))
+          .map((f) => ({
+            tag: "link",
+            attrs: {
+              rel: "preload",
+              href: `./${f}`,
+              as: "font",
+              type: "font/woff2",
+              crossorigin: "",
+            },
+            injectTo: "head-prepend" as const,
+          }));
+      },
+    },
+  };
+}
+
 export default defineConfig({
   base: "./",
-  plugins: [textos()],
+  plugins: [textos(), precargarFuentes()],
   server: { port: 5173 },
   preview: { port: PUERTO, strictPort: true },
   build: {

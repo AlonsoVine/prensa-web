@@ -151,7 +151,7 @@ function pintarEtiqueta(texto: string): HTMLCanvasElement {
   g.font = '900 150px "Big Shoulders", "Arial Narrow", sans-serif';
   g.fillText("PRENSA", c, c - 150);
   g.font = '500 34px "DM Mono", monospace';
-  g.fillText("LADO A · 33 1/3", c, c + 150);
+  g.fillText("A · 33 1/3", c, c + 150);
 
   g.fillStyle = "#0e0c0a";
   g.beginPath();
@@ -200,7 +200,8 @@ export async function montarVinilo(
   ]);
 
   const textura = new Texture(gl, {
-    image: pintarEtiqueta("PRENSA · MATRIZ A · PRS-001 · 33 1/3 RPM · HECHO EN MADRID · "),
+    // Sin palabras de un idioma: la etiqueta vale igual en español y en inglés.
+    image: pintarEtiqueta("PRENSA · PRS-001 · A · 33 1/3 RPM · MADRID · STEREO · "),
     generateMipmaps: true,
     minFilter: gl.LINEAR_MIPMAP_LINEAR,
   });

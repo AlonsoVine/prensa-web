@@ -283,7 +283,8 @@ export async function montarHero(quieto: boolean, velocidad: () => number): Prom
   let rpmEscrito = "";
   gsap.ticker.add(() => {
     if (!rpm || !vinilo || avance.a >= 1) return;
-    const texto = Math.abs(vinilo.rpm()).toFixed(1).replace(".", ",");
+    const v = Math.abs(vinilo.rpm()).toFixed(1);
+    const texto = document.documentElement.lang === "es" ? v.replace(".", ",") : v;
     if (texto !== rpmEscrito) rpm.textContent = rpmEscrito = texto;
   });
 

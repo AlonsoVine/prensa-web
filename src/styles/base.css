@@ -46,8 +46,8 @@ body::after {
   z-index: 90;
   pointer-events: none;
   background-image: var(--textura-grano, none);
-  opacity: 0.05;
-  mix-blend-mode: overlay;
+  /* Sin mix-blend-mode: mezclar una capa a pantalla completa costaba en cada fotograma. */
+  opacity: 0.035;
 }
 
 img,
@@ -157,7 +157,7 @@ em {
   font-family: var(--fuente-display);
   font-weight: 800;
   font-size: var(--t-titulo);
-  line-height: 0.92;
+  line-height: 1;
   letter-spacing: -0.01em;
   text-transform: uppercase;
   text-wrap: balance;
@@ -578,4 +578,17 @@ html[lang="en"] .idioma [data-lang="en"] {
 }
 .cursor.con-texto .cursor__punto {
   opacity: 0;
+}
+
+/* Sin viudas ni líneas cortas al final de los párrafos. */
+p,
+li,
+dd,
+figcaption {
+  text-wrap: pretty;
+}
+
+/* El inglés se aplica con JS: hasta entonces no se enseña el español. */
+.idioma-espera body {
+  visibility: hidden;
 }

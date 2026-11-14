@@ -25,6 +25,8 @@ export function montarCinta(velocidadScroll: () => number): void {
   });
   pista.addEventListener("pointerenter", () => (encima = true));
   pista.addEventListener("pointerleave", () => (encima = false));
+  let enPantalla = true;
+  new IntersectionObserver(([e]) => (enPantalla = !!e?.isIntersecting)).observe(pista);
   let x = 0;
   let sentido = -1;
   const base = 60; // px/s
@@ -32,7 +34,7 @@ export function montarCinta(velocidadScroll: () => number): void {
     const dt = dtMs / 1000;
     const v = velocidadScroll();
     if (Math.abs(v) > 0.5) sentido = v > 0 ? -1 : 1;
-    if (!ancho || pausada || encima) return;
+    if (!ancho || pausada || encima || !enPantalla) return;
     x += sentido * (base + Math.min(Math.abs(v) * 40, 1600)) * dt;
     x = gsap.utils.wrap(-ancho, 0, x);
     pista.style.transform = `translate3d(${x}px,0,0)`;

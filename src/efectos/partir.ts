@@ -7,7 +7,10 @@ export type Modo = "palabras" | "letras";
 export function partir(el: HTMLElement, modo: Modo = "palabras"): HTMLElement[] {
   const piezas: HTMLElement[] = [];
   el.querySelector(":scope > .partido__lectura")?.remove();
-  const texto = el.textContent?.replace(/\s+/g, " ").trim() ?? "";
+  // Los <br> separan palabras: textContent los pierde («appy no» en vez de «app y no»).
+  const copia = el.cloneNode(true) as HTMLElement;
+  copia.querySelectorAll("br").forEach((br) => br.replaceWith(" "));
+  const texto = copia.textContent?.replace(/\s+/g, " ").trim() ?? "";
 
   const recorrer = (nodo: Node): void => {
     for (const hijo of [...nodo.childNodes]) {

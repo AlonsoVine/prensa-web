@@ -1,6 +1,7 @@
 // «Cómo funciona»: la app en miniatura recorre sus tres pasos al ritmo del scroll.
 // La sección queda fijada y una línea de tiempo de GSAP se arrastra con la rueda.
 import gsap from "gsap";
+import { fijarConCss } from "../efectos/fijar";
 import { t } from "../i18n";
 import { escena as compartido } from "./estado";
 
@@ -166,18 +167,19 @@ export function montarComo(quieto: boolean): void {
   mm.add("(min-width: 861px)", () => {
     estado.p = 0;
     pintar(0);
+    const soltar = fijarConCss(seccion, fijo, () => innerHeight * 2.2);
     gsap.to(estado, {
       p: 1,
       ease: "none",
       onUpdate: () => pintar(estado.p),
       scrollTrigger: {
         trigger: seccion,
-        pin: fijo,
         start: "top top",
-        end: () => `+=${innerHeight * 2.6}`,
+        end: "bottom bottom",
         scrub: 0.5,
         invalidateOnRefresh: true,
       },
     });
+    return soltar;
   });
 }

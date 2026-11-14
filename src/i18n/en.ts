@@ -161,7 +161,7 @@ export const en: Record<Clave, string> = {
     "64-bit Windows 10 or 11. Everything it needs is inside: nothing else to install.",
   "descarga.otros.t": "All downloads",
   "descarga.otros.d":
-    "None are signed yet. Each file has its SHA-256 fingerprint (hover to see it in full).",
+    "None are signed yet. Each file has its SHA-256 fingerprint (click it to copy the full one).",
   "descarga.boton.macos": "Download for macOS",
   "descarga.boton.linux": "Download for Linux",
   "descarga.detalle.macos": "Disk image · Apple Silicon · {mb} MB · v{version}",

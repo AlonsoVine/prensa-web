@@ -1155,8 +1155,19 @@ main > :not(dialog),
   font-family: var(--fuente-display);
   font-weight: 800;
   font-size: 1.15rem;
-  text-transform: uppercase;
+  letter-spacing: 0.02em;
   transition: color 200ms;
+}
+.paquete__sha {
+  border: 0;
+  background: none;
+  cursor: pointer;
+  text-decoration: underline dotted;
+  text-underline-offset: 0.25em;
+}
+.paquete__sha:hover,
+.paquete__sha:focus-visible {
+  color: var(--tinta);
 }
 .paquete__dato,
 .paquete__sha {
@@ -1168,6 +1179,7 @@ main > :not(dialog),
   font-size: 0.85rem;
 }
 .descarga__otros b {
+  font-weight: 500;
   font-family: var(--fuente-datos);
   font-size: var(--t-micro);
   letter-spacing: var(--rastreo-rotulo);
@@ -1547,7 +1559,7 @@ main > :not(dialog),
   font-family: var(--fuente-display);
   font-weight: 900;
   font-size: clamp(4rem, 1rem + 14vw, 18rem);
-  line-height: 0.82;
+  line-height: 0.9;
   text-transform: uppercase;
 }
 
@@ -1657,4 +1669,12 @@ main > :not(dialog),
 }
 .como.sin-fijar .escena__miga {
   opacity: 1;
+}
+
+/* Tramos fijados con sticky (ver src/efectos/fijar.ts). */
+.fijada-css > .como__fijo,
+.fijada-css > .capturas__fijo {
+  position: sticky;
+  top: 0;
+  min-height: 0;
 }

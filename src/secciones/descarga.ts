@@ -113,6 +113,18 @@ export function montarDescarga(quieto: boolean): void {
     }, 2000);
   });
 
+  // Huellas de la lista: un clic copia la entera.
+  for (const boton of document.querySelectorAll<HTMLButtonElement>(".paquete__sha")) {
+    boton.addEventListener("click", async () => {
+      try {
+        await navigator.clipboard.writeText(boton.dataset.sha ?? "");
+        if (estadoCopia) estadoCopia.textContent = t("descarga.copiado");
+      } catch {
+        if (estadoCopia) estadoCopia.textContent = boton.dataset.sha ?? "";
+      }
+    });
+  }
+
   document.addEventListener("prensa:idioma", () => {
     escribirSistema();
     escribirDetalle();

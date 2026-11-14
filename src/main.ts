@@ -32,6 +32,7 @@ async function arrancar(): Promise<void> {
   const inicial = idiomaInicial();
   if (inicial !== "es") ponerIdioma(inicial, false);
   else raiz.lang = "es";
+  raiz.classList.remove("idioma-espera");
 
   // Scroll suave con inercia. Con movimiento reducido, el del navegador.
   let lenis: Lenis | null = null;

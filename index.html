@@ -46,6 +46,20 @@
         /[?&]mov=reducido/.test(location.search)
       )
         document.documentElement.classList.add("quieto");
+      (function () {
+        var pedido = (location.search.match(/[?&]lang=(es|en)/) || [])[1];
+        var guardado = null;
+        try {
+          guardado = localStorage.getItem("prensa-web:idioma");
+        } catch (e) {}
+        var idioma = pedido || guardado || (/^es/i.test(navigator.language || "") ? "es" : "en");
+        if (idioma !== "es") {
+          document.documentElement.classList.add("idioma-espera");
+          setTimeout(function () {
+            document.documentElement.classList.remove("idioma-espera");
+          }, 2500);
+        }
+      })();
     </script>
   </head>
   <body>

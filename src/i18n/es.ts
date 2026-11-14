@@ -163,7 +163,7 @@ export const es = {
     "Windows 10 u 11 de 64 bits. Lleva dentro todo lo que necesita: no hay que instalar nada más.",
   "descarga.otros.t": "Todas las descargas",
   "descarga.otros.d":
-    "Ninguno está firmado todavía. Cada archivo lleva su huella SHA-256 (pasa por encima para verla entera).",
+    "Ninguno está firmado todavía. Cada archivo lleva su huella SHA-256 (pulsa en ella para copiarla entera).",
   "descarga.boton.macos": "Descargar para macOS",
   "descarga.boton.linux": "Descargar para Linux",
   "descarga.detalle.macos": "Imagen de disco · Apple Silicon · {mb} MB · v{version}",

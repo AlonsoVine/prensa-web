@@ -3,6 +3,7 @@
 // nativo con imán. Un clic abre el visor a pantalla completa.
 import gsap from "gsap";
 import { CAPTURAS, fuentes } from "../content/capturas";
+import { fijarConCss } from "../efectos/fijar";
 import { idioma, t } from "../i18n";
 import type { Clave } from "../i18n/es";
 
@@ -32,16 +33,16 @@ export function montarCapturas({ quieto, pararScroll }: Opciones): void {
     if (escritorio && !quieto) {
       seccion.classList.remove("nativa");
       const distancia = (): number => pista.scrollWidth - innerWidth;
+      // El recorrido vertical es un tercio del horizontal: la galería pasa en
+      // poco más de dos pantallas de scroll.
+      const soltar = fijarConCss(seccion, fijo, () => distancia() * 0.32);
       const tween = gsap.to(pista, {
         x: () => -distancia(),
         ease: "none",
         scrollTrigger: {
           trigger: seccion,
-          pin: fijo,
           start: "top top",
-          // El recorrido vertical es menos de la mitad del horizontal: la galería
-          // pasa en unas tres pantallas de scroll.
-          end: () => `+=${distancia() * 0.42}`,
+          end: "bottom bottom",
           scrub: 0.6,
           invalidateOnRefresh: true,
           onUpdate: (st) => marcar(st.progress),
@@ -59,7 +60,10 @@ export function montarCapturas({ quieto, pararScroll }: Opciones): void {
         window.scrollTo({ top: destino, behavior: "instant" });
       };
       pista.addEventListener("focusin", alEnfocar);
-      return () => pista.removeEventListener("focusin", alEnfocar);
+      return () => {
+        pista.removeEventListener("focusin", alEnfocar);
+        soltar();
+      };
     } else {
       seccion.classList.add("nativa");
       const alDeslizar = (): void => {

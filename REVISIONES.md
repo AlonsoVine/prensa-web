@@ -10,6 +10,7 @@ rendimiento y accesibilidad aparte. Después se corrige y se hace commit.
 | 1 | Impresión global y diseño | 7,4 | 6,6 | 7,0 | 7,6 | **7,10** | 7,5 | 7,0 |
 | 2 | Movimiento y creatividad | 7,4 | 6,6 | 7,2 | 7,8 | **7,20** | 6,5 | 6,4 |
 | 3 | Usabilidad, móvil y accesibilidad | 7,6 | 6,4 | 7,8 | 7,7 | **7,30** | 8,4 | 6,6 |
+| 4 | Rendimiento y tipografía | 7,4 | 6,9 | 7,4 | 7,3 | **7,20** | 5,8 | 6,8 |
 
 ## Ronda 1 → cambios
 
@@ -69,3 +70,19 @@ rendimiento y accesibilidad aparte. Después se corrige y se hace commit.
 - Objetivos táctiles de 44 px; botón de descarga a ancho completo en móvil; sello sin salirse.
 - Manifiesto apagado a 0,4 de opacidad (antes 0,16); pasos inactivos a 0,6 y sus
   descripciones accesibles; H2 oculto en el manifiesto; alt del visor sin duplicar.
+
+## Ronda 4 → cambios
+
+- **CLS de 1,0 y 0,28 a 0**: los tramos fijados usan `position: sticky` (la sección
+  se alarga y su interior se pega) en vez del `pin` de GSAP; precarga de las fuentes
+  del titular y del texto.
+- Recorrido más corto: galería en 0,32 del ancho y «Cómo funciona» en 2,2 pantallas.
+- Grano sin `mix-blend-mode` (ya no se mezcla una capa a pantalla completa por fotograma);
+  la cinta no trabaja fuera de pantalla.
+- Copia para lectores de pantalla con espacio en los `<br>` («app y no», no «appy no»).
+- Titulares con interlineado 1 y el del final 0,9: la puntuación ya no pisa la línea
+  siguiente. `text-wrap: pretty` en párrafos.
+- Inglés: etiqueta del vinilo sin palabras de un idioma, rpm con punto decimal, y la
+  página no enseña el español un instante antes de cambiar; las capturas no se bajan dos veces.
+- Lista de descargas: la huella de cada archivo se copia con un clic; sin negrita
+  sintética ni «MACOS».
