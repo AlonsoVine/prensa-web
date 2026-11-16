@@ -45,7 +45,7 @@
         "@type": "SoftwareApplication",
         "name": "Prensa",
         "applicationCategory": "MultimediaApplication",
-        "operatingSystem": "Windows 10, Windows 11, macOS 11 (Apple Silicon), Linux",
+        "operatingSystem": "Windows 10, Windows 11, macOS 11 (Apple Silicon), Linux, Android 11",
         "softwareVersion": "{{=version}}",
         "description": "{{meta.og.desc}}",
         "url": "{{=sitio}}",
@@ -115,6 +115,7 @@
       >
         <ul>
           <li><a href="#como" data-i18n="nav.como">{{nav.como}}</a></li>
+          <li><a href="#coleccion" data-i18n="nav.coleccion">{{nav.coleccion}}</a></li>
           <li><a href="#capturas" data-i18n="nav.capturas">{{nav.capturas}}</a></li>
           <li><a href="#ficha" data-i18n="nav.ficha">{{nav.ficha}}</a></li>
           <li><a href="#autor" data-i18n="nav.autor">{{nav.autor}}</a></li>
@@ -217,6 +218,9 @@
             <li data-i18n="cinta.6">{{cinta.6}}</li>
             <li data-i18n="cinta.7">{{cinta.7}}</li>
             <li data-i18n="cinta.8">{{cinta.8}}</li>
+            <li data-i18n="cinta.9">{{cinta.9}}</li>
+            <li data-i18n="cinta.10">{{cinta.10}}</li>
+            <li data-i18n="cinta.11">{{cinta.11}}</li>
           </ul>
         </div>
       </div>
@@ -356,6 +360,140 @@
         </div>
       </section>
 
+      <!-- ───────────── La colección: la carpeta crece con la lista ───────────── -->
+      <section class="coleccion" id="coleccion" aria-labelledby="coleccion-titulo">
+        <div class="coleccion__fijo">
+          <div class="coleccion__texto">
+            <p class="rotulo" data-i18n="coleccion.rotulo">{{coleccion.rotulo}}</p>
+            <h2 class="titulo" id="coleccion-titulo" data-i18n="coleccion.titulo_html" data-partir>
+              {{coleccion.titulo_html}}
+            </h2>
+            <p class="coleccion__intro" data-i18n="coleccion.intro">{{coleccion.intro}}</p>
+            <ol class="pasos">
+              <li class="paso" data-paso="0">
+                <span class="paso__n dato">01</span>
+                <div>
+                  <h3 class="paso__t" data-i18n="col.1.t">{{col.1.t}}</h3>
+                  <p class="paso__d" data-i18n="col.1.d">{{col.1.d}}</p>
+                </div>
+              </li>
+              <li class="paso" data-paso="1">
+                <span class="paso__n dato">02</span>
+                <div>
+                  <h3 class="paso__t" data-i18n="col.2.t">{{col.2.t}}</h3>
+                  <p class="paso__d" data-i18n="col.2.d">{{col.2.d}}</p>
+                </div>
+              </li>
+              <li class="paso" data-paso="2">
+                <span class="paso__n dato">03</span>
+                <div>
+                  <h3 class="paso__t" data-i18n="col.3.t">{{col.3.t}}</h3>
+                  <p class="paso__d" data-i18n="col.3.d">{{col.3.d}}</p>
+                </div>
+              </li>
+            </ol>
+          </div>
+
+          <div class="mesa" aria-hidden="true">
+            <div class="mesa__yt tarjeta" data-tramo="0">
+              <div class="tarjeta__cabeza">
+                <span class="yt"></span><span class="dato" data-i18n="demo.yt">{{demo.yt}}</span>
+                <b class="dato mesa__cuenta"></b>
+              </div>
+              <b class="tarjeta__titulo">Grabaciones de campo</b>
+              <ul class="mesa__videos">
+                <li class="video">
+                  <i class="mini mini--1"></i
+                  ><span class="video__t"
+                    >Lluvia sobre tejado de uralita<small>Archivo Sonoro</small></span
+                  >
+                </li>
+                <li class="video">
+                  <i class="mini mini--2"></i
+                  ><span class="video__t"
+                    >Viento en el pinar, toma 2<small>Paisajes de Oído</small></span
+                  >
+                </li>
+                <li class="video video--mas dato"><span data-mas="8"></span></li>
+                <li class="video video--nuevo">
+                  <i class="mini mini--3"></i
+                  ><span class="video__t"
+                    >Patio de colegio a la hora del recreo<small>Archivo Sonoro</small></span
+                  ><em class="video__marca" data-i18n="demo.nuevo">{{demo.nuevo}}</em>
+                </li>
+                <li class="video video--nuevo">
+                  <i class="mini mini--4"></i
+                  ><span class="video__t"
+                    >Afilador: flauta y piedra<small>Archivo Sonoro</small></span
+                  ><em class="video__marca" data-i18n="demo.nuevo">{{demo.nuevo}}</em>
+                </li>
+                <li class="video video--nuevo">
+                  <i class="mini mini--5"></i
+                  ><span class="video__t">Nevada sin viento<small>Paisajes de Oído</small></span
+                  ><em class="video__marca" data-i18n="demo.nuevo">{{demo.nuevo}}</em>
+                </li>
+              </ul>
+            </div>
+
+            <div class="mesa__funda" data-tramo="1">
+              <span class="mesa__vinilo"><span class="mesa__galleta"></span></span>
+              <span class="mesa__carton">
+                <span class="mesa__portada"><i></i><i></i><i></i></span>
+                <span class="mesa__etiqueta">
+                  <b>Grabaciones de campo</b>
+                  <span class="dato mesa__tengo"></span>
+                  <span class="mesa__medidor"><span></span></span>
+                </span>
+              </span>
+              <span class="mesa__pegatina"
+                ><b class="mesa__nuevas">+3</b><small class="mesa__nuevas-t"></small
+              ></span>
+              <span class="mesa__sello rotulo" data-i18n="demo.alDia">{{demo.alDia}}</span>
+            </div>
+
+            <div class="mesa__carpeta tarjeta" data-tramo="2">
+              <div class="tarjeta__cabeza">
+                <svg class="carpeta-icono" viewBox="0 0 24 24">
+                  <path
+                    d="M3 7.5V18a1.5 1.5 0 0 0 1.5 1.5h15A1.5 1.5 0 0 0 21 18V9a1.5 1.5 0 0 0-1.5-1.5h-7.4L10.3 5H4.5A1.5 1.5 0 0 0 3 6.5Z"
+                  />
+                </svg>
+                <span class="dato" data-i18n="demo.carpeta">{{demo.carpeta}}</span>
+                <b class="dato">Música/Grabaciones de campo</b>
+              </div>
+              <ul class="mesa__ficheros dato">
+                <li class="fichero fichero--viejo">
+                  <span class="fichero__n">Archivo Sonoro - Lluvia sobre tejado de uralita.mp3</span
+                  ><em data-i18n="demo.yaEstaba">{{demo.yaEstaba}}</em>
+                </li>
+                <li class="fichero fichero--viejo">
+                  <span class="fichero__n">Paisajes de Oído - Viento en el pinar, toma 2.mp3</span
+                  ><em data-i18n="demo.yaEstaba">{{demo.yaEstaba}}</em>
+                </li>
+                <li class="fichero fichero--viejo fichero--mas"><span data-mas="8"></span></li>
+                <li class="fichero fichero--nuevo">
+                  <span class="fichero__n"
+                    >Archivo Sonoro - Patio de colegio a la hora del recreo.mp3</span
+                  ><em class="fichero__estado"></em><i class="fichero__barra"></i>
+                </li>
+                <li class="fichero fichero--nuevo">
+                  <span class="fichero__n">Archivo Sonoro - Afilador: flauta y piedra.mp3</span
+                  ><em class="fichero__estado"></em><i class="fichero__barra"></i>
+                </li>
+                <li class="fichero fichero--nuevo">
+                  <span class="fichero__n">Paisajes de Oído - Nevada sin viento.mp3</span
+                  ><em class="fichero__estado"></em><i class="fichero__barra"></i>
+                </li>
+                <li class="fichero fichero--m3u">
+                  <span class="fichero__n">Grabaciones de campo.m3u8</span
+                  ><em data-i18n="demo.m3u">{{demo.m3u}}</em>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <!-- ───────────── ¿Por qué una app? ───────────── -->
       <section class="porque seccion papel" id="porque" aria-labelledby="porque-titulo">
         <div class="porque__cabeza">
@@ -404,6 +542,11 @@
               <td class="porque__web"><span data-i18n="porque.6.web">{{porque.6.web}}</span></td>
               <td class="porque__app"><span data-i18n="porque.6.app">{{porque.6.app}}</span></td>
             </tr>
+            <tr data-revelar>
+              <th scope="row" data-i18n="porque.7.k">{{porque.7.k}}</th>
+              <td class="porque__web"><span data-i18n="porque.7.web">{{porque.7.web}}</span></td>
+              <td class="porque__app"><span data-i18n="porque.7.app">{{porque.7.app}}</span></td>
+            </tr>
           </tbody>
         </table>
       </section>
@@ -418,7 +561,7 @@
             </h2>
             <p class="capturas__sub" data-i18n="capturas.sub">{{capturas.sub}}</p>
             <p class="capturas__contador dato" aria-hidden="true">
-              <b class="capturas__actual">01</b> / 06
+              <b class="capturas__actual">01</b> / 08
             </p>
           </header>
           <ul class="capturas__pista" role="list">
@@ -468,6 +611,48 @@
         </div>
       </dialog>
 
+      <!-- ───────────── Android ───────────── -->
+      <section class="bolsillo seccion" id="android" aria-labelledby="bolsillo-titulo">
+        <div class="bolsillo__texto">
+          <p class="rotulo" data-i18n="bolsillo.rotulo">{{bolsillo.rotulo}}</p>
+          <h2 class="titulo" id="bolsillo-titulo" data-i18n="bolsillo.titulo_html" data-partir>
+            {{bolsillo.titulo_html}}
+          </h2>
+          <p class="bolsillo__lead" data-i18n="bolsillo.texto">{{bolsillo.texto}}</p>
+          <ul class="bolsillo__puntos">
+            <li data-revelar><span data-i18n="bolsillo.1">{{bolsillo.1}}</span></li>
+            <li data-revelar><span data-i18n="bolsillo.2">{{bolsillo.2}}</span></li>
+            <li data-revelar><span data-i18n="bolsillo.3">{{bolsillo.3}}</span></li>
+          </ul>
+          <a class="boton boton--rec" href="#descarga" data-magnetico data-android>
+            <svg class="icono" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 19h14" />
+            </svg>
+            <span data-i18n="bolsillo.cta">{{bolsillo.cta}}</span>
+          </a>
+          <p class="bolsillo__ios" data-i18n="bolsillo.ios">{{bolsillo.ios}}</p>
+        </div>
+        <div class="bolsillo__escena">
+          <span class="bolsillo__single" aria-hidden="true"><span></span></span>
+          <figure class="telefono">
+            <span class="telefono__pantalla">
+              <img
+                class="telefono__captura"
+                src="capturas/movil-estanteria.webp"
+                width="780"
+                height="1688"
+                loading="lazy"
+                decoding="async"
+                alt="{{bolsillo.alt}}"
+                data-i18n-attr="alt:bolsillo.alt"
+              />
+              <span class="telefono__brillo" aria-hidden="true"></span>
+            </span>
+            <span class="telefono__camara" aria-hidden="true"></span>
+          </figure>
+        </div>
+      </section>
+
       <!-- ───────────── Ficha técnica ───────────── -->
       <section class="ficha seccion papel" id="ficha" aria-labelledby="ficha-titulo">
         <div class="ficha__cabeza">
@@ -496,6 +681,10 @@
           <div data-revelar>
             <dt data-i18n="ficha.fuentes.k">{{ficha.fuentes.k}}</dt>
             <dd data-i18n="ficha.fuentes.v">{{ficha.fuentes.v}}</dd>
+          </div>
+          <div data-revelar>
+            <dt data-i18n="ficha.sistemas.k">{{ficha.sistemas.k}}</dt>
+            <dd data-i18n="ficha.sistemas.v">{{ficha.sistemas.v}}</dd>
           </div>
           <div data-revelar>
             <dt data-i18n="ficha.motor.k">{{ficha.motor.k}}</dt>

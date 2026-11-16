@@ -6,11 +6,11 @@ export const es = {
   "meta.title": "Prensa: tus listas, prensadas en MP3",
   "meta.og.title": "Prensa · Tus listas, prensadas en MP3",
   "meta.og.desc":
-    "Pega una lista de YouTube y sácala como MP3 con título, artista y carátula. Gratis, en local y sin cuentas. Para Windows, macOS y Linux.",
+    "Pega una lista de YouTube, o una sola canción, y sácala como MP3 con título, artista y carátula. Cuando la lista crece, solo baja lo nuevo. Gratis, en local y sin cuentas. Para Windows, macOS, Linux y Android.",
   "meta.og.alt":
     "Prensa: un vinilo negro con la etiqueta roja prensándose, junto al titular «Tus listas, prensadas en MP3».",
   "meta.desc":
-    "Prensa es una app de escritorio gratuita que convierte una lista pública de YouTube en una carpeta de MP3 con título, artista y carátula. En local, sin cuentas y sin telemetría.",
+    "Prensa es una app gratuita para el ordenador y Android que convierte una lista pública de YouTube, o una sola canción, en una carpeta de MP3 con título, artista y carátula. Cuando la lista crece, solo descarga lo nuevo. En local, sin cuentas y sin telemetría.",
 
   saltar: "Saltar al contenido",
   "nav.como": "Cómo funciona",
@@ -28,7 +28,7 @@ export const es = {
   "hero.rotulo": "Matriz A · 33 1/3 rpm · Edición",
   "hero.lema_html": "Tus listas, <em>prensadas</em> en&nbsp;MP3.",
   "hero.sub":
-    "Una app de escritorio que convierte una lista pública en una carpeta de canciones con título, artista y carátula. Todo pasa en tu equipo.",
+    "Una app para tu ordenador y tu Android que convierte una lista pública, o una sola canción, en una carpeta de MP3 con título, artista y carátula. Cuando la lista crece, solo prensa lo nuevo.",
   "hero.cta": "Descargar para Windows",
   "hero.cta2": "Cómo funciona",
   "hero.gratis": "Gratis",
@@ -81,15 +81,15 @@ export const es = {
   "principio.2.t": "Sin cuentas",
   "principio.2.d":
     "No pide, lee ni guarda credenciales ni cookies. Funciona con listas públicas o no listadas.",
-  "principio.3.t": "Reanudable",
+  "principio.3.t": "Solo lo nuevo",
   "principio.3.d":
-    "Si cortas a mitad, lo ya prensado no se repite. Lo que falla te dice por qué y puedes reintentar solo eso.",
+    "Si cortas a mitad o la lista crece, lo ya prensado no se repite: Prensa reconoce cada canción por su etiqueta, aunque la hayas movido. Lo que falla te dice por qué.",
 
   "como.rotulo": "Cómo funciona",
   "como.titulo_html": "Tres pasos.<br>Una prensa.",
   "paso.1.t": "Pega",
   "paso.1.d":
-    "Copia el enlace de una lista pública de YouTube o YouTube Music. Prensa lo valida al instante y rechaza las listas ligadas a una cuenta antes de llamar a nadie.",
+    "Copia el enlace de una lista pública de YouTube o YouTube Music, o el de una sola canción. Prensa lo valida al instante y rechaza las listas ligadas a una cuenta antes de llamar a nadie.",
   "paso.2.t": "Revisa",
   "paso.2.d":
     "Aparecen las pistas con su duración y su miniatura. Marca las que quieres, elige carpeta y sabrás qué vídeos no están disponibles antes de empezar.",
@@ -140,9 +140,9 @@ export const es = {
   "ficha.etiquetas.k": "Etiquetas",
   "ficha.etiquetas.v": "Título, artista, álbum, nº de pista y carátula",
   "ficha.carpeta.k": "Carpeta",
-  "ficha.carpeta.v": "‹carpeta›/‹lista›/‹nº› - ‹título›.mp3",
+  "ficha.carpeta.v": "‹carpeta›/‹lista›/‹artista› - ‹título›.mp3, más ‹lista›.m3u8",
   "ficha.fuentes.k": "Admite",
-  "ficha.fuentes.v": "youtube.com · music.youtube.com · youtu.be",
+  "ficha.fuentes.v": "Listas y canciones sueltas · youtube.com · music.youtube.com · youtu.be",
   "ficha.motor.k": "Motor",
   "ficha.motor.v": "yt-dlp y ffmpeg incluidos, verificados por SHA-256",
   "ficha.update.k": "Al día",
@@ -182,11 +182,70 @@ export const es = {
   "descarga.requisitos.linux":
     "Linux de 64 bits. La AppImage funciona en la mayoría de distribuciones; el .deb, en Debian y Ubuntu 22.04 o posterior.",
   "descarga.movil":
-    "Prensa es una app de escritorio: en el móvil no funciona. Envíate el enlace y descárgala en tu ordenador.",
+    "Prensa aún no está lista para este teléfono. Envíate el enlace y descárgala en tu ordenador.",
   "descarga.movil.cta": "Llévala a tu ordenador",
+  "descarga.ios":
+    "En iPhone y iPad no existe: Apple no admite apps que descargan de YouTube ni deja llevar dentro el motor que usa Prensa. Envíate el enlace y descárgala en tu ordenador o en un Android.",
+  "descarga.boton.android": "Descargar para Android",
+  "descarga.detalle.android": "APK · arm64 · {mb} MB · v{version}",
+  "descarga.aviso.android":
+    "No está en Google Play, que no admite apps que descargan de YouTube. Al abrir el APK, Android te pedirá permiso para instalar apps de esa fuente (tu navegador o el gestor de archivos): concédelo solo para esto. Las canciones se guardan en Descargas/Prensa.",
+  "descarga.requisitos.android":
+    "Android 11 o posterior, en un teléfono de 64 bits (arm64, casi todos desde 2017). Lleva dentro todo lo que necesita.",
   "descarga.compartir": "Enviarme el enlace",
   "descarga.enlace.copiado": "Enlace copiado",
   "descarga.tuyo": "Tu sistema: {so}",
+
+  "nav.coleccion": "Estantería",
+  "cinta.9": "Solo lo nuevo",
+  "cinta.10": "Playlist .m3u8",
+  "cinta.11": "También en Android",
+  "porque.7.k": "Cuando la lista crece",
+  "porque.7.web": "La vuelves a bajar entera",
+  "porque.7.app": "Prensa solo lo nuevo",
+  "coleccion.rotulo": "Cara A · Corte 2",
+  "coleccion.titulo_html": "Tu carpeta<br>crece con <em>la lista</em>.",
+  "coleccion.intro":
+    "Sigues añadiendo canciones en YouTube, como siempre. Prensa se acuerda de cada lista y, cuando vuelves, solo prensa lo que te falta.",
+  "col.1.t": "La lista crece",
+  "col.1.d":
+    "Añades tres canciones a tu lista de YouTube. No tienes que hacer nada más, ni avisar a nadie.",
+  "col.2.t": "Prensa lo nota",
+  "col.2.d":
+    "Al abrirla, repasa tus listas una a una. Cada lista es una funda en tu estantería, con la portada de su primera canción; la que ha crecido lleva una pegatina roja con las nuevas.",
+  "col.3.t": "Solo lo nuevo",
+  "col.3.d":
+    "Reconoce lo que ya tienes aunque lo hayas movido o renombrado, y prensa solo lo que falta. Nombres limpios, «Artista - Título», y una playlist .m3u8 que se pone al día sola.",
+  "demo.yt": "Tu lista en YouTube",
+  "demo.videos": "{n} vídeos",
+  "demo.nuevo": "Nuevo",
+  "demo.mas": "y {n} más",
+  "demo.nuevas": "nuevas",
+  "demo.nueva": "nueva",
+  "demo.tengo": "{a} de {b}",
+  "demo.carpeta": "Tu carpeta",
+  "demo.yaEstaba": "ya estaba",
+  "demo.prensando": "prensando",
+  "demo.alDia": "Al día",
+  "demo.m3u": "playlist al día",
+  "bolsillo.rotulo": "Formato de bolsillo · 7″",
+  "bolsillo.titulo_html": "También<br>en <em>Android</em>.",
+  "bolsillo.texto":
+    "Para quien no tiene ordenador: la misma prensa, entera, dentro del teléfono. El motor viaja en la app, así que tampoco aquí hay servidor ni cuenta. Las canciones van a Descargas/Prensa, listas para tu reproductor.",
+  "bolsillo.1": "Listas enteras o una sola canción",
+  "bolsillo.2": "Tu estantería, también en el bolsillo",
+  "bolsillo.3": "APK directo: Google Play no admite apps así",
+  "bolsillo.cta": "Descargar para Android",
+  "bolsillo.ios":
+    "¿Y en iPhone? Apple no admite apps que descargan de YouTube ni deja llevar dentro el motor que usa Prensa. Si eso cambia, estará aquí.",
+  "bolsillo.alt":
+    "Prensa en un teléfono Android: arriba, las listas con canciones nuevas, cada una con su pegatina roja; debajo, las que están al día.",
+  "cap.estanteria.t": "Tu estantería",
+  "cap.estanteria.d": "Arriba, las listas que han crecido; debajo, las que están al día.",
+  "cap.lista-crecida.t": "Solo lo nuevo",
+  "cap.lista-crecida.d": "Lo que ya tienes sale «En tu carpeta»; lo nuevo viene seleccionado.",
+  "ficha.sistemas.k": "Sistemas",
+  "ficha.sistemas.v": "Windows 10/11 · macOS 11+ (Apple Silicon) · Linux · Android 11+",
 
   "autor.rotulo": "Cara B · Quién la hizo",
   "autor.rol": "Desarrollador full stack y DevOps · Madrid",
@@ -194,7 +253,7 @@ export const es = {
     "Toco la guitarra y la música me acompaña siempre, también mientras programo. Prensa nace de ahí: de querer mis listas en una carpeta, sin depender de nada ni de nadie.",
   "autor.p2":
     "Empezó siendo ForYouToBe, un script de Python que hacía lo justo. Con el tiempo se convirtió en esto: una app cuidada hasta el último surco que hace una sola cosa y la hace bien.",
-  "autor.cita": "Me gusta que las cosas funcionen, y aún más saber por qué funcionan.",
+  "autor.cita": "Me gusta hacer cosas que funcionen y, si es con música, mejor.",
   "autor.cuerdas": "Pasa el cursor por las cuerdas · cada traste es una cejilla",
   "autor.cejilla": "Cejilla en el traste {n}",
   "autor.alAire": "Cuerdas al aire",

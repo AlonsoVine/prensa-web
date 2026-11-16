@@ -8,6 +8,8 @@ interface Paquete {
   archivo: string;
   bytes: number;
   sha256: string;
+  /** Si este sistema va por detrás de la versión general (p. ej., sin CI para compilarlo). */
+  version?: string;
 }
 interface Generado {
   version: string;
@@ -16,6 +18,7 @@ interface Generado {
   macos?: Paquete;
   linux?: Paquete;
   deb?: Paquete;
+  android?: Paquete;
 }
 const generado = datos as Generado;
 
@@ -33,15 +36,17 @@ export function urlDe(archivo: string): string {
   return BASE.replace(/\/?$/, "/") + archivo.split("/").pop();
 }
 
-export type Sistema = "windows" | "macos" | "linux" | "movil" | "otro";
+/** `ios`: iPhone o iPad, donde Prensa no puede existir (ver descarga.ios). */
+export type Sistema = "windows" | "macos" | "linux" | "android" | "ios" | "otro";
 
 export interface Opcion {
-  id: "windows" | "macos" | "linux" | "deb";
+  id: "windows" | "macos" | "linux" | "deb" | "android";
   sistema: Sistema;
   nombre: string;
   formato: string;
   arquitectura: string;
   url: string;
+  version: string;
   bytes: number;
   mb: string;
   sha256: string;
@@ -66,6 +71,7 @@ const opcion = (
           formato,
           arquitectura,
           url: urlDe(p.archivo),
+          version: p.version ?? generado.version,
           bytes: p.bytes,
           mb: mb(p.bytes),
           sha256: p.sha256,
@@ -79,6 +85,7 @@ export const OPCIONES: Opcion[] = [
   ...opcion("macos", "macos", "macOS", ".dmg", "Apple Silicon", generado.macos),
   ...opcion("linux", "linux", "Linux", "AppImage", "x64", generado.linux),
   ...opcion("deb", "linux", "Debian / Ubuntu", ".deb", "x64", generado.deb),
+  ...opcion("android", "android", "Android 11+", ".apk", "arm64", generado.android),
 ];
 
 export const DESCARGA = {
@@ -98,9 +105,10 @@ export function opcionPara(sistema: Sistema): Opcion | undefined {
 }
 
 export function sistemaDelVisitante(ua = navigator.userAgent): Sistema {
-  if (/android|iphone|ipad|ipod/i.test(ua)) return "movil";
+  if (/android/i.test(ua)) return "android";
+  if (/iphone|ipad|ipod/i.test(ua)) return "ios";
   // Los iPad recientes se presentan como Mac: los delata la pantalla táctil.
-  if (/macintosh/i.test(ua) && navigator.maxTouchPoints > 1) return "movil";
+  if (/macintosh/i.test(ua) && navigator.maxTouchPoints > 1) return "ios";
   if (/windows/i.test(ua)) return "windows";
   if (/mac os x|macintosh/i.test(ua)) return "macos";
   if (/linux|x11|cros/i.test(ua)) return "linux";

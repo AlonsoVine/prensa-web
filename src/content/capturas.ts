@@ -2,7 +2,9 @@
 // `en: true` → existe una variante con la interfaz en inglés.
 export const CAPTURAS = [
   { id: "inicio", en: true },
+  { id: "estanteria", en: false },
   { id: "lista", en: true },
+  { id: "lista-crecida", en: false },
   { id: "descargando", en: false },
   { id: "completado", en: false },
   { id: "parcial", en: true },

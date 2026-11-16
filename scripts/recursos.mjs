@@ -17,7 +17,9 @@ const capturas = path.join(app, "tests/e2e/capturas");
 // Nombre en la web → captura de origen. Las que tienen variante inglesa la llevan en `en`.
 const SELECCION = [
   { id: "inicio", es: "grande/inicio.png", en: "grande/inicio--en.png" },
+  { id: "estanteria", es: "grande/estanteria.png" },
   { id: "lista", es: "grande/lista-cargada.png", en: "grande/lista-cargada--en.png" },
+  { id: "lista-crecida", es: "grande/lista-crecida.png" },
   { id: "lista-claro", es: "grande/lista-cargada--claro.png" },
   { id: "descargando", es: "grande/descargando.png" },
   { id: "descargando-claro", es: "grande/descargando--claro.png" },
@@ -88,8 +90,7 @@ async function buscar(carpeta, fin) {
   return hallada ? path.join(hallada.parentPath ?? hallada.path, hallada.name) : null;
 }
 
-async function publicar(origen) {
-  const nombre = path.basename(origen);
+async function publicar(origen, nombre = path.basename(origen)) {
   const destino = path.join(raiz, "public/descargas", nombre);
   await copyFile(origen, destino);
   const datos = await readFile(destino);
@@ -106,6 +107,9 @@ async function otrosSistemas(version) {
   if (dmg) otros.macos = await publicar(dmg);
   if (appimage) otros.linux = await publicar(appimage);
   if (deb) otros.deb = await publicar(deb);
+  // Android: artefacto `prensa-android` del workflow Android de prensa-app.
+  const apk = await buscar(path.join(ARTEFACTOS, "prensa-android"), ".apk");
+  if (apk) otros.android = await publicar(apk, `Prensa_${version}_arm64.apk`);
   return otros;
 }
 

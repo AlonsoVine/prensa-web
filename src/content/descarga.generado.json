@@ -1,24 +1,30 @@
 {
-  "version": "0.1.0",
+  "version": "0.2.0",
   "windows": {
-    "archivo": "descargas/Prensa_0.1.0_x64-setup.exe",
-    "bytes": 77727805,
-    "sha256": "4554525fe7c241da13976b7a095b52c9acb4b2ccb977267ee59c047ea0990cf5"
+    "archivo": "descargas/Prensa_0.2.0_x64-setup.exe",
+    "bytes": 77757418,
+    "sha256": "339618059c9349d2bf888756fbab8488337a0f3795f0d3ae92f32daad03877d7"
   },
   "macos": {
     "archivo": "descargas/Prensa_0.1.0_aarch64.dmg",
     "bytes": 98171521,
-    "sha256": "8415c9b9f100198e29ed22386bdb5a5696bba8f73a03a02cd2d5059edb910bbc"
+    "sha256": "8415c9b9f100198e29ed22386bdb5a5696bba8f73a03a02cd2d5059edb910bbc",
+    "version": "0.1.0"
   },
   "linux": {
-    "archivo": "descargas/Prensa_0.1.0_amd64.AppImage",
-    "bytes": 193116664,
-    "sha256": "f320e62fbfadd5c320d08a54f904cafa3dda07ec098f936268421157073feb5c"
+    "archivo": "descargas/Prensa_0.2.0_amd64.AppImage",
+    "bytes": 188307960,
+    "sha256": "d0083a0dfcfd34d4b056df60b9d79fac1c2f533f10e2dc0255f5c1d12840a03e"
   },
   "deb": {
-    "archivo": "descargas/Prensa_0.1.0_amd64.deb",
-    "bytes": 116543816,
-    "sha256": "2c9f72a7fe1185005ae4e86262936e0dcd7566d679d37a63ad779d75da44a708"
+    "archivo": "descargas/Prensa_0.2.0_amd64.deb",
+    "bytes": 116579682,
+    "sha256": "07a924dae5166d63d9af02f096fdce666e8e237878605e49dc363edcafb0ffbd"
   },
-  "fecha": "2026-11-13"
+  "android": {
+    "archivo": "descargas/Prensa_0.2.0_arm64.apk",
+    "bytes": 58259058,
+    "sha256": "ca7c38872c50c7a98251d99faca2a0e5b8636c543cd84944f1f0dfab4ccf7a2b"
+  },
+  "fecha": "2026-11-16"
 }

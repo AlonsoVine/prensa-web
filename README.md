@@ -4,7 +4,7 @@
 
 ### La web de presentación y descarga de Prensa
 
-**[→ alonsovine.github.io/prensa-web](https://alonsovine.github.io/prensa-web/)** &nbsp;·&nbsp; [Descargas v0.1.0](https://github.com/AlonsoVine/prensa-web/releases/tag/v0.1.0) &nbsp;·&nbsp; [English](https://alonsovine.github.io/prensa-web/?lang=en)
+**[→ alonsovine.github.io/prensa-web](https://alonsovine.github.io/prensa-web/)** &nbsp;·&nbsp; [Descargas v0.2.0](https://github.com/AlonsoVine/prensa-web/releases/tag/v0.2.0) &nbsp;·&nbsp; [English](https://alonsovine.github.io/prensa-web/?lang=en)
 
 ![Vite](https://img.shields.io/badge/Vite-15120f?style=flat-square&logo=vite&logoColor=efe7d6)
 ![TypeScript](https://img.shields.io/badge/TypeScript-15120f?style=flat-square&logo=typescript&logoColor=efe7d6)
@@ -17,7 +17,7 @@
 </div>
 
 > [!NOTE]
-> **Prensa** es una app de escritorio que convierte una lista pública de YouTube en una carpeta de MP3 con título, artista, álbum, número de pista y carátula. Todo pasa en tu ordenador: **sin cuentas, sin cookies y sin telemetría**. Este repositorio es su web. Está construida como una sala de máquinas de noche, con papel de etiqueta y una sola luz roja.
+> **Prensa** es una app para el ordenador y Android que convierte una lista pública de YouTube, o una sola canción, en una carpeta de MP3 con título, artista, álbum, número de pista y carátula. Cuando la lista crece, solo prensa lo nuevo. Todo pasa en tu equipo: **sin cuentas, sin cookies y sin telemetría**. Este repositorio es su web. Está construida como una sala de máquinas de noche, con papel de etiqueta y una sola luz roja.
 
 <br>
 
@@ -74,17 +74,18 @@ En el móvil no te ofrece un `.exe`: te propone **enviarte el enlace** para abri
 
 <br>
 
-## Descargas · v0.1.0
+## Descargas · v0.2.0
 
 | | Sistema | Archivo | Peso |
 |:-:|---|---|--:|
-| 🪟 | Windows 10/11 · x64 | [`Prensa_0.1.0_x64-setup.exe`](https://github.com/AlonsoVine/prensa-web/releases/download/v0.1.0/Prensa_0.1.0_x64-setup.exe) | 74 MB |
-| 🍎 | macOS 11+ · Apple Silicon | [`Prensa_0.1.0_aarch64.dmg`](https://github.com/AlonsoVine/prensa-web/releases/download/v0.1.0/Prensa_0.1.0_aarch64.dmg) | 94 MB |
-| 🐧 | Linux · x64 | [`Prensa_0.1.0_amd64.AppImage`](https://github.com/AlonsoVine/prensa-web/releases/download/v0.1.0/Prensa_0.1.0_amd64.AppImage) | 184 MB |
-| 🐧 | Debian / Ubuntu · x64 | [`Prensa_0.1.0_amd64.deb`](https://github.com/AlonsoVine/prensa-web/releases/download/v0.1.0/Prensa_0.1.0_amd64.deb) | 111 MB |
+| 🪟 | Windows 10/11 · x64 | [`Prensa_0.2.0_x64-setup.exe`](https://github.com/AlonsoVine/prensa-web/releases/download/v0.2.0/Prensa_0.2.0_x64-setup.exe) | 74 MB |
+| 🤖 | Android 11+ · arm64 | [`Prensa_0.2.0_arm64.apk`](https://github.com/AlonsoVine/prensa-web/releases/download/v0.2.0/Prensa_0.2.0_arm64.apk) | 56 MB |
+| 🐧 | Linux · x64 | [`Prensa_0.2.0_amd64.AppImage`](https://github.com/AlonsoVine/prensa-web/releases/download/v0.2.0/Prensa_0.2.0_amd64.AppImage) | 180 MB |
+| 🐧 | Debian / Ubuntu · x64 | [`Prensa_0.2.0_amd64.deb`](https://github.com/AlonsoVine/prensa-web/releases/download/v0.2.0/Prensa_0.2.0_amd64.deb) | 111 MB |
+| 🍎 | macOS 11+ · Apple Silicon | [`Prensa_0.1.0_aarch64.dmg`](https://github.com/AlonsoVine/prensa-web/releases/download/v0.2.0/Prensa_0.1.0_aarch64.dmg) · *aún 0.1.0* | 94 MB |
 
 > [!IMPORTANT]
-> Los instaladores **aún no están firmados**. Las huellas SHA-256 aparecen en la web y en la [release](https://github.com/AlonsoVine/prensa-web/releases/tag/v0.1.0). Usa Prensa solo con contenido que sea tuyo, que tenga licencia libre o que tengas derecho a descargar.
+> Los instaladores **aún no están firmados**. Las huellas SHA-256 aparecen en la web y en la [release](https://github.com/AlonsoVine/prensa-web/releases/tag/v0.2.0). El APK no está en Google Play, que no admite apps que descargan de YouTube; en iPhone no existe por el mismo motivo. Usa Prensa solo con contenido que sea tuyo, que tenga licencia libre o que tengas derecho a descargar.
 
 <br>
 

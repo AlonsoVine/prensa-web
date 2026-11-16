@@ -2,6 +2,7 @@ import "./styles/fuentes.css";
 import "./styles/tokens.css";
 import "./styles/base.css";
 import "./styles/secciones.css";
+import "./styles/novedades.css";
 
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -14,7 +15,9 @@ import { precarga } from "./efectos/precarga";
 import { alCambiarIdioma, idioma, idiomaInicial, ponerIdioma } from "./i18n";
 import { montarAutor } from "./secciones/autor";
 import { montarCabecera } from "./secciones/cabecera";
+import { montarBolsillo } from "./secciones/bolsillo";
 import { montarCapturas } from "./secciones/capturas";
+import { montarColeccion } from "./secciones/coleccion";
 import { montarComo } from "./secciones/como";
 import { montarDescarga } from "./secciones/descarga";
 import { montarHero } from "./secciones/hero";
@@ -63,6 +66,7 @@ async function arrancar(): Promise<void> {
   // Primero las secciones fijadas: ScrollTrigger calcula las posiciones en orden de
   // creación, y el espacio que añaden los fijados mueve todo lo que viene detrás.
   montarComo(quieto);
+  montarColeccion(quieto);
   montarCapturas({
     quieto,
     pararScroll: (si) => (si ? lenis?.stop() : lenis?.start()),
@@ -78,6 +82,7 @@ async function arrancar(): Promise<void> {
   montarRevelados(quieto);
   montarPorque(quieto);
   montarDescarga(quieto);
+  montarBolsillo(quieto);
   montarPie(quieto);
   montarAutor(quieto);
 

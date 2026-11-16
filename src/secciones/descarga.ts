@@ -1,12 +1,17 @@
-// Descarga: ofrece el instalador del sistema del visitante, copia la huella
-// SHA-256 y estampa el sello. En el móvil no se descarga nada: se ofrece
-// enviarse el enlace para abrirlo en el ordenador.
+// Descarga: ofrece el instalador del sistema del visitante (también el APK en
+// Android), copia la huella SHA-256 y estampa el sello. En iPhone y iPad no hay
+// nada que descargar: se explica por qué y se ofrece enviarse el enlace.
 import gsap from "gsap";
 import { opcionPara, sistemaDelVisitante, type Opcion } from "../content/descarga";
 import { t } from "../i18n";
 import type { Clave } from "../i18n/es";
 
-const NOMBRE: Record<string, string> = { windows: "Windows", macos: "macOS", linux: "Linux" };
+const NOMBRE: Record<string, string> = {
+  windows: "Windows",
+  macos: "macOS",
+  linux: "Linux",
+  android: "Android",
+};
 
 /** Cambia la clave de un texto traducible y lo reescribe. */
 function rotular(el: Element | null, clave: Clave): void {
@@ -27,11 +32,13 @@ export function montarDescarga(quieto: boolean): void {
 
   // ── El instalador que toca ──
   const op: Opcion | undefined = opcionPara(sistema);
+  // Sin nada que instalar aquí: iPhone/iPad, o un Android sin APK publicado.
+  const sinDescarga = sistema === "ios" || (sistema === "android" && !op);
   const escribirSistema = (): void => {
     if (!tuyo) return;
-    if (sistema === "movil") {
+    if (sinDescarga) {
       tuyo.hidden = false;
-      tuyo.textContent = t("descarga.movil");
+      tuyo.textContent = t(sistema === "ios" ? "descarga.ios" : "descarga.movil");
     } else if (NOMBRE[sistema]) {
       tuyo.hidden = false;
       tuyo.textContent = t("descarga.tuyo", { so: NOMBRE[sistema] });
@@ -40,7 +47,10 @@ export function montarDescarga(quieto: boolean): void {
   const escribirDetalle = (): void => {
     if (!detalle || !op || op.id === "windows") return;
     delete detalle.dataset.i18n;
-    detalle.textContent = t(`descarga.detalle.${op.id}` as Clave, { mb: op.mb });
+    detalle.textContent = t(`descarga.detalle.${op.id}` as Clave, {
+      mb: op.mb,
+      version: op.version,
+    });
   };
 
   if (op && op.id !== "windows") {
@@ -58,9 +68,9 @@ export function montarDescarga(quieto: boolean): void {
     escribirDetalle();
   }
 
-  if (sistema === "movil") {
+  if (sinDescarga) {
     for (const dato of document.querySelectorAll(".dato-paquete"))
-      dato.textContent = "Windows · macOS · Linux";
+      dato.textContent = "Windows · macOS · Linux · Android";
     // Un instalador de escritorio no sirve en el móvil: las llamadas llevan a la
     // tarjeta, y la tarjeta ofrece enviarse el enlace.
     for (const a of enlaces) {

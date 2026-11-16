@@ -4,11 +4,11 @@ export const en: Record<Clave, string> = {
   "meta.title": "Prensa: your playlists, pressed into MP3",
   "meta.og.title": "Prensa · Your playlists, pressed into MP3",
   "meta.og.desc":
-    "Paste a YouTube playlist and get it back as MP3s with title, artist and cover art. Free, local, no accounts. For Windows, macOS and Linux.",
+    "Paste a YouTube playlist, or a single song, and get it as MP3s with title, artist and cover art. When the playlist grows, only the new songs are fetched. Free, local and account-free. For Windows, macOS, Linux and Android.",
   "meta.og.alt":
     "Prensa: a black vinyl record with a red label being pressed, next to the headline “Your playlists, pressed into MP3”.",
   "meta.desc":
-    "Prensa is a free desktop app that turns a public YouTube playlist into a folder of MP3s with title, artist and cover art. Local, no accounts, no telemetry.",
+    "Prensa is a free app for your computer and Android that turns a public YouTube playlist, or a single song, into a folder of MP3s with title, artist and cover art. When the playlist grows, it only downloads what's new. Local, no accounts, no telemetry.",
 
   saltar: "Skip to content",
   "nav.como": "How it works",
@@ -26,7 +26,7 @@ export const en: Record<Clave, string> = {
   "hero.rotulo": "Side A · 33 1/3 rpm · Edition",
   "hero.lema_html": "Your playlists, <em>pressed</em> into&nbsp;MP3.",
   "hero.sub":
-    "A desktop app that turns a public playlist into a folder of songs with title, artist and cover art. Everything happens on your computer.",
+    "An app for your computer and your Android that turns a public playlist, or a single song, into a folder of MP3s with title, artist and cover art. When the playlist grows, it only presses what's new.",
   "hero.cta": "Download for Windows",
   "hero.cta2": "How it works",
   "hero.gratis": "Free",
@@ -79,15 +79,15 @@ export const en: Record<Clave, string> = {
   "principio.2.t": "No accounts",
   "principio.2.d":
     "It never asks for, reads or stores credentials or cookies. Works with public or unlisted playlists.",
-  "principio.3.t": "Resumable",
+  "principio.3.t": "Only what's new",
   "principio.3.d":
-    "Stop halfway and what's already pressed won't repeat. Whatever fails tells you why, and you can retry just that.",
+    "Stop halfway or let the playlist grow: what's already pressed is never repeated. Prensa recognises each song by its tag, even if you moved it. Anything that fails tells you why.",
 
   "como.rotulo": "How it works",
   "como.titulo_html": "Three steps.<br>One press.",
   "paso.1.t": "Paste",
   "paso.1.d":
-    "Copy the link to a public YouTube or YouTube Music playlist. Prensa validates it instantly and rejects account-bound lists before calling anyone.",
+    "Copy the link to a public YouTube or YouTube Music playlist, or to a single song. Prensa checks it instantly and turns down account-bound playlists before calling anyone.",
   "paso.2.t": "Review",
   "paso.2.d":
     "The tracks appear with their length and thumbnail. Tick the ones you want, pick a folder and see which videos are unavailable before you start.",
@@ -138,9 +138,9 @@ export const en: Record<Clave, string> = {
   "ficha.etiquetas.k": "Tags",
   "ficha.etiquetas.v": "Title, artist, album, track number and cover art",
   "ficha.carpeta.k": "Folder",
-  "ficha.carpeta.v": "‹folder›/‹playlist›/‹no.› - ‹title›.mp3",
+  "ficha.carpeta.v": "‹folder›/‹playlist›/‹artist› - ‹title›.mp3, plus ‹playlist›.m3u8",
   "ficha.fuentes.k": "Accepts",
-  "ficha.fuentes.v": "youtube.com · music.youtube.com · youtu.be",
+  "ficha.fuentes.v": "Playlists and single songs · youtube.com · music.youtube.com · youtu.be",
   "ficha.motor.k": "Engine",
   "ficha.motor.v": "yt-dlp and ffmpeg bundled, verified by SHA-256",
   "ficha.update.k": "Up to date",
@@ -180,11 +180,69 @@ export const en: Record<Clave, string> = {
   "descarga.requisitos.linux":
     "64-bit Linux. The AppImage runs on most distributions; the .deb, on Debian and Ubuntu 22.04 or later.",
   "descarga.movil":
-    "Prensa is a desktop app: it doesn't run on phones. Send yourself the link and download it on your computer.",
+    "Prensa isn't ready for this phone yet. Send yourself the link and download it on your computer.",
   "descarga.movil.cta": "Get it on your computer",
+  "descarga.ios":
+    "It doesn't exist for iPhone or iPad: Apple doesn't allow apps that download from YouTube, nor bundling the engine Prensa relies on. Send yourself the link and get it on your computer or an Android phone.",
+  "descarga.boton.android": "Download for Android",
+  "descarga.detalle.android": "APK · arm64 · {mb} MB · v{version}",
+  "descarga.aviso.android":
+    "It isn't on Google Play, which doesn't allow apps that download from YouTube. When you open the APK, Android will ask you to allow installs from that source (your browser or file manager): allow it just for this. Songs are saved to Download/Prensa.",
+  "descarga.requisitos.android":
+    "Android 11 or later, on a 64-bit phone (arm64, nearly all since 2017). It carries everything it needs inside.",
   "descarga.compartir": "Send me the link",
   "descarga.enlace.copiado": "Link copied",
   "descarga.tuyo": "Your system: {so}",
+
+  "nav.coleccion": "Shelf",
+  "cinta.9": "Only what's new",
+  "cinta.10": ".m3u8 playlist",
+  "cinta.11": "Also on Android",
+  "porque.7.k": "When the playlist grows",
+  "porque.7.web": "You download it all again",
+  "porque.7.app": "Prensa fetches only the new songs",
+  "coleccion.rotulo": "Side A · Track 2",
+  "coleccion.titulo_html": "Your folder<br>grows with <em>the playlist</em>.",
+  "coleccion.intro":
+    "Keep adding songs on YouTube, as always. Prensa remembers every playlist and, when you come back, presses only what you're missing.",
+  "col.1.t": "The playlist grows",
+  "col.1.d": "You add three songs to your YouTube playlist. Nothing else to do, no one to tell.",
+  "col.2.t": "Prensa notices",
+  "col.2.d":
+    "When you open it, it checks your playlists one by one. Each one is a sleeve on your shelf, with its first song as the cover; the one that grew wears a red sticker counting the new songs.",
+  "col.3.t": "Only what's new",
+  "col.3.d":
+    "It recognises what you already have, even if you moved or renamed it, and presses only what's missing. Clean names, “Artist - Title”, and an .m3u8 playlist that keeps itself up to date.",
+  "demo.yt": "Your YouTube playlist",
+  "demo.videos": "{n} videos",
+  "demo.nuevo": "New",
+  "demo.mas": "and {n} more",
+  "demo.nuevas": "new",
+  "demo.nueva": "new",
+  "demo.tengo": "{a} of {b}",
+  "demo.carpeta": "Your folder",
+  "demo.yaEstaba": "already there",
+  "demo.prensando": "pressing",
+  "demo.alDia": "Up to date",
+  "demo.m3u": "playlist updated",
+  "bolsillo.rotulo": "Pocket format · 7″",
+  "bolsillo.titulo_html": "Also<br>on <em>Android</em>.",
+  "bolsillo.texto":
+    "For anyone without a computer: the same press, whole, inside the phone. The engine travels in the app, so there's no server or account here either. Songs go to Downloads/Prensa, ready for your player.",
+  "bolsillo.1": "Whole playlists or a single song",
+  "bolsillo.2": "Your shelf, in your pocket too",
+  "bolsillo.3": "Direct APK: Google Play doesn't allow apps like this",
+  "bolsillo.cta": "Download for Android",
+  "bolsillo.ios":
+    "What about iPhone? Apple doesn't allow apps that download from YouTube, nor shipping the engine Prensa uses. If that changes, it'll be here.",
+  "bolsillo.alt":
+    "Prensa on an Android phone: at the top, the playlists with new songs, each with its red sticker; below, the ones that are up to date.",
+  "cap.estanteria.t": "Your shelf",
+  "cap.estanteria.d": "Playlists that grew on top; the ones up to date below.",
+  "cap.lista-crecida.t": "Only what's new",
+  "cap.lista-crecida.d": "What you have shows as “In your folder”; the new songs come selected.",
+  "ficha.sistemas.k": "Systems",
+  "ficha.sistemas.v": "Windows 10/11 · macOS 11+ (Apple Silicon) · Linux · Android 11+",
 
   "autor.rotulo": "Side B · Who made it",
   "autor.rol": "Full stack & DevOps developer · Madrid",
@@ -192,7 +250,7 @@ export const en: Record<Clave, string> = {
     "I play guitar and music is always with me, coding included. Prensa comes from there: wanting my playlists in a folder, without depending on anything or anyone.",
   "autor.p2":
     "It started as ForYouToBe, a Python script that did the bare minimum. Over time it became this: an app crafted down to the last groove, that does one thing and does it well.",
-  "autor.cita": "I like things to work, and even more, to know why they work.",
+  "autor.cita": "I like making things that work, and if there's music involved, even better.",
   "autor.cuerdas": "Run your cursor across the strings · every fret is a capo",
   "autor.cejilla": "Capo on fret {n}",
   "autor.alAire": "Open strings",

@@ -51,7 +51,7 @@ function listaDePaquetes(): string {
     (o) => `<li class="paquete">
                 <a href="${o.url}" download>
                   <span class="paquete__so">${escapar(o.nombre)}</span>
-                  <span class="paquete__dato">${escapar(o.arquitectura)} · ${escapar(o.formato)} · ${o.mb} MB</span>
+                  <span class="paquete__dato">${escapar(o.arquitectura)} · ${escapar(o.formato)} · ${o.mb} MB · v${o.version}</span>
                 </a>
                 <button type="button" class="paquete__sha" data-sha="${o.sha256}" title="SHA-256 ${o.sha256}"><span class="oculto">SHA-256 </span>${o.sha256.slice(0, 12)}…</button>
               </li>`,

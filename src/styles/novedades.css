@@ -1,0 +1,695 @@
+/*
+ * Las novedades de Prensa: la carpeta que crece con la lista (con su
+ * estantería) y la versión de Android. Mismo lenguaje que el resto: cartón de
+ * funda, vinilo, una sola luz roja.
+ */
+
+/* ── La colección: tu carpeta crece con la lista ───────────────────── */
+
+.coleccion {
+  position: relative;
+  border-bottom: 1px solid var(--linea);
+  overflow-x: clip;
+}
+.coleccion__fijo {
+  min-height: 100svh;
+  display: grid;
+  grid-template-columns: minmax(0, 0.78fr) minmax(0, 1.22fr);
+  align-items: center;
+  gap: clamp(2rem, 5vw, 6rem);
+  padding: clamp(6rem, 12vh, 8rem) var(--margen) clamp(3rem, 8vh, 5rem);
+  max-width: calc(var(--columna) + 2 * var(--margen));
+  margin-inline: auto;
+}
+.fijada-css > .coleccion__fijo {
+  position: sticky;
+  top: 0;
+  min-height: 0;
+}
+.coleccion__texto {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 1.25rem;
+}
+.coleccion .titulo {
+  font-size: clamp(2.75rem, 1.4rem + 3.6vw, 6rem);
+}
+.coleccion__intro {
+  max-width: 44ch;
+  color: var(--tinta-2);
+  font-size: clamp(1rem, 0.9rem + 0.45vw, 1.3rem);
+  line-height: 1.4;
+}
+.coleccion .pasos {
+  margin-top: 0.5rem;
+}
+
+/* La mesa: tres piezas superpuestas. La del tramo activo se adelanta. */
+.mesa {
+  --u: clamp(0.5rem, 0.78vw, 0.95rem);
+  position: relative;
+  aspect-ratio: 16 / 13;
+  width: 100%;
+  font-size: var(--u);
+}
+.mesa > [data-tramo] {
+  position: absolute;
+  transition:
+    transform 700ms var(--curva-expo),
+    opacity 500ms,
+    filter 500ms;
+}
+.js:not(.quieto) .coleccion:not(.sin-fijar) .mesa > [data-tramo]:not(.enfocada) {
+  opacity: 0.5;
+  filter: saturate(0.6);
+}
+.tarjeta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9em;
+  padding: 1.5em 1.7em;
+  border: 1px solid var(--linea-fuerte);
+  border-radius: 0.9em;
+  background: var(--grafito-850);
+  box-shadow:
+    0 2.5em 5em -1.5em rgb(0 0 0 / 0.75),
+    0 0 0 0.45em rgb(239 231 214 / 0.025);
+}
+.tarjeta__cabeza {
+  display: flex;
+  align-items: center;
+  gap: 0.8em;
+  min-width: 0;
+}
+.tarjeta__cabeza .dato {
+  font-size: 1.05em;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.tarjeta__cabeza b.dato {
+  margin-left: auto;
+  overflow: hidden;
+  color: var(--tinta);
+  letter-spacing: 0.04em;
+  text-transform: none;
+  text-overflow: ellipsis;
+}
+.tarjeta__titulo {
+  font-family: var(--fuente-display);
+  font-size: 2.6em;
+  font-weight: 800;
+  line-height: 0.95;
+  text-transform: uppercase;
+}
+
+/* 1 · La lista en YouTube. */
+.mesa__yt {
+  top: 0;
+  left: 0;
+  width: 56%;
+  z-index: 1;
+}
+.mesa__yt.enfocada {
+  z-index: 3;
+  transform: translateY(-0.6em) rotate(-1deg);
+}
+.yt {
+  position: relative;
+  flex: none;
+  width: 2.3em;
+  height: 1.6em;
+  border-radius: 0.45em;
+  background: var(--tinta-3);
+}
+.yt::after {
+  content: "";
+  position: absolute;
+  inset: 0.42em 0.72em 0.42em 0.92em;
+  background: var(--grafito-850);
+  clip-path: polygon(0 0, 100% 50%, 0 100%);
+}
+.mesa__videos {
+  display: grid;
+  gap: 0.15em;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.video {
+  display: grid;
+  grid-template-columns: 5.2em minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 1em;
+  padding: 0.45em 0;
+  border-top: 1px solid var(--linea);
+}
+.video__t {
+  display: grid;
+  overflow: hidden;
+  font-size: 1.15em;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+.video__t small {
+  overflow: hidden;
+  color: var(--tinta-3);
+  font-size: 0.82em;
+  text-overflow: ellipsis;
+}
+.mini {
+  aspect-ratio: 16 / 9;
+  border-radius: 0.3em;
+  background: linear-gradient(160deg, #57483a, #2a2520);
+}
+.mini--2 {
+  background:
+    radial-gradient(circle at 70% 40%, #6b5a45 0 22%, transparent 23%),
+    linear-gradient(160deg, #2f3a38, #1a1713);
+}
+.mini--3 {
+  background: linear-gradient(180deg, #4a3f52 0 55%, #2f2733 55%);
+}
+.mini--4 {
+  background: radial-gradient(circle at 50% 55%, #1a1713 0 18%, #8a7660 19% 30%, #5c4a3a 31%);
+}
+.mini--5 {
+  background: linear-gradient(180deg, #cfc5af 0 30%, #6b6457 30% 100%);
+}
+.video--mas {
+  display: block;
+  padding: 0.35em 0 0.35em 6.2em;
+  color: var(--tinta-3);
+}
+.video--nuevo {
+  --entra: 0;
+  position: relative;
+  opacity: var(--entra);
+  transform: translateX(calc((1 - var(--entra)) * 3em));
+}
+.video--nuevo::before {
+  /* Barra roja: lo recién añadido. */
+  content: "";
+  position: absolute;
+  left: -1.7em;
+  top: 0.5em;
+  bottom: 0.5em;
+  width: 0.25em;
+  border-radius: 0.2em;
+  background: var(--rec);
+  transform: scaleY(var(--entra));
+}
+.video__marca {
+  padding: 0.25em 0.55em;
+  border-radius: 0.3em;
+  background: var(--rec);
+  color: var(--grafito-950);
+  font-family: var(--fuente-datos);
+  font-size: 0.85em;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* 2 · La funda en la estantería: como en la app, el disco asoma tanto como
+   de la lista tienes. */
+.mesa__funda {
+  --prensado: 1;
+  top: 5%;
+  right: 4%;
+  width: 32%;
+  aspect-ratio: 1;
+  z-index: 2;
+}
+.mesa__funda.enfocada {
+  z-index: 3;
+  transform: scale(1.06) rotate(1.5deg);
+}
+.mesa__vinilo {
+  --asoma: calc(0.14 + var(--prensado) * 0.24);
+  position: absolute;
+  inset: 3%;
+  border-radius: 50%;
+  background:
+    conic-gradient(
+      from 20deg,
+      transparent 0 8%,
+      rgb(255 244 224 / 0.12) 12%,
+      transparent 18% 52%,
+      rgb(255 244 224 / 0.08) 58%,
+      transparent 64%
+    ),
+    repeating-radial-gradient(circle, #0c0a09 0 1.5px, #1b1814 1.5px 2.6px), var(--vinilo);
+  box-shadow: 0 1.5em 3em rgb(0 0 0 / 0.6);
+  transform: translateX(calc(var(--asoma) * 100%)) rotate(calc(var(--prensado) * 220deg));
+  transition: transform 900ms var(--curva-prensa);
+}
+.mesa__galleta {
+  position: absolute;
+  inset: 33%;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--vinilo) 0 7%, transparent 8%), var(--hueso-200);
+}
+.mesa__funda.con-nuevas .mesa__galleta {
+  background: radial-gradient(circle, var(--vinilo) 0 7%, transparent 8%), var(--rec);
+}
+.mesa__carton {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  border-radius: 0.4em;
+  background: #2f3a38;
+  box-shadow:
+    0 1px 0 rgb(255 244 224 / 0.14) inset,
+    0 2em 3em -1em rgb(0 0 0 / 0.7);
+}
+/* La portada: la miniatura de la primera canción (lluvia sobre uralita). */
+.mesa__portada {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(115deg, transparent 30%, rgb(255 255 255 / 0.12) 42%, transparent 52%),
+    linear-gradient(to top, rgb(10 9 8 / 0.6), transparent 55%),
+    repeating-linear-gradient(100deg, rgb(207 197 175 / 0.08) 0 0.12em, transparent 0.12em 1.4em),
+    linear-gradient(180deg, #3a4a4a 0%, #2a3434 45%, #57483a 46%, #3a342d 100%);
+}
+.mesa__portada i {
+  /* Las ondas del tejado de uralita. */
+  position: absolute;
+  left: -10%;
+  right: -10%;
+  height: 0.9em;
+  border-top: 0.18em solid rgb(239 231 214 / 0.2);
+  border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+}
+.mesa__portada i:nth-child(1) {
+  top: 47%;
+}
+.mesa__portada i:nth-child(2) {
+  top: 53%;
+  opacity: 0.7;
+}
+.mesa__portada i:nth-child(3) {
+  top: 59%;
+  opacity: 0.45;
+}
+.mesa__etiqueta {
+  position: absolute;
+  inset: auto 0 0;
+  z-index: 1;
+  display: grid;
+  gap: 0.3em;
+  padding: 0.8em 0.9em 0.85em;
+  background: var(--hueso-100);
+  color: var(--grafito-900);
+}
+.mesa__etiqueta b {
+  font-family: var(--fuente-display);
+  font-size: 1.75em;
+  font-weight: 800;
+  line-height: 0.92;
+  text-transform: uppercase;
+}
+.mesa__tengo {
+  color: #4d463c;
+  font-size: 1em;
+}
+.mesa__medidor {
+  position: absolute;
+  inset: 0 0 auto;
+  height: 0.28em;
+  background: rgb(21 18 15 / 0.14);
+}
+.mesa__medidor > span {
+  display: block;
+  height: 100%;
+  width: calc(var(--prensado) * 100%);
+  background: var(--grafito-900);
+  transition: width 500ms var(--curva-prensa);
+}
+.mesa__funda.con-nuevas .mesa__medidor > span {
+  background: var(--rec-oscuro);
+}
+.mesa__pegatina {
+  --estampa: 0;
+  position: absolute;
+  top: -9%;
+  left: -9%;
+  z-index: 2;
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  width: 40%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 35% 30%, rgb(255 255 255 / 0.25), transparent 55%), var(--rec);
+  color: var(--grafito-950);
+  box-shadow:
+    0 0 0 0.25em var(--fondo),
+    0 0.6em 1.4em rgb(0 0 0 / 0.4);
+  opacity: min(1, calc(var(--estampa) * 2));
+  transform: scale(calc(2.2 - 1.2 * var(--estampa))) rotate(calc(-40deg + 28deg * var(--estampa)));
+}
+.mesa__pegatina b {
+  font-family: var(--fuente-display);
+  font-size: 2.7em;
+  font-weight: 900;
+  line-height: 0.85;
+}
+.mesa__pegatina small {
+  font-family: var(--fuente-datos);
+  font-size: 0.85em;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.mesa__sello {
+  --fin: 0;
+  position: absolute;
+  top: 0.9em;
+  left: 0.9em;
+  z-index: 2;
+  padding: 0.35em 0.6em;
+  border: 1px solid rgb(239 231 214 / 0.6);
+  border-radius: 0.25em;
+  background: rgb(14 12 10 / 0.6);
+  color: var(--hueso-100);
+  font-size: 0.95em;
+  opacity: var(--fin);
+  transform: rotate(-4deg) scale(calc(1.6 - 0.6 * var(--fin)));
+  backdrop-filter: blur(2px);
+}
+
+/* 3 · La carpeta: lo que ya estaba, apagado; lo nuevo se prensa en rojo. */
+.mesa__carpeta {
+  left: 14%;
+  bottom: 0;
+  width: 78%;
+  z-index: 2;
+}
+.mesa__carpeta.enfocada {
+  z-index: 3;
+  transform: translateY(-0.6em) rotate(0.6deg);
+}
+.carpeta-icono {
+  flex: none;
+  width: 1.6em;
+  height: 1.6em;
+  fill: none;
+  stroke: var(--tinta-3);
+  stroke-width: 1.6;
+}
+.mesa__ficheros {
+  display: grid;
+  gap: 0.1em;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 1.05em;
+}
+.fichero {
+  position: relative;
+  z-index: 0;
+  display: flex;
+  align-items: center;
+  gap: 1em;
+  padding: 0.45em 0.6em;
+  border-radius: 0.3em;
+  color: var(--tinta-2);
+}
+.fichero__n {
+  flex: 1;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.fichero em {
+  flex: none;
+  color: var(--tinta-3);
+  font-size: 0.9em;
+}
+.fichero--viejo {
+  opacity: 0.55;
+}
+.fichero--mas {
+  padding-block: 0.2em;
+}
+.fichero--nuevo {
+  --prensa: 0;
+  overflow: hidden;
+  opacity: calc(0.25 + var(--prensa) * 0.75);
+}
+.fichero__barra {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: rgb(242 64 31 / 0.16);
+  transform-origin: left;
+  transform: scaleX(var(--prensa));
+}
+.fichero--nuevo.activo,
+.fichero--nuevo.hecho {
+  color: var(--tinta);
+}
+.fichero--nuevo.activo em,
+.fichero--nuevo.hecho em {
+  color: var(--rec);
+}
+.fichero--nuevo.hecho .fichero__barra {
+  background: rgb(242 64 31 / 0.08);
+}
+.fichero--m3u {
+  --fin: 0;
+  margin-top: 0.3em;
+  border: 1px dashed var(--linea-fuerte);
+}
+.fichero--m3u em {
+  opacity: var(--fin);
+}
+.fichero--m3u.hecho {
+  border-color: var(--rec);
+  color: var(--tinta);
+}
+.fichero--m3u.hecho em {
+  color: var(--rec);
+}
+
+/* Sin fijar (móvil): los tres pasos se leen enteros, la mesa debajo. */
+.coleccion.sin-fijar .paso {
+  opacity: 1;
+}
+.coleccion.sin-fijar .paso .paso__d {
+  position: static;
+  width: auto;
+  height: auto;
+  overflow: visible;
+  clip: auto;
+  white-space: normal;
+}
+/* Móvil: las piezas se apilan. La funda se apoya en la esquina de la lista. */
+@media (max-width: 860px) {
+  .coleccion__fijo {
+    grid-template-columns: minmax(0, 1fr);
+    padding-top: var(--seccion);
+  }
+  .mesa {
+    --u: clamp(0.5rem, 2.1vw, 0.8rem);
+    display: grid;
+    gap: 2.2em;
+    aspect-ratio: auto;
+  }
+  .mesa > [data-tramo] {
+    position: relative;
+    inset: auto;
+  }
+  .mesa__yt {
+    width: 100%;
+  }
+  /* En fila: lista, funda y carpeta, como los tres pasos. La funda se monta
+     un poco sobre la lista y deja asomar el disco. */
+  .mesa > .mesa__funda {
+    justify-self: center;
+    width: 46%;
+    margin: -1.5em 18% 0 0;
+  }
+  .mesa__carpeta {
+    width: 100%;
+  }
+  .mesa__carpeta .tarjeta__cabeza b.dato {
+    display: none;
+  }
+}
+@media (min-width: 861px) and (max-height: 820px) {
+  .coleccion__fijo {
+    padding-top: 4.75rem;
+    padding-bottom: 1.5rem;
+  }
+  .coleccion .titulo {
+    font-size: clamp(2.5rem, 7vh, 4.5rem);
+  }
+  .coleccion .paso {
+    padding: 0.7rem 0;
+  }
+  .coleccion__intro {
+    font-size: var(--t-texto);
+  }
+}
+
+/* ── También en Android ────────────────────────────────────────────── */
+
+.bolsillo {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 0.9fr);
+  align-items: center;
+  gap: clamp(3rem, 6vw, 8rem);
+  max-width: calc(var(--columna) + 2 * var(--margen));
+  margin-inline: auto;
+  overflow-x: clip;
+}
+.bolsillo__texto {
+  display: grid;
+  justify-items: start;
+  gap: 1.5rem;
+}
+.bolsillo__lead {
+  max-width: 44ch;
+  color: var(--tinta-2);
+  font-size: var(--t-lead);
+  line-height: 1.35;
+}
+.bolsillo__puntos {
+  display: grid;
+  width: min(100%, 34rem);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.bolsillo__puntos li {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.9rem 0;
+  border-top: 1px solid var(--linea);
+  font-family: var(--fuente-display);
+  font-size: clamp(1.25rem, 1rem + 0.8vw, 1.75rem);
+  font-weight: 700;
+  line-height: 1.05;
+  text-transform: uppercase;
+}
+.bolsillo__puntos li::before {
+  content: "";
+  flex: none;
+  width: 0.55rem;
+  height: 0.55rem;
+  border-radius: 50%;
+  background: var(--rec);
+  box-shadow: 0 0 0.6rem rgb(242 64 31 / 0.5);
+}
+.bolsillo__puntos li:last-child {
+  border-bottom: 1px solid var(--linea);
+}
+.bolsillo__ios {
+  max-width: 50ch;
+  color: var(--tinta-3);
+  font-size: var(--t-dato);
+}
+
+/* El teléfono con la estantería real de la app; detrás, un single de 7″ que
+   sale girando al llegar, como el disco de las fundas. */
+.bolsillo__escena {
+  --sale: 0;
+  position: relative;
+  justify-self: center;
+  width: min(100%, 22rem);
+  perspective: 1400px;
+}
+.bolsillo__single {
+  position: absolute;
+  top: 9%;
+  left: 8%;
+  width: 84%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background:
+    conic-gradient(
+      from 30deg,
+      transparent 0 8%,
+      rgb(255 244 224 / 0.13) 12%,
+      transparent 18% 52%,
+      rgb(255 244 224 / 0.08) 58%,
+      transparent 64%
+    ),
+    repeating-radial-gradient(circle, #0c0a09 0 1.6px, #1b1814 1.6px 2.8px), var(--vinilo);
+  box-shadow: 0 2rem 4rem rgb(0 0 0 / 0.6);
+  transform: translateX(calc(var(--sale) * 62%)) rotate(calc(var(--sale) * 300deg));
+}
+.bolsillo__single > span {
+  /* Galleta roja con el agujero grande de los singles. */
+  position: absolute;
+  inset: 31%;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle, var(--vinilo) 0 22%, transparent 23%),
+    radial-gradient(circle, transparent 0 60%, rgb(0 0 0 / 0.18) 61% 62%, transparent 63%),
+    var(--rec);
+}
+.telefono {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  padding: 0.7rem;
+  border-radius: 2.6rem;
+  background: linear-gradient(145deg, #2a2520, #0e0c0a 60%, #1a1713);
+  box-shadow:
+    0 0 0 1px rgb(239 231 214 / 0.14),
+    inset 0 0 0 1px rgb(239 231 214 / 0.06),
+    0 3rem 6rem -1rem rgb(0 0 0 / 0.8);
+  transform: rotateY(calc((1 - var(--sale)) * -18deg)) rotateZ(calc((1 - var(--sale)) * 4deg))
+    translateX(calc(var(--sale) * -8%));
+}
+.telefono__pantalla {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  /* La barra de estado: deja sitio a la cámara sin tapar la app. */
+  padding-top: 1.9rem;
+  border-radius: 2rem;
+  background: var(--grafito-950);
+}
+.telefono__captura {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.telefono__brillo {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    120deg,
+    transparent calc(20% + var(--sale) * 30%),
+    rgb(255 255 255 / 0.08) calc(30% + var(--sale) * 30%),
+    transparent calc(42% + var(--sale) * 30%)
+  );
+  pointer-events: none;
+}
+.telefono__camara {
+  position: absolute;
+  top: 1.3rem;
+  left: 50%;
+  width: 0.7rem;
+  height: 0.7rem;
+  border-radius: 50%;
+  background: #050403;
+  box-shadow: inset 0 0 0 2px #1a1713;
+  transform: translateX(-50%);
+}
+@media (max-width: 860px) {
+  .bolsillo {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .bolsillo__escena {
+    width: min(74%, 20rem);
+    justify-self: start;
+    margin-left: 2%;
+  }
+}

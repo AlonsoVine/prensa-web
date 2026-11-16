@@ -30,7 +30,7 @@ jobs:
       - name: Compilar
         env:
           # Los instaladores se bajan de la release (los de Linux pasan de 100 MB).
-          VITE_DESCARGAS: https://github.com/${{ github.repository }}/releases/download/v0.1.0/
+          VITE_DESCARGAS: https://github.com/${{ github.repository }}/releases/download/v0.2.0/
           PRENSA_SITIO: https://alonsovine.github.io/prensa-web/
         run: |
           npm run build

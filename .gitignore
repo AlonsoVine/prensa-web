@@ -6,7 +6,10 @@ tests/e2e/capturas
 .revision
 *.log
 
-# Paquetes de Linux: pasan de los 100 MB que admite GitHub por archivo.
-# Se generan con `npm run recursos` a partir de los artefactos del CI.
+# Instaladores: no se versionan. La web publicada los baja de la release de
+# GitHub (VITE_DESCARGAS); aquí solo hacen falta para probar en local.
+public/descargas/*.exe
+public/descargas/*.dmg
 public/descargas/*.AppImage
 public/descargas/*.deb
+public/descargas/*.apk
