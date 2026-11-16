@@ -22,10 +22,10 @@
     "sha256": "07a924dae5166d63d9af02f096fdce666e8e237878605e49dc363edcafb0ffbd"
   },
   "android": {
-    "archivo": "descargas/Prensa_0.2.1_arm64.apk",
-    "bytes": 58259082,
-    "sha256": "e56eba02912e888b6e2fc57bda5f4cd3f1886c64c82464485a8f576dbb0fe90d",
-    "version": "0.2.1"
+    "archivo": "descargas/Prensa_0.2.2_arm64.apk",
+    "bytes": 58259698,
+    "sha256": "12b56559419609e14906e18462aa481ec8bd1e555344c842b9f91b020b111fd3",
+    "version": "0.2.2"
   },
   "fecha": "2026-11-16"
 }
