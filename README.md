@@ -17,7 +17,7 @@
 </div>
 
 > [!NOTE]
-> **Prensa** es una app para el ordenador y Android que convierte una lista pública de YouTube, o una sola canción, en una carpeta de MP3 con título, artista, álbum, número de pista y carátula. Cuando la lista crece, solo prensa lo nuevo. Todo pasa en tu equipo: **sin cuentas, sin cookies y sin telemetría**. Este repositorio es su web. Está construida como una sala de máquinas de noche, con papel de etiqueta y una sola luz roja.
+> **Prensa** es una app para el ordenador y Android que convierte una lista pública, o una sola canción, en una carpeta de MP3 con título, artista, álbum, número de pista y carátula. Cuando la lista crece, solo prensa lo nuevo. Todo pasa en tu equipo: **sin cuentas, sin cookies y sin telemetría**. Este repositorio es su web. Está construida como una sala de máquinas de noche, con papel de etiqueta y una sola luz roja.
 
 <br>
 
@@ -85,7 +85,7 @@ En el móvil no te ofrece un `.exe`: te propone **enviarte el enlace** para abri
 | 🍎 | macOS 11+ · Apple Silicon | [`Prensa_0.1.0_aarch64.dmg`](https://github.com/AlonsoVine/prensa-web/releases/download/v0.2.0/Prensa_0.1.0_aarch64.dmg) · *aún 0.1.0* | 94 MB |
 
 > [!IMPORTANT]
-> Los instaladores **aún no están firmados**. Las huellas SHA-256 aparecen en la web y en la [release](https://github.com/AlonsoVine/prensa-web/releases/tag/v0.2.0). El APK no está en Google Play, que no admite apps que descargan de YouTube; en iPhone no existe por el mismo motivo. Usa Prensa solo con contenido que sea tuyo, que tenga licencia libre o que tengas derecho a descargar.
+> Los instaladores **aún no están firmados**. Las huellas SHA-256 aparecen en la web y en la [release](https://github.com/AlonsoVine/prensa-web/releases/tag/v0.2.0). El APK se instala directamente, sin pasar por Google Play; en iPhone no está disponible. Usa Prensa solo con contenido que sea tuyo, que tenga licencia libre o que tengas derecho a descargar.
 
 <br>
 

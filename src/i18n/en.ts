@@ -4,11 +4,11 @@ export const en: Record<Clave, string> = {
   "meta.title": "Prensa: your playlists, pressed into MP3",
   "meta.og.title": "Prensa · Your playlists, pressed into MP3",
   "meta.og.desc":
-    "Paste a YouTube playlist, or a single song, and get it as MP3s with title, artist and cover art. When the playlist grows, only the new songs are fetched. Free, local and account-free. For Windows, macOS, Linux and Android.",
+    "Paste the link to a public playlist, or a single song, and take it with you as MP3s with title, artist and cover art. When the playlist grows, only what's new is pressed. Free, local and account-free. For Windows, macOS, Linux and Android.",
   "meta.og.alt":
     "Prensa: a black vinyl record with a red label being pressed, next to the headline “Your playlists, pressed into MP3”.",
   "meta.desc":
-    "Prensa is a free app for your computer and Android that turns a public YouTube playlist, or a single song, into a folder of MP3s with title, artist and cover art. When the playlist grows, it only downloads what's new. Local, no accounts, no telemetry.",
+    "Prensa is a free app for your computer and Android that turns a public playlist, or a single song, into a folder of MP3s with title, artist and cover art. When the playlist grows, it only presses what's new. Local, no accounts, no telemetry.",
 
   saltar: "Skip to content",
   "nav.como": "How it works",
@@ -57,7 +57,7 @@ export const en: Record<Clave, string> = {
   "porque.5.k": "If it stops",
   "porque.5.web": "Start over",
   "porque.5.app": "Resumes where it left off and tells you what failed",
-  "porque.6.k": "When YouTube changes",
+  "porque.6.k": "When something changes",
   "porque.6.web": "Wait for someone to fix it",
   "porque.6.app": "The engine updates itself",
 
@@ -183,11 +183,11 @@ export const en: Record<Clave, string> = {
     "Prensa isn't ready for this phone yet. Send yourself the link and download it on your computer.",
   "descarga.movil.cta": "Get it on your computer",
   "descarga.ios":
-    "It doesn't exist for iPhone or iPad: Apple doesn't allow apps that download from YouTube, nor bundling the engine Prensa relies on. Send yourself the link and get it on your computer or an Android phone.",
+    "It isn't available for iPhone or iPad: Apple only allows apps from its own store and doesn't allow bundling the engine Prensa relies on. Send yourself the link and get it on your computer or an Android phone.",
   "descarga.boton.android": "Download for Android",
   "descarga.detalle.android": "APK · arm64 · {mb} MB · v{version}",
   "descarga.aviso.android":
-    "It isn't on Google Play, which doesn't allow apps that download from YouTube. When you open the APK, Android will ask you to allow installs from that source (your browser or file manager): allow it just for this. Songs are saved to Download/Prensa.",
+    "It isn't on Google Play: you install it straight from here. When you open the APK, Android will ask you to allow installs from that source (your browser or file manager): allow it just for this. Songs are saved to Download/Prensa.",
   "descarga.requisitos.android":
     "Android 11 or later, on a 64-bit phone (arm64, nearly all since 2017). It carries everything it needs inside.",
   "descarga.compartir": "Send me the link",
@@ -231,10 +231,10 @@ export const en: Record<Clave, string> = {
     "For anyone without a computer: the same press, whole, inside the phone. The engine travels in the app, so there's no server or account here either. Songs go to Downloads/Prensa, ready for your player.",
   "bolsillo.1": "Whole playlists or a single song",
   "bolsillo.2": "Your shelf, in your pocket too",
-  "bolsillo.3": "Direct APK: Google Play doesn't allow apps like this",
+  "bolsillo.3": "Direct APK, no store in between",
   "bolsillo.cta": "Download for Android",
   "bolsillo.ios":
-    "What about iPhone? Apple doesn't allow apps that download from YouTube, nor shipping the engine Prensa uses. If that changes, it'll be here.",
+    "What about iPhone? Apple only allows apps from its own store and doesn't allow shipping the engine Prensa uses. If that changes, it'll be here.",
   "bolsillo.alt":
     "Prensa on an Android phone: at the top, the playlists with new songs, each with its red sticker; below, the ones that are up to date.",
   "cap.estanteria.t": "Your shelf",
@@ -267,7 +267,7 @@ export const en: Record<Clave, string> = {
   "final.boton": "Download Prensa",
 
   responsable:
-    "Responsible use: only download content you own, that has a free licence or that you have the right to keep. Prensa uses no accounts and bypasses no protections.",
+    "Responsible use: only download content you own, that has a free licence or that you have the right to keep. Prensa uses no accounts and doesn't download private or paid content.",
   "pie.firma": "A personal project by Alonso Viñé.",
   "pie.madrid": "Made in Madrid, with a guitar nearby.",
   "pie.arriba": "Back to top",
@@ -278,5 +278,5 @@ export const en: Record<Clave, string> = {
     '<p><strong>Controller:</strong> Alonso Viñé, as an individual. Prensa is a non-profit personal project. Contact: <a href="https://github.com/AlonsoVine/prensa-web/issues" target="_blank" rel="noopener">issues on the GitHub repository</a>.</p><p><strong>This website</strong> uses no cookies, analytics, ads or third-party services; fonts are served from the site itself. It only keeps two values in your browser, never sent anywhere: your chosen language (<code>localStorage</code>) and whether you have seen the loading animation (<code>sessionStorage</code>). You can clear them from your browser at any time.</p><p><strong>Hosting:</strong> the site is served by GitHub Pages, which logs your IP address for security under its <a href="https://docs.github.com/site-policy/privacy-policies/github-general-privacy-statement" target="_blank" rel="noopener">privacy statement</a>. Downloads come from GitHub Releases.</p><p><strong>The app</strong> has no accounts, no server of its own and no telemetry: it does not collect or send any of your data. Your settings are stored only on your computer. To work, it connects from your computer to YouTube (the playlists you paste), i.ytimg.com (thumbnails, can be turned off) and GitHub (yt-dlp updates); those services see your IP and handle it under their own policies.</p><p><strong>Your rights:</strong> since no personal data is processed, there is nothing for me to access or erase. You can still get in touch through the contact channel or complain to the <a href="https://www.aepd.es/" target="_blank" rel="noopener">Spanish Data Protection Agency (AEPD)</a>.</p>',
   "legal.aviso.titulo": "Legal notice",
   "legal.aviso.texto_html":
-    '<p>Prensa is free software, made by one person as a personal project, with no ads or income of any kind.</p><p><strong>Not affiliated with YouTube.</strong> Prensa is not affiliated with, sponsored or endorsed by YouTube or Google LLC. “YouTube” is a trademark of Google LLC and is named here only to describe which playlists it works with.</p><p><strong>Responsible use.</strong> Prensa is meant for your music: your own, music released under a free licence (e.g. Creative Commons) or music you hold the rights to. You are responsible for what you download and for respecting copyright and each service’s terms. The app does not download private or paid content.</p><p><strong>No warranty.</strong> The software is provided “as is”, without warranty of any kind; the author is not liable for damages or misuse.</p><p><strong>Rights holders.</strong> If you believe this site or the app infringes your rights, write via <a href="https://github.com/AlonsoVine/prensa-web/issues" target="_blank" rel="noopener">GitHub issues</a> and I will review it promptly.</p>',
+    '<p>Prensa is free software, made by one person as a personal project, with no ads or income of any kind.</p><p><strong>Not affiliated with YouTube.</strong> Prensa is not affiliated with, sponsored or endorsed by YouTube or Google LLC. “YouTube” is a trademark of Google LLC and is named here only to describe which playlists it works with.</p><p><strong>Responsible use.</strong> Prensa is meant for your music: your own, music released under a free licence (e.g. Creative Commons) or music you hold the rights to. You are responsible for what you download and for respecting copyright and each service’s terms. The app does not download private or paid content, and before first use it asks you to confirm you have the right to download what you download.</p><p><strong>No warranty.</strong> The software is provided “as is”, without warranty of any kind; the author is not liable for damages or misuse.</p><p><strong>Rights holders.</strong> If you believe this site or the app infringes your rights, write via <a href="https://github.com/AlonsoVine/prensa-web/issues" target="_blank" rel="noopener">GitHub issues</a> and I will review it promptly; where appropriate, I will take down the download or the content concerned.</p>',
 };

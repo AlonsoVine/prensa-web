@@ -6,11 +6,11 @@ export const es = {
   "meta.title": "Prensa: tus listas, prensadas en MP3",
   "meta.og.title": "Prensa · Tus listas, prensadas en MP3",
   "meta.og.desc":
-    "Pega una lista de YouTube, o una sola canción, y sácala como MP3 con título, artista y carátula. Cuando la lista crece, solo baja lo nuevo. Gratis, en local y sin cuentas. Para Windows, macOS, Linux y Android.",
+    "Pega el enlace de una lista pública, o de una sola canción, y llévatela como MP3 con título, artista y carátula. Cuando la lista crece, solo prensa lo nuevo. Gratis, en local y sin cuentas. Para Windows, macOS, Linux y Android.",
   "meta.og.alt":
     "Prensa: un vinilo negro con la etiqueta roja prensándose, junto al titular «Tus listas, prensadas en MP3».",
   "meta.desc":
-    "Prensa es una app gratuita para el ordenador y Android que convierte una lista pública de YouTube, o una sola canción, en una carpeta de MP3 con título, artista y carátula. Cuando la lista crece, solo descarga lo nuevo. En local, sin cuentas y sin telemetría.",
+    "Prensa es una app gratuita para el ordenador y Android que convierte una lista pública, o una sola canción, en una carpeta de MP3 con título, artista y carátula. Cuando la lista crece, solo prensa lo nuevo. En local, sin cuentas y sin telemetría.",
 
   saltar: "Saltar al contenido",
   "nav.como": "Cómo funciona",
@@ -59,7 +59,7 @@ export const es = {
   "porque.5.k": "Si se corta",
   "porque.5.web": "Vuelta a empezar",
   "porque.5.app": "Reanuda donde lo dejó y te dice qué falló",
-  "porque.6.k": "Cuando YouTube cambia",
+  "porque.6.k": "Cuando algo cambia",
   "porque.6.web": "Esperas a que alguien lo arregle",
   "porque.6.app": "El motor se actualiza solo",
 
@@ -185,11 +185,11 @@ export const es = {
     "Prensa aún no está lista para este teléfono. Envíate el enlace y descárgala en tu ordenador.",
   "descarga.movil.cta": "Llévala a tu ordenador",
   "descarga.ios":
-    "En iPhone y iPad no existe: Apple no admite apps que descargan de YouTube ni deja llevar dentro el motor que usa Prensa. Envíate el enlace y descárgala en tu ordenador o en un Android.",
+    "En iPhone y iPad no está disponible: Apple solo deja instalar apps desde su tienda y no permite llevar dentro el motor que usa Prensa. Envíate el enlace y descárgala en tu ordenador o en un Android.",
   "descarga.boton.android": "Descargar para Android",
   "descarga.detalle.android": "APK · arm64 · {mb} MB · v{version}",
   "descarga.aviso.android":
-    "No está en Google Play, que no admite apps que descargan de YouTube. Al abrir el APK, Android te pedirá permiso para instalar apps de esa fuente (tu navegador o el gestor de archivos): concédelo solo para esto. Las canciones se guardan en Descargas/Prensa.",
+    "No está en Google Play: se instala directamente desde aquí. Al abrir el APK, Android te pedirá permiso para instalar apps de esa fuente (tu navegador o el gestor de archivos): concédelo solo para esto. Las canciones se guardan en Descargas/Prensa.",
   "descarga.requisitos.android":
     "Android 11 o posterior, en un teléfono de 64 bits (arm64, casi todos desde 2017). Lleva dentro todo lo que necesita.",
   "descarga.compartir": "Enviarme el enlace",
@@ -234,10 +234,10 @@ export const es = {
     "Para quien no tiene ordenador: la misma prensa, entera, dentro del teléfono. El motor viaja en la app, así que tampoco aquí hay servidor ni cuenta. Las canciones van a Descargas/Prensa, listas para tu reproductor.",
   "bolsillo.1": "Listas enteras o una sola canción",
   "bolsillo.2": "Tu estantería, también en el bolsillo",
-  "bolsillo.3": "APK directo: Google Play no admite apps así",
+  "bolsillo.3": "APK directo, sin tienda de por medio",
   "bolsillo.cta": "Descargar para Android",
   "bolsillo.ios":
-    "¿Y en iPhone? Apple no admite apps que descargan de YouTube ni deja llevar dentro el motor que usa Prensa. Si eso cambia, estará aquí.",
+    "¿Y en iPhone? Apple solo deja instalar apps desde su tienda y no permite llevar dentro el motor que usa Prensa. Si eso cambia, estará aquí.",
   "bolsillo.alt":
     "Prensa en un teléfono Android: arriba, las listas con canciones nuevas, cada una con su pegatina roja; debajo, las que están al día.",
   "cap.estanteria.t": "Tu estantería",
@@ -270,7 +270,7 @@ export const es = {
   "final.boton": "Descargar Prensa",
 
   responsable:
-    "Uso responsable: descarga solo contenido propio, con licencia libre o que tengas derecho a guardar. Prensa no usa cuentas ni sortea protecciones.",
+    "Uso responsable: descarga solo contenido propio, con licencia libre o que tengas derecho a guardar. Prensa no usa cuentas ni descarga contenido privado o de pago.",
   "pie.firma": "Un proyecto personal de Alonso Viñé.",
   "pie.madrid": "Hecho en Madrid, con una guitarra cerca.",
   "pie.arriba": "Volver arriba",
@@ -281,7 +281,7 @@ export const es = {
     '<p><strong>Responsable:</strong> Alonso Viñé, a título personal. Prensa es un proyecto sin ánimo de lucro. Contacto: <a href="https://github.com/AlonsoVine/prensa-web/issues" target="_blank" rel="noopener">issues del repositorio en GitHub</a>.</p><p><strong>Esta web</strong> no usa cookies, analítica, publicidad ni servicios de terceros; las fuentes se sirven desde el propio sitio. Solo guarda dos datos en tu navegador, que nunca se envían a nadie: el idioma elegido (<code>localStorage</code>) y si ya viste la animación de carga (<code>sessionStorage</code>). Puedes borrarlos desde tu navegador cuando quieras.</p><p><strong>Alojamiento:</strong> la web la sirve GitHub Pages, que registra tu dirección IP por seguridad según su <a href="https://docs.github.com/site-policy/privacy-policies/github-general-privacy-statement" target="_blank" rel="noopener">declaración de privacidad</a>. Las descargas salen de GitHub Releases.</p><p><strong>La app</strong> no tiene cuentas, servidor propio ni telemetría: no recoge ni envía datos tuyos. Tus ajustes se guardan solo en tu equipo. Para funcionar se conecta desde tu equipo a YouTube (las listas que pegas), a i.ytimg.com (miniaturas, desactivable) y a GitHub (actualizar yt-dlp); esos servicios ven tu IP y la tratan según sus propias políticas.</p><p><strong>Tus derechos:</strong> como no se tratan datos personales, no hay nada que consultar ni borrar por mi parte. Aun así, puedes escribir por el canal de contacto o reclamar ante la <a href="https://www.aepd.es/" target="_blank" rel="noopener">Agencia Española de Protección de Datos</a>.</p>',
   "legal.aviso.titulo": "Aviso legal",
   "legal.aviso.texto_html":
-    '<p>Prensa es software gratuito, hecho por una persona como proyecto personal, sin publicidad ni ingresos de ningún tipo.</p><p><strong>Sin relación con YouTube.</strong> Prensa no está afiliada, patrocinada ni respaldada por YouTube ni por Google LLC. «YouTube» es una marca de Google LLC y aquí se nombra solo para describir con qué listas funciona.</p><p><strong>Uso responsable.</strong> Prensa está pensada para tu música: la tuya, la publicada con licencia libre (por ejemplo, Creative Commons) o aquella sobre la que tengas derechos. Eres responsable de lo que descargas y de respetar la propiedad intelectual y las condiciones de cada servicio. La app no descarga contenido privado ni de pago.</p><p><strong>Sin garantías.</strong> El software se ofrece «tal cual», sin garantía de ningún tipo; el autor no responde de daños ni de usos indebidos.</p><p><strong>Titulares de derechos.</strong> Si crees que esta web o la app vulnera tus derechos, escribe por las <a href="https://github.com/AlonsoVine/prensa-web/issues" target="_blank" rel="noopener">issues de GitHub</a> y lo revisaré con prontitud.</p>',
+    '<p>Prensa es software gratuito, hecho por una persona como proyecto personal, sin publicidad ni ingresos de ningún tipo.</p><p><strong>Sin relación con YouTube.</strong> Prensa no está afiliada, patrocinada ni respaldada por YouTube ni por Google LLC. «YouTube» es una marca de Google LLC y aquí se nombra solo para describir con qué listas funciona.</p><p><strong>Uso responsable.</strong> Prensa está pensada para tu música: la tuya, la publicada con licencia libre (por ejemplo, Creative Commons) o aquella sobre la que tengas derechos. Eres responsable de lo que descargas y de respetar la propiedad intelectual y las condiciones de cada servicio. La app no descarga contenido privado ni de pago, y antes de usarla pide declarar que se tiene derecho a descargar lo que se descargue.</p><p><strong>Sin garantías.</strong> El software se ofrece «tal cual», sin garantía de ningún tipo; el autor no responde de daños ni de usos indebidos.</p><p><strong>Titulares de derechos.</strong> Si crees que esta web o la app vulnera tus derechos, escribe por las <a href="https://github.com/AlonsoVine/prensa-web/issues" target="_blank" rel="noopener">issues de GitHub</a> y lo revisaré con prontitud; si procede, retiraré la descarga o el contenido afectado.</p>',
 };
 
 export type Clave = keyof typeof es;

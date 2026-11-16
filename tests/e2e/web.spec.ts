@@ -130,7 +130,9 @@ test.describe("en un iPhone", () => {
   });
   test("explica por qué no hay versión y no ofrece un instalador", async ({ page }) => {
     await abrir(page, "?lang=es");
-    await expect(page.locator(".descarga__tuyo")).toContainText("En iPhone y iPad no existe");
+    await expect(page.locator(".descarga__tuyo")).toContainText(
+      "En iPhone y iPad no está disponible",
+    );
     // El botón principal no descarga: ofrece enviarse el enlace al ordenador.
     await expect(page.locator(".descarga [data-descarga]")).toContainText("Enviarme el enlace");
   });
