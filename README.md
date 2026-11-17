@@ -82,7 +82,7 @@ En el móvil no te ofrece un `.exe`: te propone **enviarte el enlace** para abri
 | 🤖 | Android 11+ · arm64 | [`Prensa_0.2.2_arm64.apk`](https://github.com/AlonsoVine/prensa-web/releases/download/v0.2.0/Prensa_0.2.2_arm64.apk) | 56 MB |
 | 🐧 | Linux · x64 | [`Prensa_0.2.0_amd64.AppImage`](https://github.com/AlonsoVine/prensa-web/releases/download/v0.2.0/Prensa_0.2.0_amd64.AppImage) | 180 MB |
 | 🐧 | Debian / Ubuntu · x64 | [`Prensa_0.2.0_amd64.deb`](https://github.com/AlonsoVine/prensa-web/releases/download/v0.2.0/Prensa_0.2.0_amd64.deb) | 111 MB |
-| 🍎 | macOS 11+ · Apple Silicon | [`Prensa_0.1.0_aarch64.dmg`](https://github.com/AlonsoVine/prensa-web/releases/download/v0.2.0/Prensa_0.1.0_aarch64.dmg) · *aún 0.1.0* | 94 MB |
+| 🍎 | macOS 11+ · Apple Silicon | [`Prensa_0.2.2_aarch64.dmg`](https://github.com/AlonsoVine/prensa-web/releases/download/v0.2.0/Prensa_0.2.2_aarch64.dmg) | 94 MB |
 
 > [!IMPORTANT]
 > Los instaladores **aún no están firmados**. Las huellas SHA-256 aparecen en la web y en la [release](https://github.com/AlonsoVine/prensa-web/releases/tag/v0.2.0). El APK se instala directamente, sin pasar por Google Play; en iPhone no está disponible. Usa Prensa solo con contenido que sea tuyo, que tenga licencia libre o que tengas derecho a descargar.

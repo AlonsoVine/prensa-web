@@ -6,10 +6,10 @@
     "sha256": "339618059c9349d2bf888756fbab8488337a0f3795f0d3ae92f32daad03877d7"
   },
   "macos": {
-    "archivo": "descargas/Prensa_0.1.0_aarch64.dmg",
-    "bytes": 98171521,
-    "sha256": "8415c9b9f100198e29ed22386bdb5a5696bba8f73a03a02cd2d5059edb910bbc",
-    "version": "0.1.0"
+    "archivo": "descargas/Prensa_0.2.2_aarch64.dmg",
+    "bytes": 98202543,
+    "sha256": "72ec4fce8a33d366c4c975331c0487a61d008a9210f3d06947e9a4e901f1d672",
+    "version": "0.2.2"
   },
   "linux": {
     "archivo": "descargas/Prensa_0.2.0_amd64.AppImage",
@@ -27,5 +27,5 @@
     "sha256": "12b56559419609e14906e18462aa481ec8bd1e555344c842b9f91b020b111fd3",
     "version": "0.2.2"
   },
-  "fecha": "2026-11-16"
+  "fecha": "2026-11-17"
 }
